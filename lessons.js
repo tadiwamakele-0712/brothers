@@ -47,7 +47,7 @@ const LESSONS = [
     num: 7,
     title: "GitHub Pages",
     topic: "Deploy website online",
-    link: "DEPLOY-GITHUB-PAGES.md",
+    link: "lesson-07-github-pages/index.html",
     phase: "Fundamentals",
   },
   {
