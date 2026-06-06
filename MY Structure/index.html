@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MY Structure — learn farming, crops, and animal husbandry."
+    />
+    <title>MY Structure — Farming &amp; Agriculture</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <p class="logo">🌾 MY Structure</p>
+
+      <button
+        type="button"
+        class="menu-btn"
+        id="menu-btn"
+        aria-expanded="false"
+        aria-controls="nav"
+      >
+        ☰ Menu
+      </button>
+
+      <nav id="nav" class="nav">
+        <a href="#home">Home</a>
+        <a href="#crops">Crops</a>
+        <a href="crops.html">Crop Guide</a>
+        <a href="#seasons">Seasons</a>
+        <a href="#husbandry">Animals</a>
+        <a href="animals.html">Animal Guide</a>
+        <a href="#checklist">Checklist</a>
+        <a href="#learn">Learn</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        🌙
+      </button>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <p class="tag">Beginner website project</p>
+        <h1 id="main-title">Farming for a Better Future</h1>
+        <p class="hero-text">
+          Welcome to <strong>MY Structure</strong>. This site teaches about
+          <strong>crops</strong>, <strong>farming</strong>, and
+          <strong>animal husbandry</strong> — and helps you learn HTML, CSS,
+          and JavaScript at the same time.
+        </p>
+        <div class="hero-actions">
+          <button type="button" id="change-title-btn" class="btn">
+            Change title
+          </button>
+          <a href="crops.html" class="btn btn-outline">Crop guide →</a>
+          <a href="animals.html" class="btn btn-outline">Animal guide →</a>
+        </div>
+      </section>
+
+      <section class="card card-tip">
+        <h2>Tip of the day</h2>
+        <p id="daily-tip" class="tip-text">
+          Water crops early in the morning to reduce evaporation.
+        </p>
+        <button type="button" id="new-tip-btn" class="btn btn-dark">
+          New tip
+        </button>
+      </section>
+
+      <section class="card card-stats">
+        <h2>Farm at a glance</h2>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-number" data-target="4">0</span>
+            <span class="stat-label">Main crops</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number" data-target="4">0</span>
+            <span class="stat-label">Animal types</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number" data-target="12">0</span>
+            <span class="stat-label">Months in season plan</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>What is farming?</h2>
+        <p>
+          Farming is growing food and raising animals to feed people and
+          communities. Good farming needs healthy soil, clean water, and care
+          for plants and animals.
+        </p>
+        <ul class="bullet-list">
+          <li>Plant crops in the right season</li>
+          <li>Keep soil rich with compost</li>
+          <li>Protect animals from disease</li>
+          <li>Store harvest safely</li>
+        </ul>
+      </section>
+
+      <section id="crops" class="card">
+        <h2>Crops we grow</h2>
+        <p class="section-note">Click a crop to see more info, or search:</p>
+
+        <label for="crop-search" class="sr-only">Search crops</label>
+        <input
+          type="search"
+          id="crop-search"
+          placeholder="Search crops e.g. maize..."
+          class="search-input"
+        />
+
+        <div class="crop-grid" id="crop-grid">
+          <button type="button" class="crop-card" data-crop="maize">
+            <span class="crop-emoji">🌽</span>
+            <strong>Maize</strong>
+          </button>
+          <button type="button" class="crop-card" data-crop="wheat">
+            <span class="crop-emoji">🌾</span>
+            <strong>Wheat</strong>
+          </button>
+          <button type="button" class="crop-card" data-crop="tomato">
+            <span class="crop-emoji">🍅</span>
+            <strong>Tomato</strong>
+          </button>
+          <button type="button" class="crop-card" data-crop="beans">
+            <span class="crop-emoji">🫘</span>
+            <strong>Beans</strong>
+          </button>
+        </div>
+
+        <div id="crop-info" class="info-box" aria-live="polite">
+          Select a crop above to learn about it.
+        </div>
+      </section>
+
+      <section id="seasons" class="card">
+        <h2>Planting seasons</h2>
+        <p class="section-note">Pick a season to see what to plant:</p>
+
+        <div class="season-tabs">
+          <button type="button" class="season-tab active" data-season="rainy">
+            Rainy season
+          </button>
+          <button type="button" class="season-tab" data-season="dry">
+            Dry season
+          </button>
+        </div>
+
+        <div id="season-info" class="info-box">
+          <strong>Rainy season:</strong> Best for maize, beans, and tomatoes.
+          Prepare land early, plant when soil is moist, and weed regularly.
+        </div>
+      </section>
+
+      <section id="husbandry" class="card card-green">
+        <h2>Animal husbandry</h2>
+        <p>
+          <strong>Animal husbandry</strong> means raising and caring for farm
+          animals — like cattle, goats, chickens, and pigs — for food, milk,
+          eggs, or wool.
+        </p>
+
+        <div class="animal-list">
+          <article class="animal-box">
+            <h3>🐄 Cattle</h3>
+            <p>Need grass, water, shade, and regular health checks.</p>
+          </article>
+          <article class="animal-box">
+            <h3>🐐 Goats</h3>
+            <p>Hardy animals — good for milk and meat in many areas.</p>
+          </article>
+          <article class="animal-box">
+            <h3>🐔 Chickens</h3>
+            <p>Provide eggs and meat. Keep coops clean and dry.</p>
+          </article>
+          <article class="animal-box">
+            <h3>🐷 Pigs</h3>
+            <p>Need strong fences, clean pens, and balanced feed.</p>
+          </article>
+        </div>
+
+        <a href="animals.html" class="btn" style="margin-top: 1rem">
+          Full animal guide →
+        </a>
+      </section>
+
+      <section class="card">
+        <h2>What farmers say</h2>
+        <div class="testimonials">
+          <blockquote class="quote-box">
+            <p>"We planted beans after maize and the soil improved a lot."</p>
+            <cite>— Grace M., smallholder farmer</cite>
+          </blockquote>
+          <blockquote class="quote-box">
+            <p>"Clean coops and fresh water cut our chicken losses by half."</p>
+            <cite>— John T., poultry keeper</cite>
+          </blockquote>
+          <blockquote class="quote-box">
+            <p>"Compost changed everything — our tomatoes are bigger now."</p>
+            <cite>— Sarah K., community garden</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Harvest calculator</h2>
+        <p>Practice forms — enter your field size and crop type:</p>
+
+        <label for="field-size">Field size (hectares)</label>
+        <input
+          type="number"
+          id="field-size"
+          min="0"
+          step="0.1"
+          placeholder="e.g. 2"
+        />
+
+        <label for="crop-type">Crop type</label>
+        <select id="crop-type">
+          <option value="maize">Maize</option>
+          <option value="wheat">Wheat</option>
+          <option value="tomato">Tomato</option>
+          <option value="beans">Beans</option>
+        </select>
+
+        <button type="button" id="calc-btn" class="btn btn-dark">
+          Estimate harvest (kg)
+        </button>
+        <p id="calc-result" class="result" aria-live="polite"></p>
+      </section>
+
+      <section id="checklist" class="card">
+        <h2>Daily farm checklist</h2>
+        <p class="section-note">
+          Tick tasks when done — saved in your browser (localStorage):
+        </p>
+        <ul class="checklist" id="farm-checklist">
+          <li>
+            <input type="checkbox" id="task-water" />
+            <label for="task-water">Check water for animals</label>
+          </li>
+          <li>
+            <input type="checkbox" id="task-fence" />
+            <label for="task-fence">Inspect fences and gates</label>
+          </li>
+          <li>
+            <input type="checkbox" id="task-weeds" />
+            <label for="task-weeds">Remove weeds from crop rows</label>
+          </li>
+          <li>
+            <input type="checkbox" id="task-feed" />
+            <label for="task-feed">Feed animals on schedule</label>
+          </li>
+          <li>
+            <input type="checkbox" id="task-store" />
+            <label for="task-store">Check stored harvest is dry</label>
+          </li>
+        </ul>
+        <button type="button" id="reset-checklist" class="btn btn-dark">
+          Reset checklist
+        </button>
+      </section>
+
+      <section class="card">
+        <h2>Farming FAQ</h2>
+        <p class="section-note">Click a question to see the answer:</p>
+
+        <div class="faq-list">
+          <article class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              What is compost?
+            </button>
+            <div class="faq-answer">
+              Compost is rotted plant and food waste mixed into soil. It adds
+              nutrients and helps crops grow stronger.
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              How often should animals drink water?
+            </button>
+            <div class="faq-answer">
+              Most farm animals need fresh water every day. Check troughs in the
+              morning and evening, especially in hot weather.
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              When is the best time to harvest maize?
+            </button>
+            <div class="faq-answer">
+              Harvest when cobs are full and kernels feel hard. Dry cobs properly
+              before storage to stop mould.
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              What is crop rotation?
+            </button>
+            <div class="faq-answer">
+              Crop rotation means changing what you plant in a field each season.
+              For example, plant beans after maize — beans put nitrogen back in
+              the soil and reduce pests.
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              How do I protect chickens from predators?
+            </button>
+            <div class="faq-answer">
+              Use strong wire mesh on the coop, lock doors at night, and remove
+              leftover feed that attracts rats or wild animals. Check fences
+              regularly for holes.
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              Why is weeding important?
+            </button>
+            <div class="faq-answer">
+              Weeds steal water, sunlight, and nutrients from your crops. Weed
+              early and often so your maize, beans, or tomatoes grow faster and
+              give a better harvest.
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              How should I store grain after harvest?
+            </button>
+            <div class="faq-answer">
+              Dry grain fully before storage. Keep it in clean bags or bins in a
+              cool, dry room. Check often for insects or mould and keep rodents
+              out with tight containers.
+            </div>
+          </article>
+          <article class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              What is animal husbandry?
+            </button>
+            <div class="faq-answer">
+              Animal husbandry is the practice of raising and caring for farm
+              animals — feeding, shelter, health checks, and breeding — so they
+              stay healthy and productive.
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="learn" class="card card-highlight">
+        <h2>Learn to build websites</h2>
+        <p>This project now has multiple pages — a big step for beginners:</p>
+        <table class="file-table">
+          <thead>
+            <tr>
+              <th>File</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>index.html</code></td>
+              <td>Home — crops, seasons, checklist</td>
+            </tr>
+            <tr>
+              <td><code>animals.html</code></td>
+              <td>Second page — animal husbandry guide</td>
+            </tr>
+            <tr>
+              <td><code>crops.html</code></td>
+              <td>Third page — planting calendar &amp; crop details</td>
+            </tr>
+            <tr>
+              <td><code>styles.css</code></td>
+              <td>Design — shared by both pages</td>
+            </tr>
+            <tr>
+              <td><code>script.js</code></td>
+              <td>Actions — menu, FAQ, calculator, storage</td>
+            </tr>
+          </tbody>
+        </table>
+        <a href="../lessons.html" class="btn btn-gold">Open My Lessons →</a>
+      </section>
+
+      <section id="contact" class="card">
+        <h2>Contact MY Structure</h2>
+        <p>Send a message about farming or your website project:</p>
+
+        <form
+          action="https://formspree.io/f/mwkdzkoo"
+          method="POST"
+          class="contact-form"
+        >
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Ask about crops, animals, or web dev..."
+            required
+          ></textarea>
+
+          <button type="submit" class="btn">Send message</button>
+        </form>
+      </section>
+
+      <section class="card card-highlight">
+        <h2>Join our farm updates</h2>
+        <p class="section-note">
+          Practice a simple form — your name is saved in the browser:
+        </p>
+        <label for="subscribe-name">Your name</label>
+        <input type="text" id="subscribe-name" placeholder="e.g. Tadiwa" maxlength="40" />
+        <button type="button" id="subscribe-btn" class="btn btn-gold">
+          Subscribe
+        </button>
+        <p id="subscribe-msg" class="result" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top">
+      ↑
+    </button>
+
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="crops.html">Crops</a>
+        <a href="animals.html">Animals</a>
+        <a href="#contact">Contact</a>
+        <a href="../lessons.html">My Lessons</a>
+      </div>
+      <p>© 2026 MY Structure — Farming, Crops &amp; Animal Husbandry</p>
+      <p class="footer-tip">
+        Tip: Right-click <code>index.html</code> → Open with Live Server
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

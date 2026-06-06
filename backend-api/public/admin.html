@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="sn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 21 — Admin + SQLite</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      line-height: 1.6;
+      padding: 24px;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; }
+    h1 { color: #0066cc; margin-bottom: 8px; }
+    h2 { color: #0066cc; margin: 24px 0 12px; font-size: 1.1rem; }
+    a { color: #0066cc; font-weight: 600; }
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    label { display: block; font-weight: 600; margin: 10px 0 6px; }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 12px;
+      padding: 10px 18px;
+      background: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover { background: #004499; }
+    button.danger { background: #c62828; }
+    button.danger:hover { background: #8e0000; }
+    .status {
+      padding: 12px;
+      border-radius: 8px;
+      margin: 12px 0;
+      font-weight: 600;
+    }
+    .ok { background: #e8f5e9; color: #2e7d32; }
+    .err { background: #ffebee; color: #c62828; }
+    .msg {
+      border-bottom: 1px solid #eee;
+      padding: 14px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .msg:last-child { border-bottom: none; }
+    .msg-meta { font-size: 0.85rem; color: #666; }
+    .stats { display: flex; flex-wrap: wrap; gap: 10px; }
+    .stats span {
+      background: #eef3f8;
+      color: #0066cc;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .code {
+      background: #1a2332;
+      color: #e8eef4;
+      padding: 12px;
+      border-radius: 8px;
+      font-family: Consolas, monospace;
+      font-size: 0.85rem;
+      margin: 10px 0;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../lessons.html">← My Lessons</a>
+    <a href="index.html" style="margin-left: 16px">API Demo</a>
+
+    <h1>Admin Panel — Lesson 21</h1>
+    <p>Delete spam messages. Storage: <strong id="dbType">checking...</strong></p>
+    <p><a href="lesson21.html">← Lesson 21 deploy guide</a></p>
+
+    <div id="apiStatus" class="status err">Checking API...</div>
+
+    <section id="loginSection" class="card">
+      <h2>Admin login</h2>
+      <p>Default key (local): <code>tadiwa-admin-2026</code> — change with <code>ADMIN_KEY</code> env.</p>
+      <label for="adminKey">Admin key</label>
+      <input id="adminKey" type="password" placeholder="Admin key" />
+      <button type="button" id="loginBtn">Login</button>
+      <p id="loginResult" style="margin-top: 10px; font-weight: 600"></p>
+    </section>
+
+    <section id="panelSection" class="hidden">
+      <div class="card">
+        <h2>Database stats</h2>
+        <div id="stats" class="stats"></div>
+      </div>
+
+      <div class="card">
+        <h2>Messages</h2>
+        <div id="messagesList"></div>
+      </div>
+
+      <button type="button" id="logoutBtn">Logout</button>
+    </section>
+  </div>
+
+  <script>
+    const API = "http://localhost:3001/api";
+    const STORAGE_KEY = "portfolio-admin-key";
+
+    function getKey() {
+      return sessionStorage.getItem(STORAGE_KEY) || "";
+    }
+
+    function setKey(key) {
+      if (key) sessionStorage.setItem(STORAGE_KEY, key);
+      else sessionStorage.removeItem(STORAGE_KEY);
+    }
+
+    async function checkApi() {
+      const el = document.getElementById("apiStatus");
+      try {
+        const res = await fetch(`${API}/health`);
+        const data = await res.json();
+        el.className = "status ok";
+        el.textContent = `✓ ${data.message} (${data.database})`;
+        const dbType = document.getElementById("dbType");
+        if (dbType) dbType.textContent = data.database;
+        return true;
+      } catch {
+        el.className = "status err";
+        el.textContent = "✗ API offline — run: cd backend-api → npm start";
+        return false;
+      }
+    }
+
+    async function verifyLogin(key) {
+      const res = await fetch(`${API}/admin/verify`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ key }),
+      });
+      return res.ok;
+    }
+
+    async function loadStats() {
+      const res = await fetch(`${API}/stats`);
+      const data = await res.json();
+      document.getElementById("stats").innerHTML = `
+        <span>${data.messages} messages</span>
+        <span>${data.skills} skills</span>
+        <span>${data.projects} projects</span>
+        <span>${data.database}</span>
+      `;
+    }
+
+    async function loadMessages() {
+      const res = await fetch(`${API}/messages`);
+      const data = await res.json();
+      const list = document.getElementById("messagesList");
+
+      if (!data.messages.length) {
+        list.innerHTML = "<p>Hapana messages.</p>";
+        return;
+      }
+
+      list.innerHTML = data.messages
+        .map(
+          (m) => `
+          <div class="msg" data-id="${m.id}">
+            <div>
+              <strong>${m.name}</strong> — ${m.message}
+              <div class="msg-meta">${m.email} · ${new Date(m.date).toLocaleString()}</div>
+            </div>
+            <button type="button" class="danger" data-delete="${m.id}">Delete</button>
+          </div>
+        `
+        )
+        .join("");
+
+      list.querySelectorAll("[data-delete]").forEach((btn) => {
+        btn.addEventListener("click", () => deleteMessage(btn.dataset.delete));
+      });
+    }
+
+    async function deleteMessage(id) {
+      const key = getKey();
+      const res = await fetch(`${API}/messages/${id}`, {
+        method: "DELETE",
+        headers: { "X-Admin-Key": key },
+      });
+
+      if (!res.ok) {
+        alert("Delete failed — login again.");
+        return;
+      }
+
+      loadMessages();
+      loadStats();
+    }
+
+    function showPanel(show) {
+      document.getElementById("loginSection").classList.toggle("hidden", show);
+      document.getElementById("panelSection").classList.toggle("hidden", !show);
+    }
+
+    document.getElementById("loginBtn").addEventListener("click", async () => {
+      const key = document.getElementById("adminKey").value.trim();
+      const result = document.getElementById("loginResult");
+
+      if (!key) {
+        result.style.color = "#c62828";
+        result.textContent = "Isa admin key.";
+        return;
+      }
+
+      const ok = await verifyLogin(key);
+      if (!ok) {
+        result.style.color = "#c62828";
+        result.textContent = "Key haisi kukodza.";
+        return;
+      }
+
+      setKey(key);
+      result.style.color = "#2e7d32";
+      result.textContent = "✓ Logged in!";
+      showPanel(true);
+      loadStats();
+      loadMessages();
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      setKey("");
+      showPanel(false);
+      document.getElementById("adminKey").value = "";
+    });
+
+    checkApi().then(async (online) => {
+      if (!online) return;
+
+      const saved = getKey();
+      if (saved && (await verifyLogin(saved))) {
+        showPanel(true);
+        loadStats();
+        loadMessages();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="sn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 6 — Git &amp; GitHub</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="logo">Lesson 6 — Git &amp; GitHub</p>
+    <nav class="nav">
+      <a href="#intro">Chii chiri</a>
+      <a href="#commands">Commands</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#practice">Edza</a>
+      <a href="../lessons.html">My Lessons</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="intro" class="hero">
+      <p class="badge">Lesson 6 — Git &amp; GitHub</p>
+      <h1>Chengetedza Kodhi Yako ne Git</h1>
+      <p class="lead">
+        Git inochengeta shanduko dzekodhi yako. GitHub inoisa kodhi yako pa
+        internet kuti ugone kugovera uye deploy webhusaiti yako.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Git vs GitHub</h2>
+      <div class="compare-grid">
+        <article class="compare-box">
+          <h3>Git</h3>
+          <p>Program pa komputa yako — inoteerera shanduko.</p>
+        </article>
+        <article class="compare-box">
+          <h3>GitHub</h3>
+          <p>Website pa internet — inochengeta repo yako online.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="commands" class="card">
+      <h2>Commands Zvakakosha</h2>
+      <p>Dzvanya <strong>Copy</strong> kuti ukope command:</p>
+
+      <div class="command-list">
+        <div class="command-item">
+          <pre class="code-block">git status</pre>
+          <p>Ona faira dzakachinja</p>
+          <button type="button" class="copy-btn" data-copy="git status">Copy</button>
+        </div>
+
+        <div class="command-item">
+          <pre class="code-block">git add .</pre>
+          <p>Wedzera zvese kune commit</p>
+          <button type="button" class="copy-btn" data-copy="git add .">Copy</button>
+        </div>
+
+        <div class="command-item">
+          <pre class="code-block">git commit -m "First commit: web projects and lessons"</pre>
+          <p>Chengetedza snapshot</p>
+          <button type="button" class="copy-btn" data-copy='git commit -m "First commit: web projects and lessons"'>Copy</button>
+        </div>
+
+        <div class="command-item">
+          <pre class="code-block">git branch -M main
+git remote add origin https://github.com/tadiwamakele-0712/brothers.git
+git push -u origin main</pre>
+          <p>Tumira ku GitHub (rimwe gore chete)</p>
+          <button type="button" class="copy-btn" data-copy="git branch -M main&#10;git remote add origin https://github.com/tadiwamakele-0712/brothers.git&#10;git push -u origin main">Copy</button>
+        </div>
+      </div>
+      <p id="copy-msg" class="copy-msg" aria-live="polite"></p>
+    </section>
+
+    <section id="workflow" class="card card-highlight">
+      <h2>Workflow Yezuva Nezuva</h2>
+      <div class="flow">
+        <span>1. Edita kodhi</span>
+        <span class="arrow">→</span>
+        <span>2. git add .</span>
+        <span class="arrow">→</span>
+        <span>3. git commit</span>
+        <span class="arrow">→</span>
+        <span>4. git push</span>
+      </div>
+
+      <h3>First-time setup (rimwe gore)</h3>
+      <pre class="code-block">cd "C:\Users\Tadiwa Makele\Desktop\PROJECT 0712"
+git init
+git add .
+git commit -m "First commit: web projects and lessons"</pre>
+
+      <p class="tip">
+        Gadzira repo <code>brothers</code> pa GitHub usati push.
+        Tarisa <a href="../DEPLOY-GITHUB-PAGES.md">DEPLOY-GITHUB-PAGES.md</a> kuti uwane mafambiro akazara.
+      </p>
+    </section>
+
+    <section id="practice" class="card">
+      <h2>Checklist — Edza</h2>
+      <ul class="checklist" id="git-checklist">
+        <li>
+          <input type="checkbox" id="c1">
+          <label for="c1">Git yakainstall — <code>git --version</code> inoshanda</label>
+        </li>
+        <li>
+          <input type="checkbox" id="c2">
+          <label for="c2">Account pa GitHub — <a href="https://github.com/tadiwamakele-0712" target="_blank" rel="noopener noreferrer">profile yako</a></label>
+        </li>
+        <li>
+          <input type="checkbox" id="c3">
+          <label for="c3">Repo <code>brothers</code> yakagadzirwa pa GitHub</label>
+        </li>
+        <li>
+          <input type="checkbox" id="c4">
+          <label for="c4"><code>git init</code> ne first commit yapera</label>
+        </li>
+        <li>
+          <input type="checkbox" id="c5">
+          <label for="c5"><code>git push</code> — kodhi iri pa GitHub</label>
+        </li>
+      </ul>
+      <button type="button" id="reset-checklist" class="btn btn-secondary">Reset checklist</button>
+    </section>
+
+    <section class="card">
+      <h2>Links</h2>
+      <div class="link-row">
+        <a href="https://github.com/tadiwamakele-0712" target="_blank" rel="noopener noreferrer" class="btn">GitHub Profile</a>
+        <a href="https://github.com/new" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Gadzira Repo Itsva</a>
+        <a href="../DEPLOY-GITHUB-PAGES.md" class="btn btn-secondary">Deploy Guide</a>
+        <a href="../lessons.html" class="btn btn-secondary">My Lessons</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Lesson 6 — Git &amp; GitHub | Chengetedza kodhi yako ne commit + push</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

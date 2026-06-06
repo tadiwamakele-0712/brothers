@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="sn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 24 — Web Accessibility</title>
+  <link rel="stylesheet" href="src/App.css" />
+  <link rel="stylesheet" href="src/index.css" />
+  <style>
+    .lesson-page { max-width: 720px; margin: 0 auto; padding: 32px 24px 80px; }
+    .lesson-page h1 { color: var(--accent); margin-bottom: 8px; }
+    .lesson-page h2 { color: var(--accent); margin: 28px 0 12px; font-size: 1.15rem; }
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .code {
+      background: #1a2332;
+      color: #e8eef4;
+      padding: 14px;
+      border-radius: 8px;
+      font-family: Consolas, monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 12px 0;
+      white-space: pre-wrap;
+    }
+    .bad-good { display: grid; gap: 12px; }
+    .bad { border-left: 4px solid #c62828; padding-left: 12px; }
+    .good { border-left: 4px solid #2e7d32; padding-left: 12px; }
+    .checklist { list-style: none; }
+    .checklist li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist input { width: auto; margin-top: 4px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+    .btn-row a {
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      background: var(--accent);
+      color: white;
+    }
+    .btn-row a.outline {
+      background: var(--bg-surface);
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+    .demo-focus:focus {
+      outline: 3px solid var(--accent);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="lesson-page">
+    <a href="../lessons.html">← My Lessons</a>
+    <a href="lesson23.html" style="margin-left: 16px">Lesson 23</a>
+
+    <h1>Lesson 24: Web Accessibility (a11y)</h1>
+    <p>
+      Sites zvinofanira kushanda kune <strong>vanhu vese</strong> — screen readers,
+      keyboard only, uye low vision. Iyi lesson inobatsira portfolio yako kuita professional.
+    </p>
+
+    <h2>1. Semantic HTML</h2>
+    <div class="card bad-good">
+      <div class="bad">
+        <strong>✗ Avoid</strong>
+        <div class="code">&lt;div onclick="..."&gt;Click me&lt;/div&gt;</div>
+      </div>
+      <div class="good">
+        <strong>✓ Use</strong>
+        <div class="code">&lt;button type="button"&gt;Click me&lt;/button&gt;
+&lt;nav&gt; ... &lt;/nav&gt;
+&lt;main&gt; ... &lt;/main&gt;</div>
+      </div>
+    </div>
+
+    <h2>2. Images — alt text</h2>
+    <div class="card">
+      <div class="code">&lt;img src="profile.jpg" alt="Tadiwa Makele — web developer" /&gt;</div>
+      <p>Decorative images: <code>alt=""</code> (empty, not missing).</p>
+    </div>
+
+    <h2>3. Forms — labels</h2>
+    <div class="card">
+      <div class="code">&lt;label for="email"&gt;Email&lt;/label&gt;
+&lt;input id="email" type="email" name="email" required /&gt;</div>
+      <p>Every input inofanira kunge ine <code>&lt;label&gt;</code> kana <code>aria-label</code>.</p>
+    </div>
+
+    <h2>4. Keyboard &amp; focus</h2>
+    <div class="card">
+      <p>Tab kuburikidza ne site — munhu anofanira kuona kuti ari pa element ipi.</p>
+      <button type="button" class="demo-focus" style="padding:12px 20px;margin:8px 0;background:var(--accent);color:white;border:none;border-radius:8px;font-weight:bold">
+        Tab here — ona outline
+      </button>
+      <div class="code">/* Usabvisa outline pasina alternative */
+:focus-visible {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+}</div>
+    </div>
+
+    <h2>5. Color contrast</h2>
+    <div class="card">
+      <p>Text inofanira kunge yakasiyana zvakanyanya ne background (ratio 4.5:1+).</p>
+      <p>Usaisa color chete kuzivisa error — wedzera icon kana text.</p>
+      <a href="https://webaim.org/resources/contrastchecker/" target="_blank" rel="noreferrer">WebAIM Contrast Checker →</a>
+    </div>
+
+    <h2>6. ARIA (when needed)</h2>
+    <div class="card">
+      <div class="code">&lt;button aria-label="Toggle dark mode"&gt;🌙&lt;/button&gt;
+&lt;div role="alert"&gt;Message yatambirwa!&lt;/div&gt;</div>
+      <p>Shandisa ARIA kana semantic HTML isingakwanisi — usapindira zvisingodiwa.</p>
+    </div>
+
+    <h2>7. Fix your portfolio — checklist</h2>
+    <div class="card">
+      <ul class="checklist" id="checklist">
+        <li><input type="checkbox" id="a1" /><label for="a1"><code>standalone.html</code> — nav links inoshanda ne keyboard</label></li>
+        <li><input type="checkbox" id="a2" /><label for="a2">Profile image ine meaningful <code>alt</code></label></li>
+        <li><input type="checkbox" id="a3" /><label for="a3">Contact form — zvese zvine labels</label></li>
+        <li><input type="checkbox" id="a4" /><label for="a4">Theme toggle ine <code>aria-label</code></label></li>
+        <li><input type="checkbox" id="a5" /><label for="a5">Page title inochinja pa route (<code>document.title</code>)</label></li>
+        <li><input type="checkbox" id="a6" /><label for="a6">Tested ne Tab key kubva top to footer</label></li>
+        <li><input type="checkbox" id="a7" /><label for="a7">Ran Lighthouse accessibility (Chrome DevTools)</label></li>
+      </ul>
+    </div>
+
+    <h2>8. Quick Lighthouse test</h2>
+    <div class="card">
+      <ol style="margin-left: 20px">
+        <li>Vhura portfolio mu Chrome</li>
+        <li>F12 → <strong>Lighthouse</strong></li>
+        <li>Category: Accessibility → Analyze</li>
+        <li>Fix issues score inodzikisa</li>
+      </ol>
+    </div>
+
+    <p style="margin-top: 20px"><a href="lesson25.html">→ Lesson 25: Performance &amp; SEO</a></p>
+
+    <div class="btn-row">
+      <a href="standalone.html">Test on Portfolio</a>
+      <a href="lesson25.html">Lesson 25 →</a>
+      <a href="lesson23.html" class="outline">← Lesson 23</a>
+      <a href="../lessons.html" class="outline">My Lessons</a>
+    </div>
+  </div>
+
+  <script>
+    const CHECK_KEY = "lesson24-a11y-checklist";
+    const checklist = document.getElementById("checklist");
+    const saved = JSON.parse(localStorage.getItem(CHECK_KEY) || "{}");
+    checklist.querySelectorAll("input[type=checkbox]").forEach((box) => {
+      if (saved[box.id]) box.checked = true;
+      box.addEventListener("change", () => {
+        const state = {};
+        checklist.querySelectorAll("input[type=checkbox]").forEach((b) => {
+          state[b.id] = b.checked;
+        });
+        localStorage.setItem(CHECK_KEY, JSON.stringify(state));
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="sn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 21 — SQLite + Deploy</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      line-height: 1.6;
+      padding: 24px;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; }
+    h1 { color: #0066cc; margin-bottom: 8px; }
+    h2 { color: #0066cc; margin: 28px 0 12px; font-size: 1.15rem; }
+    a { color: #0066cc; font-weight: 600; }
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .status {
+      padding: 14px;
+      border-radius: 10px;
+      margin: 16px 0;
+      font-weight: 600;
+    }
+    .status.ok { background: #e8f5e9; border: 1px solid #a5d6a7; color: #2e7d32; }
+    .status.err { background: #ffebee; border: 1px solid #ef9a9a; color: #c62828; }
+    .status.wait { background: #fff8e1; border: 1px solid #ffe082; color: #f57f17; }
+    .code {
+      background: #1a2332;
+      color: #e8eef4;
+      padding: 14px;
+      border-radius: 8px;
+      font-family: Consolas, monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 12px 0;
+      white-space: pre-wrap;
+    }
+    label { display: block; font-weight: 600; margin: 12px 0 6px; }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 12px;
+      padding: 12px 20px;
+      background: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover { background: #004499; }
+    button.secondary { background: white; color: #0066cc; border: 2px solid #0066cc; margin-left: 8px; }
+    .checklist { list-style: none; }
+    .checklist li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist input { width: auto; margin-top: 4px; }
+    .stats { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .stats span {
+      background: #eef3f8;
+      color: #0066cc;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+    .hero-links a {
+      display: inline-block;
+      padding: 10px 18px;
+      background: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+    .hero-links a.outline { background: white; color: #0066cc; border: 2px solid #0066cc; }
+    .complete {
+      background: linear-gradient(135deg, #0066cc, #004499);
+      color: white;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin: 24px 0;
+    }
+    .complete a { color: #fff; text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../../lessons.html">← My Lessons</a>
+    <a href="index.html" style="margin-left: 16px">API Demo</a>
+    <a href="admin.html" style="margin-left: 16px">Admin Panel</a>
+
+    <h1>Lesson 21 (Bonus): SQLite + Deploy</h1>
+    <p>Database, admin auth, uye kuendesa API online pa Render.</p>
+
+    <div id="apiStatus" class="status wait">Checking API...</div>
+    <div id="stats" class="stats"></div>
+
+    <div class="complete">
+      <h2 style="margin-bottom: 8px">🎓 Course Complete!</h2>
+      <p>Wakapedza 21 lessons — zvino <a href="../../portfolio-react/lesson22.html">Lesson 22: Capstone</a>!</p>
+      <p style="margin-top: 12px">
+        <a href="../../portfolio-react/certificate.html">Vhura Certificate →</a>
+      </p>
+    </div>
+
+    <h2>1. Database (SQLite / JSON)</h2>
+    <div class="card">
+      <p>Messages, skills, ne projects zvinochengetwa mu database:</p>
+      <ul style="margin: 12px 0 12px 20px">
+        <li><strong>SQLite</strong> — <code>backend-api/data/portfolio.db</code> (production)</li>
+        <li><strong>JSON fallback</strong> — <code>data/messages.json</code> kana SQLite haishande</li>
+      </ul>
+      <p>Admin panel inobvumira <strong>DELETE /api/messages/:id</strong> ne admin key.</p>
+      <div class="hero-links">
+        <a href="admin.html">Vhura Admin Panel →</a>
+      </div>
+    </div>
+
+    <h2>2. Admin panel</h2>
+    <div class="card">
+      <p>Default key (local): <code>tadiwa-admin-2026</code></p>
+      <p>Change pa production: set <code>ADMIN_KEY</code> environment variable.</p>
+      <div class="code">DELETE /api/messages/5
+Header: X-Admin-Key: your-secret-key</div>
+      <a href="admin.html">→ Login & delete messages</a>
+    </div>
+
+    <h2>3. Deploy API pa Render (free)</h2>
+    <div class="card">
+      <ol style="margin-left: 20px">
+        <li>Login <a href="https://render.com" target="_blank" rel="noreferrer">render.com</a></li>
+        <li>New → Web Service → connect GitHub repo</li>
+        <li>Root Directory: <code>backend-api</code></li>
+        <li>Build: <code>npm install</code> · Start: <code>npm start</code></li>
+        <li>Env vars: <code>ADMIN_KEY</code>, <code>CLIENT_ORIGIN</code> (GitHub Pages URL)</li>
+      </ol>
+      <p style="margin-top: 12px">Full guide: <a href="../../DEPLOY-BONUS.md">DEPLOY-BONUS.md</a></p>
+      <div class="code"># Test live API
+Invoke-RestMethod https://YOUR-APP.onrender.com/api/health</div>
+    </div>
+
+    <h2>4. Connect React ku live API</h2>
+    <div class="card">
+      <p>Standalone portfolio — set API URL pano kuti React ishandise live server:</p>
+      <label for="liveApi">Live API URL (ends with /api)</label>
+      <input id="liveApi" type="url" placeholder="https://your-app.onrender.com/api" />
+      <button type="button" id="saveApiBtn">Save & open portfolio</button>
+      <button type="button" id="clearApiBtn" class="secondary">Reset to localhost</button>
+      <p id="apiSaveResult" style="margin-top: 10px; font-weight: 600"></p>
+      <p style="margin-top: 12px; font-size: 0.9rem; color: #666">
+        Vite build: copy <code>.env.example</code> → <code>.env</code> with <code>VITE_API_URL=...</code>
+      </p>
+    </div>
+
+    <h2>5. Deploy checklist</h2>
+    <div class="card">
+      <ul class="checklist" id="checklist">
+        <li><input type="checkbox" id="c1" /><label for="c1">API health inoshanda (local kana Render)</label></li>
+        <li><input type="checkbox" id="c2" /><label for="c2">ADMIN_KEY changed from default</label></li>
+        <li><input type="checkbox" id="c3" /><label for="c3">CLIENT_ORIGIN = GitHub Pages URL</label></li>
+        <li><input type="checkbox" id="c4" /><label for="c4">Admin panel — delete test message</label></li>
+        <li><input type="checkbox" id="c5" /><label for="c5">React portfolio inotumira ku live API</label></li>
+        <li><input type="checkbox" id="c6" /><label for="c6">Certificate printed / saved</label></li>
+      </ul>
+    </div>
+
+    <div class="hero-links">
+      <a href="../../portfolio-react/standalone.html">React Portfolio</a>
+      <a href="../../portfolio-react/certificate.html" class="outline">Certificate</a>
+      <a href="../../lessons.html" class="outline">My Lessons</a>
+    </div>
+  </div>
+
+  <script>
+    const API = "http://localhost:3001/api";
+    const STORAGE_API = "portfolio-api-url";
+    const CHECKLIST_KEY = "lesson21-checklist";
+
+    async function checkApi() {
+      const el = document.getElementById("apiStatus");
+      const statsEl = document.getElementById("stats");
+      try {
+        const res = await fetch(`${API}/health`);
+        const data = await res.json();
+        el.className = "status ok";
+        el.textContent = `✓ ${data.message} (${data.database})`;
+        statsEl.innerHTML = `
+          <span>${data.database} database</span>
+          <span>localhost:3001</span>
+        `;
+        return true;
+      } catch {
+        el.className = "status err";
+        el.textContent = "✗ API offline — run: cd backend-api → npm start";
+        statsEl.innerHTML = "";
+        return false;
+      }
+    }
+
+    const saved = localStorage.getItem(STORAGE_API);
+    if (saved) {
+      document.getElementById("liveApi").value = saved;
+    }
+
+    document.getElementById("saveApiBtn").addEventListener("click", () => {
+      const url = document.getElementById("liveApi").value.trim().replace(/\/$/, "");
+      const result = document.getElementById("apiSaveResult");
+      if (!url) {
+        result.style.color = "#c62828";
+        result.textContent = "Isa API URL.";
+        return;
+      }
+      localStorage.setItem(STORAGE_API, url);
+      result.style.color = "#2e7d32";
+      result.textContent = "✓ Saved! Opening portfolio...";
+      window.location.href = `../../portfolio-react/standalone.html#/about`;
+    });
+
+    document.getElementById("clearApiBtn").addEventListener("click", () => {
+      localStorage.removeItem(STORAGE_API);
+      document.getElementById("liveApi").value = "";
+      document.getElementById("apiSaveResult").textContent = "Reset to http://localhost:3001/api";
+    });
+
+    const checklist = document.getElementById("checklist");
+    const savedChecks = JSON.parse(localStorage.getItem(CHECKLIST_KEY) || "{}");
+    checklist.querySelectorAll("input[type=checkbox]").forEach((box) => {
+      if (savedChecks[box.id]) box.checked = true;
+      box.addEventListener("change", () => {
+        const state = {};
+        checklist.querySelectorAll("input[type=checkbox]").forEach((b) => {
+          state[b.id] = b.checked;
+        });
+        localStorage.setItem(CHECKLIST_KEY, JSON.stringify(state));
+      });
+    });
+
+    checkApi();
+  </script>
+</body>
+</html>

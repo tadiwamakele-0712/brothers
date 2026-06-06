@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="sn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 18 — TypeScript Demo</title>
+  <link rel="stylesheet" href="src/index.css" />
+  <link rel="stylesheet" href="src/App.css" />
+  <style>
+    .ts-page { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
+    .ts-page h1 { color: var(--accent); margin-bottom: 8px; }
+    .ts-page h2 { color: var(--accent); margin: 28px 0 12px; font-size: 1.2rem; }
+    .code-block {
+      background: var(--bg-muted);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      font-family: Consolas, monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      margin: 12px 0;
+      white-space: pre-wrap;
+    }
+    .demo-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .demo-box label { display: block; font-weight: 600; margin-bottom: 6px; }
+    .demo-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 12px;
+      border: 1px solid var(--border-input);
+      border-radius: 8px;
+      font-size: 1rem;
+      background: var(--bg-surface);
+      color: var(--text-primary);
+    }
+    .result { margin-top: 12px; padding: 12px; border-radius: 8px; font-weight: 600; }
+    .result.ok { background: var(--success-bg); border: 1px solid var(--success-border); color: #2e7d32; }
+    .result.err { background: #ffebee; border: 1px solid #ef9a9a; color: #c62828; }
+    .nav-back { display: inline-block; margin-bottom: 20px; color: var(--accent); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="ts-page">
+    <a href="standalone.html" class="nav-back">← Back to React Portfolio</a>
+    <a href="../lessons.html" class="nav-back" style="margin-left:16px">My Lessons</a>
+
+    <h1>Lesson 18: TypeScript</h1>
+    <p>TypeScript = JavaScript + <strong>types</strong>. Inoratidza zvikanganiso <em>usati</em> warunza code.</p>
+
+    <h2>1. Basic types</h2>
+    <div class="code-block">let zita: string = "Tadiwa";
+let makore: number = 20;
+let ariActive: boolean = true;</div>
+
+    <h2>2. Interface (object shape)</h2>
+    <div class="code-block">interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+}</div>
+
+    <h2>3. Function types</h2>
+    <div class="code-block">function greetUser(name: string, age: number): string {
+  return `Mhoro ${name}, une makore ${age}.`;
+}</div>
+
+    <h2>4. Try it — type checker demo</h2>
+    <p>JavaScript inogamuchira chero type. TypeScript inodzivisa kukanganisa:</p>
+
+    <div class="demo-box">
+      <label for="nameInput">Zita (string)</label>
+      <input id="nameInput" type="text" value="Tadiwa" />
+
+      <label for="ageInput">Makore (number)</label>
+      <input id="ageInput" type="text" value="20" />
+
+      <button type="button" class="btn-submit" id="checkBtn">Check types (like TypeScript)</button>
+      <div id="typeResult" class="result ok" style="display:none"></div>
+    </div>
+
+    <h2>5. Mu portfolio yako</h2>
+    <p>Faira dzakagadzirwa:</p>
+    <ul>
+      <li><code>src/types.ts</code> — interfaces</li>
+      <li><code>src/constants.ts</code> — typed data</li>
+      <li><code>src/components/ProjectCard.tsx</code> — typed props</li>
+    </ul>
+
+    <p style="margin-top:24px">
+      <a href="standalone.html#/projects">→ Ona typed ProjectCard mu React app</a>
+    </p>
+  </div>
+
+  <script>
+    function greetUser(name, age) {
+      return "Mhoro " + name + ", une makore " + age + ".";
+    }
+
+    function checkTypes(name, ageRaw) {
+      if (typeof name !== "string" || !name.trim()) {
+        return { ok: false, msg: "❌ Type error: zita rinofanira kuva string!" };
+      }
+      const age = Number(ageRaw);
+      if (Number.isNaN(age)) {
+        return { ok: false, msg: "❌ Type error: makore rinofanira kuva number, kwete \"" + ageRaw + "\"!" };
+      }
+      return { ok: true, msg: "✓ Types zvakanaka! " + greetUser(name.trim(), age) };
+    }
+
+    document.getElementById("checkBtn").addEventListener("click", function () {
+      const name = document.getElementById("nameInput").value;
+      const age = document.getElementById("ageInput").value;
+      const result = checkTypes(name, age);
+      const el = document.getElementById("typeResult");
+      el.style.display = "block";
+      el.className = "result " + (result.ok ? "ok" : "err");
+      el.textContent = result.msg;
+    });
+  </script>
+</body>
+</html>

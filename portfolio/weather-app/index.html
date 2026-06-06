@@ -1,0 +1,27 @@
+  <!DOCTYPE html>
+  <html lang="sn">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Weather App</title>
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+      <main class="container">
+          <h1>Mamiriro ekunze</h1>
+          <form id="weatherForm">
+              <input type="text" id="cityInput" placeholder="Nyora guta (e.g. Harare)" required>
+              <button type="submit">Tsvaga</button>
+          </form>
+          <div id="weatherResult" class="hidden">
+              <h2 id="cityName"></h2>
+              <p class="temp" id="temperature"></p>
+              <p id="description"></p>
+              <p id="humidity"></p>
+          </div>
+          <p id="errorMsg" class="error hidden"></p>
+          <p id="loading" class="loading hidden">Kutsvaga...</p>
+      </main>
+      <script src="script.js"></script>
+  </body>
+  </html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="sn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 19 — Node.js + Express API</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      line-height: 1.6;
+      padding: 24px;
+    }
+    .wrap { max-width: 720px; margin: 0 auto; }
+    h1 { color: #0066cc; margin-bottom: 8px; }
+    h2 { color: #0066cc; margin: 28px 0 12px; font-size: 1.15rem; }
+    .status {
+      padding: 14px;
+      border-radius: 10px;
+      margin: 16px 0;
+      font-weight: 600;
+    }
+    .status.ok { background: #e8f5e9; border: 1px solid #a5d6a7; color: #2e7d32; }
+    .status.err { background: #ffebee; border: 1px solid #ef9a9a; color: #c62828; }
+    .status.wait { background: #fff8e1; border: 1px solid #ffe082; color: #f57f17; }
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .skills, .projects { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+    .skills li, .projects li {
+      background: #eef3f8;
+      color: #0066cc;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    label { display: block; font-weight: 600; margin: 12px 0 6px; }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    button {
+      margin-top: 14px;
+      padding: 12px 20px;
+      background: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover { background: #004499; }
+    .code {
+      background: #1a2332;
+      color: #e8eef4;
+      padding: 14px;
+      border-radius: 8px;
+      font-family: Consolas, monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+    a { color: #0066cc; font-weight: 600; }
+    .msg-list { list-style: none; }
+    .msg-list li {
+      border-bottom: 1px solid #eee;
+      padding: 12px 0;
+    }
+    .msg-list li:last-child { border-bottom: none; }
+    .msg-meta { font-size: 0.85rem; color: #666; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../lessons.html">← My Lessons</a>
+    <a href="../portfolio-react/standalone.html" style="margin-left:16px">React Portfolio</a>
+
+    <h1>Lesson 19–21: Node.js + Express + SQLite</h1>
+    <p>Backend API — data inochengetwa mu <strong>SQLite database</strong> (Bonus Lesson 21).</p>
+    <p style="margin-top:8px"><a href="lesson21.html">→ Lesson 21 (Deploy)</a> · <a href="admin.html">Admin panel</a> · <a href="../../DEPLOY-BONUS.md">Deploy guide</a></p>
+
+    <div id="apiStatus" class="status wait">Checking API...</div>
+
+    <h2>1. Start server (PowerShell)</h2>
+    <div class="code">cd "C:\Users\Tadiwa Makele\Desktop\PROJECT 0712\backend-api"
+npm install
+npm start</div>
+
+    <h2>2. GET /api/skills</h2>
+    <div class="card">
+      <ul id="skillsList" class="skills"></ul>
+    </div>
+
+    <h2>3. GET /api/projects</h2>
+    <div class="card">
+      <ul id="projectsList" class="projects"></ul>
+    </div>
+
+    <h2>4. POST /api/contact</h2>
+    <div class="card">
+      <form id="contactForm">
+        <label for="name">Zita</label>
+        <input id="name" type="text" required placeholder="Tadiwa" />
+        <label for="email">Email</label>
+        <input id="email" type="email" required placeholder="email@example.com" />
+        <label for="message">Message</label>
+        <textarea id="message" rows="3" required placeholder="Nyora message..."></textarea>
+        <button type="submit">Tumira ku API</button>
+      </form>
+      <p id="formResult" style="margin-top:12px;font-weight:600"></p>
+    </div>
+
+    <h2>5. Messages saved on server</h2>
+    <div class="card">
+      <ul id="messagesList" class="msg-list"></ul>
+    </div>
+  </div>
+
+  <script>
+    const API = "http://localhost:3001/api";
+
+    async function checkApi() {
+      const el = document.getElementById("apiStatus");
+      try {
+        const res = await fetch(`${API}/health`);
+        const data = await res.json();
+        el.className = "status ok";
+        el.textContent = "✓ " + data.message + " Server iri pa http://localhost:3001";
+        return true;
+      } catch {
+        el.className = "status err";
+        el.textContent = "✗ API haisi kushanda. Run: cd backend-api → npm install → npm start";
+        return false;
+      }
+    }
+
+    async function loadSkills() {
+      const res = await fetch(`${API}/skills`);
+      const data = await res.json();
+      document.getElementById("skillsList").innerHTML = data.skills
+        .map((s) => `<li>${s}</li>`)
+        .join("");
+    }
+
+    async function loadProjects() {
+      const res = await fetch(`${API}/projects`);
+      const data = await res.json();
+      document.getElementById("projectsList").innerHTML = data.projects
+        .map((p) => `<li>${p.title}</li>`)
+        .join("");
+    }
+
+    async function loadMessages() {
+      const res = await fetch(`${API}/messages`);
+      const data = await res.json();
+      const list = document.getElementById("messagesList");
+      if (!data.messages.length) {
+        list.innerHTML = "<li>Hapana messages parizvino.</li>";
+        return;
+      }
+      list.innerHTML = data.messages
+        .map(
+          (m) =>
+            `<li><strong>${m.name}</strong> — ${m.message}<br><span class="msg-meta">${m.email} · ${new Date(m.date).toLocaleString()}</span></li>`
+        )
+        .join("");
+    }
+
+    document.getElementById("contactForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const result = document.getElementById("formResult");
+      try {
+        const res = await fetch(`${API}/contact`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            message: document.getElementById("message").value,
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error);
+        result.style.color = "#2e7d32";
+        result.textContent = "✓ " + data.message;
+        e.target.reset();
+        loadMessages();
+      } catch (err) {
+        result.style.color = "#c62828";
+        result.textContent = "✗ " + err.message;
+      }
+    });
+
+    checkApi().then((ok) => {
+      if (ok) {
+        loadSkills();
+        loadProjects();
+        loadMessages();
+      }
+    });
+  </script>
+</body>
+</html>
