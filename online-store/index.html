@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="sn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tae Store — shop online for fashion, tech, and home products.">
+  <title>Tae Store — Online Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="index.html" class="logo">🛍️ Tadiwa Store</a>
+
+    <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="main-nav">
+      ☰
+    </button>
+
+    <nav id="main-nav" class="nav">
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button type="button" class="cart-btn" id="cart-toggle" aria-label="Open cart">
+      🛒 Cart <span id="cart-count" class="cart-count">0</span>
+    </button>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-badge">New project — Online Store</p>
+      <h1>Shop Smart, Shop Online</h1>
+      <p>Quality products delivered to your door. Fashion, tech, home &amp; more.</p>
+      <a href="#products" class="btn btn-primary">Shop Now</a>
+    </div>
+  </section>
+
+  <main>
+    <section id="products" class="products-section">
+      <div class="section-head">
+        <h2>Our Products</h2>
+        <p>Browse and add items to your cart</p>
+      </div>
+
+      <div class="filter-bar">
+        <button type="button" class="filter-btn active" data-filter="all">All</button>
+        <button type="button" class="filter-btn" data-filter="fashion">Fashion</button>
+        <button type="button" class="filter-btn" data-filter="tech">Tech</button>
+        <button type="button" class="filter-btn" data-filter="home">Home</button>
+      </div>
+
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+
+    <section id="about" class="about-section">
+      <h2>About Tadiwa Store</h2>
+      <p>
+        We bring quality products to African communities at fair prices.
+        Built as a web development project using HTML, CSS, JavaScript,
+        and localStorage for the shopping cart.
+      </p>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <h2>Contact Us</h2>
+      <form id="contact-form" class="contact-form">
+        <label for="contact-name">Your name</label>
+        <input type="text" id="contact-name" required placeholder="e.g. Tadiwa">
+
+        <label for="contact-email">Email</label>
+        <input type="email" id="contact-email" required placeholder="you@email.com">
+
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" rows="4" required placeholder="How can we help?"></textarea>
+
+        <button type="submit" class="btn btn-primary">Send Message</button>
+        <p id="contact-msg" class="form-msg" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Cart sidebar -->
+  <aside id="cart-panel" class="cart-panel" aria-hidden="true">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button type="button" id="cart-close" class="icon-btn" aria-label="Close cart">✕</button>
+    </div>
+
+    <div id="cart-items" class="cart-items">
+      <p class="cart-empty">Cart is empty — add some products!</p>
+    </div>
+
+    <div class="cart-footer">
+      <p class="cart-total">Total: <strong id="cart-total">$0.00</strong></p>
+      <button type="button" id="checkout-btn" class="btn btn-primary btn-block">Checkout</button>
+      <button type="button" id="clear-cart" class="btn btn-secondary btn-block">Clear Cart</button>
+    </div>
+  </aside>
+
+  <div id="cart-overlay" class="cart-overlay" hidden></div>
+
+  <!-- Checkout modal -->
+  <dialog id="checkout-modal" class="checkout-modal">
+    <form id="checkout-form" method="dialog">
+      <h2>Checkout</h2>
+      <p class="checkout-note">Demo only — no real payment processed.</p>
+
+      <label for="ship-name">Full name</label>
+      <input type="text" id="ship-name" required>
+
+      <label for="ship-phone">Phone</label>
+      <input type="tel" id="ship-phone" required placeholder="+263 7XX XXX XXX">
+
+      <label for="ship-address">Delivery address</label>
+      <textarea id="ship-address" rows="3" required></textarea>
+
+      <p class="checkout-summary">Order total: <strong id="checkout-total">$0.00</strong></p>
+
+      <div class="modal-actions">
+        <button type="button" id="cancel-checkout" class="btn btn-secondary">Cancel</button>
+        <button type="submit" class="btn btn-primary">Place Order</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer class="site-footer">
+    <p>© 2026 Tadiwa Store — Online Store Project</p>
+    <p><a href="../lessons.html">← Back to My Lessons</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

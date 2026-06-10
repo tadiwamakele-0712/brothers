@@ -85,4 +85,10 @@ export const PROJECTS: Project[] = [
     link: "../shopping-list-app/index.html",
     tags: ["JavaScript"],
   },
+  {
+    title: "Tae Gift Hampers",
+    description: "Luxury gift hamper portfolio — gallery, lightbox, dark mode, WhatsApp enquiries.",
+    link: "https://tadiwamakele-0712.github.io/tae-store/",
+    tags: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+  },
 ];

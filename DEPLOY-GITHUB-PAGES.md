@@ -79,8 +79,9 @@ https://tadiwamakele-0712.github.io/brothers/
 - Home: `.../index.html` (Brothers of Africa)
 - React Portfolio (WhatsApp link): `.../portfolio.html` kana `.../portfolio-react/standalone.html`
 - Portfolio: `.../portfolio/index.html`
-- Todo: `.../portfolio/todo-tadie/todo.html`
-- Calculator: `.../portfolio/calculator/index.html`
+- My Lessons: `.../my%20lesson/index.html`
+- Todo: `.../my%20lesson/lesson-08-todo/todo.html`
+- Calculator: `.../my%20lesson/lesson-09-calculator/calculator/index.html`
 - Weather: `.../portfolio/weather-app/index.html`
 - Notes: `.../portfolio/tadie-app/index.html`
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Lesson — Tadiwa Makele</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="logo">📚 My Lesson</p>
+    <nav class="nav">
+      <a href="#lessons">Lessons</a>
+      <a href="#about">Nezvedu</a>
+      <a href="../lessons.html">Full Course</a>
+      <a href="../index.html">Home</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Madzidzo Angu — Web Development</h1>
+    <p>
+      Mufambiro wangu wekudzidza kugadzira webhusaiti — kubva HTML kusvika
+      React, API, uye deploy online.
+    </p>
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>Progress: <strong id="progress-count">0 / 25</strong></span>
+        <span id="progress-percent">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+  </section>
+
+  <main class="main">
+    <section id="about" class="intro-card">
+      <h2>Mhoro, ndini Tadiwa!</h2>
+      <p>
+        Folda iyi <strong>my lesson</strong> inochengeta madzidzo angu ekugadzira
+        webhusaiti. Dzvanya lesson yekuti uvhure project uye udze.
+      </p>
+      <ul class="skills">
+        <li>HTML &amp; CSS</li>
+        <li>JavaScript</li>
+        <li>React</li>
+        <li>Git &amp; GitHub</li>
+        <li>Deploy Online</li>
+      </ul>
+    </section>
+
+    <section id="lessons">
+      <h2 class="section-title">Lessons Zvangu</h2>
+      <div id="lessons-container"></div>
+    </section>
+
+    <section class="links-card">
+      <h2>Projects Zvangu</h2>
+      <div class="project-links">
+        <a href="lesson-01-html/index.html">Beginner Website</a>
+        <a href="lesson-08-todo/todo.html">Todo App</a>
+        <a href="lesson-09-calculator/calculator/index.html">Calculator</a>
+        <a href="../MY Structure/index.html">MY Structure</a>
+        <a href="../portfolio/index.html">Portfolio</a>
+        <a href="../portfolio-react/standalone.html">React Portfolio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Tadiwa Makele — My Lesson Folder</p>
+    <p><a href="../lessons.html">Open full lessons page →</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

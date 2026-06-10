@@ -6,3 +6,4 @@ desktop.ini
 .env.local
 backend-api/data/*.db
 backend-api/data/*.db-journal
+tae store/
