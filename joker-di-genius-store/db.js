@@ -1,8 +1,5 @@
 const DB_NAME = "jdg-music-store";
 const DB_VERSION = 1;
-const ADMIN_KEY = "jdg-admin-session";
-const ADMIN_PASS_KEY = "jdg-admin-password";
-const DEFAULT_ADMIN_PASS = "joker2026";
 
 function openDB() {
   return new Promise(function (resolve, reject) {
@@ -80,28 +77,6 @@ function getUploadedTracks() {
   });
 }
 
-function saveUploadedTrack(track) {
-  return openDB().then(function (db) {
-    return new Promise(function (resolve, reject) {
-      const tx = db.transaction("uploads", "readwrite");
-      tx.objectStore("uploads").put(track);
-      tx.oncomplete = function () { resolve(track); };
-      tx.onerror = function () { reject(tx.error); };
-    });
-  });
-}
-
-function deleteUploadedTrack(id) {
-  return openDB().then(function (db) {
-    return new Promise(function (resolve, reject) {
-      const tx = db.transaction("uploads", "readwrite");
-      tx.objectStore("uploads").delete(id);
-      tx.oncomplete = function () { resolve(); };
-      tx.onerror = function () { reject(tx.error); };
-    });
-  });
-}
-
 function getComments(trackId) {
   return openDB().then(function (db) {
     return new Promise(function (resolve, reject) {
@@ -146,27 +121,6 @@ function deleteComment(id) {
       tx.onerror = function () { reject(tx.error); };
     });
   });
-}
-
-function isAdminLoggedIn() {
-  return sessionStorage.getItem(ADMIN_KEY) === "1";
-}
-
-function adminLogin(password) {
-  const stored = localStorage.getItem(ADMIN_PASS_KEY) || DEFAULT_ADMIN_PASS;
-  if (password === stored) {
-    sessionStorage.setItem(ADMIN_KEY, "1");
-    return true;
-  }
-  return false;
-}
-
-function adminLogout() {
-  sessionStorage.removeItem(ADMIN_KEY);
-}
-
-function changeAdminPassword(newPass) {
-  localStorage.setItem(ADMIN_PASS_KEY, newPass);
 }
 
 function getAllTracks() {

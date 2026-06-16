@@ -26,13 +26,6 @@ Music files live in `music/` (copied from the `joker-music` folder). To refresh 
 - Comments on each track
 - Fixed bottom audio player
 - Social links (Facebook, Instagram, YouTube, TikTok, WhatsApp)
-- **Admin dashboard** — upload new music (`admin.html`)
-
-## Admin login
-
-- URL: `admin.html`
-- Default password: `joker2026`
-- Change password after first login in the dashboard
 
 ## Social
 
