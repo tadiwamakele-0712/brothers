@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Crop planting guide — maize, wheat, tomato, beans, sorghum at MY Structure farm."
+    />
+    <title>Crop Guide — MY Structure</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <p class="logo">🌾 MY Structure</p>
+
+      <button
+        type="button"
+        class="menu-btn"
+        id="menu-btn"
+        aria-expanded="false"
+        aria-controls="nav"
+      >
+        ☰ Menu
+      </button>
+
+      <nav id="nav" class="nav">
+        <a href="index.html">Home</a>
+        <a href="#calendar">Calendar</a>
+        <a href="#maize">Maize</a>
+        <a href="#wheat">Wheat</a>
+        <a href="#tomato">Tomato</a>
+        <a href="#beans">Beans</a>
+        <a href="animals.html">Animals</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        🌙
+      </button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="tag">Third page — crop planting guide</p>
+        <h1>Crop Planting Guide</h1>
+        <p class="hero-text">
+          When to plant, how to care, and when to harvest. Search crops below
+          or scroll through the monthly calendar.
+        </p>
+        <a href="index.html" class="btn btn-outline">← Back to home</a>
+      </section>
+
+      <section class="card">
+        <h2>Search crops</h2>
+        <label for="crop-search-page" class="sr-only">Search crops</label>
+        <input
+          type="search"
+          id="crop-search-page"
+          placeholder="Type maize, wheat, tomato..."
+        />
+        <p id="crop-search-result" class="section-note" style="margin-top: 0.75rem">
+          Showing all crops.
+        </p>
+      </section>
+
+      <section id="calendar" class="card card-highlight">
+        <h2>Monthly planting calendar</h2>
+        <p class="section-note">What to focus on each month:</p>
+        <div class="calendar-grid">
+          <article class="month-box">
+            <strong>Jan – Feb</strong>
+            <p>Land prep, compost, repair tools and fences.</p>
+          </article>
+          <article class="month-box">
+            <strong>Mar – Apr</strong>
+            <p>Plant maize and beans when rains start.</p>
+          </article>
+          <article class="month-box">
+            <strong>May – Jun</strong>
+            <p>Weed crops, plant tomatoes, check irrigation.</p>
+          </article>
+          <article class="month-box">
+            <strong>Jul – Aug</strong>
+            <p>Harvest early maize, plant wheat in cooler areas.</p>
+          </article>
+          <article class="month-box">
+            <strong>Sep – Oct</strong>
+            <p>Store grain, dry cobs, prepare for next season.</p>
+          </article>
+          <article class="month-box">
+            <strong>Nov – Dec</strong>
+            <p>Rest fields, plan rotation, maintain animal shelters.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="maize" class="crop-detail card" data-crop-name="maize">
+        <h2>🌽 Maize</h2>
+        <ul class="detail-list">
+          <li><strong>Plant:</strong> Start of rainy season, 25 cm apart</li>
+          <li><strong>Water:</strong> Critical at flowering — keep soil moist</li>
+          <li><strong>Harvest:</strong> 3–4 months when cobs are dry</li>
+          <li><strong>Tip:</strong> Add compost before planting for bigger cobs</li>
+        </ul>
+      </section>
+
+      <section id="wheat" class="crop-detail card card-green" data-crop-name="wheat">
+        <h2>🌾 Wheat</h2>
+        <ul class="detail-list">
+          <li><strong>Plant:</strong> Cooler months, well-drained soil</li>
+          <li><strong>Water:</strong> Moderate — avoid waterlogged fields</li>
+          <li><strong>Harvest:</strong> When stalks turn golden brown</li>
+          <li><strong>Tip:</strong> Rotate with legumes to restore soil nitrogen</li>
+        </ul>
+      </section>
+
+      <section id="tomato" class="crop-detail card" data-crop-name="tomato">
+        <h2>🍅 Tomato</h2>
+        <ul class="detail-list">
+          <li><strong>Plant:</strong> Seedlings after last frost / early rains</li>
+          <li><strong>Water:</strong> Regular, at base — avoid wet leaves</li>
+          <li><strong>Harvest:</strong> When fruit is firm and fully coloured</li>
+          <li><strong>Tip:</strong> Stake plants early to support heavy fruit</li>
+        </ul>
+      </section>
+
+      <section id="beans" class="crop-detail card" data-crop-name="beans">
+        <h2>🫘 Beans</h2>
+        <ul class="detail-list">
+          <li><strong>Plant:</strong> Direct in rows, 10 cm apart</li>
+          <li><strong>Water:</strong> Keep moist until pods form</li>
+          <li><strong>Harvest:</strong> Pick when pods are full but still green</li>
+          <li><strong>Tip:</strong> Great after maize — fixes nitrogen in soil</li>
+        </ul>
+      </section>
+
+      <section id="sorghum" class="crop-detail card card-green" data-crop-name="sorghum">
+        <h2>🌿 Sorghum</h2>
+        <ul class="detail-list">
+          <li><strong>Plant:</strong> Warm season, drought-tolerant crop</li>
+          <li><strong>Water:</strong> Less than maize — good for dry areas</li>
+          <li><strong>Harvest:</strong> When grain heads are hard and dry</li>
+          <li><strong>Tip:</strong> Useful when rainfall is low or unreliable</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="crops.html">Crops</a>
+        <a href="animals.html">Animals</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <p>© 2026 MY Structure — Crop Guide</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

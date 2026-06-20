@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Brothers Of Africa — empowering communities through education and innovation."
+    />
+    <title>Brothers Of Africa</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <p class="logo">Brothers Of Africa</p>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="sr-only">Open menu</span>
+      </button>
+
+      <nav id="main-nav" class="main-nav">
+        <a href="#about">About</a>
+        <a href="#impact">Impact</a>
+        <a href="#work">Our Work</a>
+        <a href="#events">Events</a>
+        <a href="#learn">Learn</a>
+        <a href="events.html">All Events</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="hero-tag">Welcome — beginner web project</p>
+        <h1 id="welcome-title">Empowering African Communities</h1>
+        <p class="hero-text">
+          Brothers Of Africa supports education, entrepreneurship, and technology
+          so young people can build their future online.
+        </p>
+        <div class="hero-actions">
+          <button type="button" id="welcome-btn" class="btn">
+            Change welcome message
+          </button>
+          <a href="#contact" class="btn btn-outline-light">Join us</a>
+        </div>
+      </section>
+
+      <section id="about" class="card">
+        <h2>Who we are</h2>
+        <p>
+          We are a community-focused group working across Africa. This website is
+          your <strong>first project</strong> — built with plain HTML, CSS, and
+          JavaScript (no React yet).
+        </p>
+        <ul class="values-list">
+          <li>Education for everyone</li>
+          <li>Local leadership &amp; teamwork</li>
+          <li>Technology that solves real problems</li>
+        </ul>
+      </section>
+
+      <section id="impact" class="card card-stats">
+        <h2>Our impact so far</h2>
+        <p class="section-intro">Numbers that show what we are building together.</p>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span class="stat-number" data-target="120">0</span>
+            <span class="stat-label">Students trained</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number" data-target="18">0</span>
+            <span class="stat-label">Workshops held</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number" data-target="6">0</span>
+            <span class="stat-label">Communities reached</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="work" class="card">
+        <h2>What we do</h2>
+        <div class="work-grid">
+          <article class="work-box">
+            <span class="work-icon" aria-hidden="true">📚</span>
+            <h3>Community workshops</h3>
+            <p>Skills training in schools and local centres.</p>
+          </article>
+          <article class="work-box">
+            <span class="work-icon" aria-hidden="true">🚀</span>
+            <h3>Young entrepreneurs</h3>
+            <p>Mentorship and ideas for small businesses.</p>
+          </article>
+          <article class="work-box">
+            <span class="work-icon" aria-hidden="true">💻</span>
+            <h3>Digital skills</h3>
+            <p>Web development, coding, and online safety.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="events" class="card">
+        <h2>Upcoming events</h2>
+        <p class="section-intro">Join us at our next community sessions.</p>
+        <div class="events-list">
+          <article class="event-card">
+            <p class="event-date">15 Jun 2026</p>
+            <h3>Web Dev Kickstart</h3>
+            <p>Intro to HTML, CSS &amp; JavaScript for beginners in Harare.</p>
+            <span class="event-tag">Free</span>
+          </article>
+          <article class="event-card">
+            <p class="event-date">28 Jun 2026</p>
+            <h3>Entrepreneur Circle</h3>
+            <p>Young founders share ideas and get feedback from mentors.</p>
+            <span class="event-tag">Open</span>
+          </article>
+          <article class="event-card">
+            <p class="event-date">12 Jul 2026</p>
+            <h3>Digital Safety Day</h3>
+            <p>Learn how to stay safe online — passwords, scams, privacy.</p>
+            <span class="event-tag">All ages</span>
+          </article>
+        </div>
+        <a href="events.html" class="btn btn-link" style="margin-top: 1rem">See all events →</a>
+      </section>
+
+      <section id="learn" class="card card-highlight">
+        <h2>Start learning web dev</h2>
+        <p>
+          You are on the right path. Open your lessons page to track all 25
+          lessons from HTML to React.
+        </p>
+        <div class="link-row">
+          <a href="../lessons.html" class="btn btn-link">My Lessons →</a>
+          <a href="../index.html" class="btn btn-outline">Main site</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Try JavaScript</h2>
+        <p>Type your name and click the button:</p>
+        <label for="name-input" class="sr-only">Your name</label>
+        <input
+          type="text"
+          id="name-input"
+          placeholder="e.g. Tadiwa"
+          maxlength="40"
+        />
+        <button type="button" id="say-hello-btn" class="btn btn-secondary">
+          Say hello
+        </button>
+        <p id="hello-message" class="message" aria-live="polite"></p>
+
+        <p class="counter-label">
+          Supporters joined: <strong id="counter">0</strong>
+        </p>
+        <button type="button" id="count-btn" class="btn btn-secondary">
+          +1 supporter
+        </button>
+      </section>
+
+      <section id="contact" class="card">
+        <h2>Get in touch</h2>
+        <p>Send us a message — we will get back to you soon.</p>
+
+        <form
+          action="https://formspree.io/f/mwkdzkoo"
+          method="POST"
+          class="contact-form"
+        >
+          <label for="contact-name">Your name</label>
+          <input type="text" id="contact-name" name="name" required />
+
+          <label for="contact-email">Email</label>
+          <input type="email" id="contact-email" name="email" required />
+
+          <label for="contact-message">Message</label>
+          <textarea
+            id="contact-message"
+            name="message"
+            rows="4"
+            required
+            placeholder="Tell us how you want to help..."
+          ></textarea>
+
+          <button type="submit" class="btn">Send message</button>
+        </form>
+
+        <p class="contact-alt">
+          Or email us directly:
+          <a href="mailto:tadiwamakele@gmail.com">tadiwamakele@gmail.com</a>
+        </p>
+      </section>
+    </main>
+
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top">
+      ↑
+    </button>
+
+    <footer>
+      <p>© 2026 Brothers Of Africa — built while learning web development</p>
+      <p class="footer-hint">
+        Edit <code>index.html</code>, <code>styles.css</code>, and
+        <code>script.js</code>, then refresh.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="sn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Certificate — Tadiwa Makele</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f0f4f8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .cert {
+      max-width: 780px;
+      width: 100%;
+      background: white;
+      border: 8px double #0066cc;
+      padding: 48px 40px;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .cert-label {
+      font-size: 0.85rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #0066cc;
+      margin-bottom: 12px;
+    }
+
+    .cert h1 {
+      font-size: 2rem;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+
+    .cert .name {
+      font-size: 2.4rem;
+      color: #0066cc;
+      margin: 24px 0;
+      font-weight: bold;
+    }
+
+    .cert p {
+      color: #444;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin: 24px 0;
+      list-style: none;
+    }
+
+    .skills-list li {
+      background: #eef3f8;
+      color: #0066cc;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-family: Arial, sans-serif;
+      font-weight: 600;
+    }
+
+    .cert-footer {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-family: Arial, sans-serif;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .actions {
+      margin-top: 24px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .actions button,
+    .actions a {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      font-size: 0.95rem;
+    }
+
+    .btn-print {
+      background: #0066cc;
+      color: white;
+    }
+
+    .btn-back {
+      background: white;
+      color: #0066cc;
+      border: 2px solid #0066cc;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .actions { display: none; }
+      .cert { box-shadow: none; border-width: 4px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cert">
+    <p class="cert-label">Certificate of Completion</p>
+    <h1>Web Development Course</h1>
+    <p>Iyi certificate inotaura kuti</p>
+    <p class="name">Tadiwa Makele</p>
+    <p>
+      Wakapedza zvizere <strong>25 lessons</strong> mu Web Development —
+      kubva pa HTML, CSS, JavaScript, kusvika pa React, TypeScript, Node.js, Express, SQLite, ne deploy.
+    </p>
+    <ul class="skills-list">
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+      <li>TypeScript</li>
+      <li>React</li>
+      <li>React Router</li>
+      <li>Node.js</li>
+      <li>Express</li>
+      <li>Fetch API</li>
+      <li>Git & GitHub</li>
+      <li>Performance & SEO</li>
+    </ul>
+    <p><strong>Projects:</strong> Todo App, Calculator, Weather App, Notes App, Quiz App, HTML Portfolio, React Portfolio, Backend API</p>
+    <div class="cert-footer">
+      <span>Date: June 3, 2026</span>
+      <span>Brothers of Africa — Web Dev Course</span>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button type="button" class="btn-print" onclick="window.print()">Print / Save PDF</button>
+    <a href="standalone.html" class="btn-back">← Back to Portfolio</a>
+  </div>
+</body>
+</html>

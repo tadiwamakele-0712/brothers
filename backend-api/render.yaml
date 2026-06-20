@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: portfolio-api
+    runtime: node
+    rootDir: backend-api
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: ADMIN_KEY
+        generateValue: true
+      - key: CLIENT_ORIGIN
+        sync: false

@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  color: #1a1a2e;
+  background: linear-gradient(160deg, #fff8e8 0%, #f8f9fc 50%, #eef4ff 100%);
+  min-height: 100vh;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: #0969da;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-weight: 700;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.nav a {
+  color: #cce5ff;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: #fff;
+}
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #0969da;
+  background: #ddf4ff;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 1.5rem 0 2rem;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.lead {
+  color: #555;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.url-box {
+  background: #fff;
+  border: 2px solid #0969da;
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.url-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.site-link {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0969da;
+  word-break: break-all;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  background: #0969da;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: #0550ae;
+}
+
+.btn-secondary {
+  background: #2ea44f;
+}
+
+.btn-secondary:hover {
+  background: #22863a;
+}
+
+.status-msg {
+  margin-top: 0.75rem;
+  font-weight: 600;
+  min-height: 1.25rem;
+}
+
+.status-msg.ok {
+  color: #2e7d32;
+}
+
+.status-msg.wait {
+  color: #e65100;
+}
+
+.card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e4e8f0;
+  box-shadow: 0 4px 20px rgba(26, 26, 46, 0.06);
+}
+
+.card h2 {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.card h3 {
+  font-size: 1.05rem;
+  margin: 1.25rem 0 0.5rem;
+}
+
+.card-highlight {
+  background: #f0f7ff;
+  border-color: #c5daf5;
+}
+
+.steps-list {
+  margin: 0.75rem 0 0 1.25rem;
+}
+
+.steps-list li {
+  margin-bottom: 0.65rem;
+  color: #444;
+}
+
+.steps-list a {
+  color: #0969da;
+}
+
+.tip {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: #fff8e6;
+  border-left: 4px solid #f0b429;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.95rem;
+}
+
+.page-links {
+  list-style: none;
+  margin-top: 0.75rem;
+}
+
+.page-links li {
+  margin-bottom: 0.5rem;
+}
+
+.page-links a {
+  color: #0969da;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.page-links a:hover {
+  text-decoration: underline;
+}
+
+.code-block {
+  background: #24292f;
+  color: #e6edf3;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin: 0.75rem 0;
+  white-space: pre-wrap;
+}
+
+code {
+  background: #f1f3f6;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}
+
+.checklist {
+  list-style: none;
+}
+
+.checklist li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.checklist li:last-child {
+  border-bottom: none;
+}
+
+.checklist input {
+  margin-top: 0.25rem;
+  width: auto;
+}
+
+.help-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.75rem 0 1rem;
+  font-size: 0.9rem;
+}
+
+.help-table th,
+.help-table td {
+  border: 1px solid #e4e8f0;
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+}
+
+.help-table th {
+  background: #f8f9fc;
+}
+
+.link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #f1f1f1;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+}

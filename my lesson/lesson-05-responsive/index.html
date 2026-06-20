@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="sn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 5 — Responsive Design</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="logo">Lesson 5 — Responsive</p>
+
+    <button
+      type="button"
+      class="menu-btn"
+      id="menu-btn"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >
+      ☰ Menu
+    </button>
+
+    <nav id="main-nav" class="nav">
+      <a href="#intro">Chii chiri</a>
+      <a href="#viewport">Viewport</a>
+      <a href="#flex">Flexbox</a>
+      <a href="#media">Media Queries</a>
+      <a href="#practice">Edza</a>
+      <a href="../index.html">My Lesson</a>
+      <a href="../../lessons.html">Full Course</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="intro" class="hero">
+      <p class="badge">Lesson 5 — Responsive Design</p>
+      <h1>Peji Inoshanda Pafoni ne Laptop</h1>
+      <p class="lead">
+        Responsive design inoita kuti webhusaiti yako ioneke zvakanaka pane
+        foni, tablet, ne desktop. Unodzidza viewport, flexbox, uye media queries.
+      </p>
+      <p class="screen-size">
+        Screen yako: <strong id="screen-width">—</strong> px
+      </p>
+    </section>
+
+    <section id="viewport" class="card">
+      <h2>1. Viewport Meta Tag</h2>
+      <p>
+        Tag iyi mu <code>&lt;head&gt;</code> inobvumira foni kuratidza peji
+        zvakanaka:
+      </p>
+      <pre class="code-block">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</pre>
+      <ul>
+        <li><strong>width=device-width</strong> — peji inotora upamhi hwefoni</li>
+        <li><strong>initial-scale=1.0</strong> — zoom pakutanga = 100%</li>
+      </ul>
+    </section>
+
+    <section id="flex" class="card">
+      <h2>2. Flexbox + flex-wrap</h2>
+      <p>
+        Cards zviri pazasi zvinongedzana mutsara pane laptop. Pafoni,
+        <code>flex-wrap: wrap</code> inoita kuti zvipinde pasi.
+      </p>
+
+      <div class="project-grid">
+        <article class="project-box">
+          <h3>🌽 Maize Project</h3>
+          <p>Kurima mbeu mukati me rainy season.</p>
+        </article>
+        <article class="project-box">
+          <h3>💻 Web Dev</h3>
+          <p>Kugadzira webhusaiti dzinoshanda pafoni.</p>
+        </article>
+        <article class="project-box">
+          <h3>🐔 Poultry</h3>
+          <p>Kurera huku ne coop yakachena.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="media" class="card">
+      <h2>3. Media Queries</h2>
+      <p>
+        CSS inochinja kana screen yakaderera. Edza: dzvanya F12 → icon yefoni
+        → shandura saizi.
+      </p>
+      <pre class="code-block">@media (max-width: 768px) {
+  .hero h1 { font-size: 1.8rem; }
+  .project-box { width: 100%; }
+}</pre>
+
+      <div class="breakpoint-demo">
+        <span class="bp bp-mobile">≤ 480px — Foni diki</span>
+        <span class="bp bp-tablet">≤ 768px — Foni / Tablet</span>
+        <span class="bp bp-desktop">&gt; 768px — Laptop / Desktop</span>
+      </div>
+    </section>
+
+    <section id="practice" class="card card-highlight">
+      <h2>4. Edza — Shandura Layout</h2>
+      <p>Dzvanya bhatani — ona layout ichichinja:</p>
+
+      <div class="practice-buttons">
+        <button type="button" class="btn" data-layout="stack">Pasi (Stack)</button>
+        <button type="button" class="btn btn-secondary" data-layout="row">Mutsara (Row)</button>
+      </div>
+
+      <div id="practice-grid" class="practice-grid">
+        <div class="practice-item">A</div>
+        <div class="practice-item">B</div>
+        <div class="practice-item">C</div>
+      </div>
+
+      <p class="tip">
+        Tip: Vhura <code>styles.css</code> uye edza <code>@media</code> rules.
+        Refresh browser kuti uone shanduko.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Lesson 5 — Responsive Design | <a href="../index.html">Back to My Lesson</a></p>
+    <p class="footer-tip">Shandura screen size mu browser (F12 → Device Toolbar)</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

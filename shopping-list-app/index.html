@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <h1>Shopping list</h1>
+        <p class="subtitle">Add items, check them off in the store, clear when you’re done.</p>
+      </header>
+
+      <form class="add-form" id="add-form" autocomplete="off">
+        <label for="item-input" class="visually-hidden">New item</label>
+        <input
+          type="text"
+          id="item-input"
+          name="item"
+          placeholder="e.g. Milk, bread, apples"
+          maxlength="120"
+        />
+        <button type="submit" class="btn btn-primary">Add</button>
+        <div class="add-image-row">
+          <label for="item-image" class="btn-attach">Photo</label>
+          <input
+            type="file"
+            id="item-image"
+            name="image"
+            class="file-input"
+            accept="image/*"
+            tabindex="-1"
+            aria-label="Optional photo for the next item"
+          />
+          <span class="file-name" id="image-file-name" aria-hidden="true"></span>
+          <div class="image-preview" id="image-preview" hidden>
+            <img id="image-preview-img" alt="" width="48" height="48" />
+            <button type="button" class="btn btn-ghost clear-image" id="clear-image" aria-label="Remove selected photo">
+              Clear
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <div class="toolbar">
+        <span class="item-count" id="item-count" aria-live="polite">0 items</span>
+        <button type="button" class="btn btn-ghost" id="clear-completed" hidden>
+          Clear checked
+        </button>
+        <button type="button" class="btn btn-ghost danger" id="clear-all" hidden>
+          Clear all
+        </button>
+      </div>
+
+      <ul class="list" id="shopping-list" aria-label="Shopping list items"></ul>
+
+      <p class="empty-state" id="empty-state">Your list is empty. Add something above.</p>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

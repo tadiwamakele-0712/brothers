@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Animal husbandry guide — cattle, goats, chickens, pigs at MY Structure farm."
+    />
+    <title>Animal Guide — MY Structure</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <p class="logo">🌾 MY Structure</p>
+
+      <button
+        type="button"
+        class="menu-btn"
+        id="menu-btn"
+        aria-expanded="false"
+        aria-controls="nav"
+      >
+        ☰ Menu
+      </button>
+
+      <nav id="nav" class="nav">
+        <a href="index.html">Home</a>
+        <a href="crops.html">Crop Guide</a>
+        <a href="#cattle">Cattle</a>
+        <a href="#goats">Goats</a>
+        <a href="#chickens">Chickens</a>
+        <a href="#pigs">Pigs</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+        🌙
+      </button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="tag">Second page — multi-page website</p>
+        <h1>Animal Husbandry Guide</h1>
+        <p class="hero-text">
+          Learn how to care for farm animals. This page uses the same
+          <code>styles.css</code> and <code>script.js</code> as the home page.
+        </p>
+        <a href="index.html" class="btn btn-outline">← Back to home</a>
+      </section>
+
+      <section id="cattle" class="card">
+        <h2>🐄 Cattle</h2>
+        <p>Cattle provide milk, meat, and manure for crops.</p>
+        <ul class="bullet-list">
+          <li><strong>Feed:</strong> Grass, hay, and clean water daily</li>
+          <li><strong>Shelter:</strong> Shade from sun, dry place in rain</li>
+          <li><strong>Health:</strong> Watch for coughing, thin body, or limping</li>
+          <li><strong>Fencing:</strong> Strong posts — cattle are heavy</li>
+        </ul>
+      </section>
+
+      <section id="goats" class="card card-green">
+        <h2>🐐 Goats</h2>
+        <p>Goats are tough and useful on small farms.</p>
+        <ul class="bullet-list">
+          <li><strong>Feed:</strong> Browse bushes, grass, and grain supplement</li>
+          <li><strong>Milk:</strong> Milk twice daily if kept for dairy</li>
+          <li><strong>Housing:</strong> Simple shed with ventilation</li>
+          <li><strong>Breeding:</strong> Plan kidding season with good pasture</li>
+        </ul>
+      </section>
+
+      <section id="chickens" class="card">
+        <h2>🐔 Chickens</h2>
+        <p>Chickens give eggs and meat quickly on a small plot.</p>
+        <ul class="bullet-list">
+          <li><strong>Coop:</strong> Dry floor, nesting boxes, predator-proof wire</li>
+          <li><strong>Feed:</strong> Grain mix, kitchen scraps, grit for digestion</li>
+          <li><strong>Water:</strong> Fresh water every day — hens drink a lot</li>
+          <li><strong>Eggs:</strong> Collect daily; store in a cool dry place</li>
+        </ul>
+      </section>
+
+      <section id="pigs" class="card">
+        <h2>🐷 Pigs</h2>
+        <p>Pigs grow fast but need strong management.</p>
+        <ul class="bullet-list">
+          <li><strong>Pen:</strong> Mud wallow optional; keep waste area separate</li>
+          <li><strong>Feed:</strong> Balanced pig feed + vegetables — not only scraps</li>
+          <li><strong>Health:</strong> Vaccinate and deworm on a schedule</li>
+          <li><strong>Fencing:</strong> Bury wire — pigs root and push fences</li>
+        </ul>
+      </section>
+
+      <section class="card card-highlight">
+        <h2>Animal health checklist</h2>
+        <p class="section-note">Weekly checks — tick when done (saved in browser):</p>
+        <ul class="checklist" id="animal-checklist">
+          <li>
+            <input type="checkbox" id="a-vaccine" />
+            <label for="a-vaccine">Vaccination / deworming up to date</label>
+          </li>
+          <li>
+            <input type="checkbox" id="a-clean" />
+            <label for="a-clean">Shelters and coops cleaned</label>
+          </li>
+          <li>
+            <input type="checkbox" id="a-injury" />
+            <label for="a-injury">Checked for injuries or parasites</label>
+          </li>
+          <li>
+            <input type="checkbox" id="a-record" />
+            <label for="a-record">Recorded births, deaths, or sales</label>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Filter animals</h2>
+        <p class="section-note">Practice buttons — show one animal type:</p>
+        <div class="filter-row">
+          <button type="button" class="filter-btn active" data-filter="all">All</button>
+          <button type="button" class="filter-btn" data-filter="cattle">Cattle</button>
+          <button type="button" class="filter-btn" data-filter="goats">Goats</button>
+          <button type="button" class="filter-btn" data-filter="chickens">Chickens</button>
+          <button type="button" class="filter-btn" data-filter="pigs">Pigs</button>
+        </div>
+        <p id="filter-message" class="info-box" style="margin-top: 1rem">
+          Showing all animals. Scroll to read each section.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="crops.html">Crops</a>
+        <a href="animals.html">Animals</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+      <p>© 2026 MY Structure — Animal Husbandry</p>
+      <p class="footer-tip">
+        You built a <strong>multi-page site</strong> — home, crops, and animals.
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

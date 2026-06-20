@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta = info about the page (not visible on screen) -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My First Website</title>
+
+    <!-- Link your CSS file (styling) -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- HEADER: top of the page -->
+    <header class="site-header">
+      <class="logo">My First Site</p>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#learn">What I Learned</a>
+        <a href="#play">Try JavaScript</a>
+      </nav>
+    </header>
+
+    <!-- HERO: main welcome area -->
+    <main>
+      <section class="hero">
+        <h1 id="greeting">Hello,Tadiwa!</h1>
+        <p class="hero-text">
+          This is a simple website built with HTML, CSS, and JavaScript.
+        </p>
+        <button type="button" id="change-greeting-btn" class="btn">
+          Change greeting
+        </button>
+      </section>
+
+      <!-- ABOUT: static content (HTML only) -->
+      <section id="about" class="card">
+        <h2>About this page</h2>
+        <p>
+          <strong>HTML</strong> builds the structure (headings, paragraphs,
+          buttons).
+        </p>
+        <p>
+          <strong>CSS</strong> makes it look nice (colors, spacing, fonts).
+        </p>
+        <p>
+          <strong>JavaScript</strong> makes it interactive (clicks, typing,
+          changing text).
+        </p>
+      </section>
+
+      <!-- LEARN: list of topics -->
+      <section id="learn" class="card">
+        <h2>What I am learning</h2>
+        <ul id="topics-list">
+          <li>HTML tags and page structure</li>
+          <li>CSS classes and basic layout</li>
+          <li>JavaScript events and the DOM</li>
+        </ul>
+        <button type="button" id="add-topic-btn" class="btn btn-secondary">
+          Add a topic (JavaScript)
+        </button>
+      </section>
+
+      <!-- PLAY: interactive area -->
+      <section id="play" class="card">
+        <h2>Try JavaScript</h2>
+
+        <label for="name-input">Type your name:</label>
+        <input
+          type="text"
+          id="name-input"
+          placeholder="e.g. Tadiwa"
+          maxlength="40"
+        />
+        <button type="button" id="say-hello-btn" class="btn">Say hello</button>
+        <p id="hello-message" class="message"></p>
+
+        <hr class="divider" />
+
+        <p>Click counter: <span id="counter">0</span></p>
+        <button type="button" id="count-btn" class="btn btn-secondary">
+          +1 click
+        </button>
+
+        <hr class="divider" />
+
+        <p>Background color:</p>
+        <button type="button" class="color-btn" data-color="#e8f4fc">
+          Light blue
+        </button>
+        <button type="button" class="color-btn" data-color="#f0fce8">
+          Light green
+        </button>
+        <button type="button" class="color-btn" data-color="#fff5e6">
+          Light orange
+        </button>
+        <button type="button" class="color-btn" data-color="#ffffff">
+          White
+        </button>
+      </section>
+    </main>
+
+    <footer>
+      <p>Made while learning web development — edit the files and refresh!</p>
+    </footer>
+
+    <!-- Script goes at the end so the HTML loads first -->
+    <script src="script.js"></script>
+  </body>
+</html>

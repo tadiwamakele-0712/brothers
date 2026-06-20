@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change background color</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+      background-color: #1a1a2e;
+      color: #eee;
+      transition: background-color 0.35s ease;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    }
+
+    button {
+      padding: 0.85rem 1.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #e94560;
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(233, 69, 96, 0.45);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(233, 69, 96, 0.55);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <h1>Click the button to change the background</h1>
+  <button type="button" id="colorBtn">Change color</button>
+
+  <script>
+    const colors = [
+      "#1a1a2e", "#16213e", "#0f3460", "#533483", "#2d4059",
+      "#3d5a80", "#354f52", "#52796f", "#bc6c25", "#606c38"
+    ];
+
+    const btn = document.getElementById("colorBtn");
+
+    btn.addEventListener("click", function () {
+      const pick = colors[Math.floor(Math.random() * colors.length)];
+      document.body.style.backgroundColor = pick;
+    });
+  </script>
+</body>
+</html>

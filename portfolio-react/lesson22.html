@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="sn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lesson 22 — Capstone Project</title>
+  <link rel="stylesheet" href="src/App.css" />
+  <link rel="stylesheet" href="src/index.css" />
+  <style>
+    .capstone-page { max-width: 720px; margin: 0 auto; padding: 32px 24px 80px; }
+    .capstone-page h1 { color: var(--accent); margin-bottom: 8px; }
+    .capstone-page h2 { color: var(--accent); margin: 28px 0 12px; font-size: 1.15rem; }
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .ideas { display: grid; gap: 12px; }
+    .idea {
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .idea:hover, .idea.selected { border-color: var(--accent); background: var(--bg-muted); }
+    .idea strong { display: block; margin-bottom: 6px; color: var(--accent); }
+    label { display: block; font-weight: 600; margin: 12px 0 6px; }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--bg-surface);
+      color: var(--text-primary);
+    }
+    .checklist { list-style: none; }
+    .checklist li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist input { width: auto; margin-top: 4px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+    .btn-row a, .btn-row button {
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-outline {
+      background: var(--bg-surface);
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+    .saved-msg { color: #2e7d32; font-weight: 600; margin-top: 10px; }
+    .graduate {
+      background: linear-gradient(135deg, var(--accent), #004499);
+      color: white;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin: 24px 0;
+    }
+    .graduate a { color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="capstone-page">
+    <a href="../lessons.html">← My Lessons</a>
+    <a href="standalone.html" style="margin-left: 16px">Portfolio</a>
+
+    <h1>Lesson 22: Capstone — Gadzira Project Yako</h1>
+    <p>Usapedza kudzidza — <strong>gadzira project yako pachako</strong> uye uise online.</p>
+
+    <div class="graduate">
+      <h2 style="margin-bottom: 8px">🚀 Final Step</h2>
+      <p>Chose idea → plan → code → deploy → add ku portfolio.</p>
+    </div>
+
+    <h2>1. Sarudza idea</h2>
+    <div class="card ideas" id="ideas">
+      <div class="idea" data-idea="expense">
+        <strong>Expense Tracker</strong>
+        Wedzera mari inobuda, ona total ne localStorage kana API.
+      </div>
+      <div class="idea" data-idea="events">
+        <strong>Event / Church App</strong>
+        List yemabasa kana events — fetch kubva API, admin delete.
+      </div>
+      <div class="idea" data-idea="study">
+        <strong>Study Buddy</strong>
+        Flashcards kana quiz — React + useState, save progress.
+      </div>
+      <div class="idea" data-idea="custom">
+        <strong>Custom</strong>
+        Nyora idea yako pasi — chero chinhu chaunoda!
+      </div>
+    </div>
+
+    <h2>2. Plan yako</h2>
+    <div class="card">
+      <label for="projectName">Zita re project</label>
+      <input id="projectName" type="text" placeholder="e.g. Tadiwa Expense App" />
+      <label for="projectDesc">Chii chinobata? (1–2 sentences)</label>
+      <textarea id="projectDesc" rows="3" placeholder="App inobatsira vanhu kuchengeta..."></textarea>
+      <label for="projectStack">Tech stack</label>
+      <select id="projectStack">
+        <option value="html">HTML + CSS + JS (simple)</option>
+        <option value="react">React + localStorage</option>
+        <option value="full">React + Express API + deploy</option>
+      </select>
+      <button type="button" class="btn-primary" id="savePlan" style="margin-top: 14px">Save plan</button>
+      <p id="saveResult" class="saved-msg"></p>
+    </div>
+
+    <h2>3. Build checklist</h2>
+    <div class="card">
+      <ul class="checklist" id="buildChecklist">
+        <li><input type="checkbox" id="b1" /><label for="b1">Git repo itsva pa GitHub</label></li>
+        <li><input type="checkbox" id="b2" /><label for="b2">HTML structure / React components</label></li>
+        <li><input type="checkbox" id="b3" /><label for="b3">Styling — responsive pa phone</label></li>
+        <li><input type="checkbox" id="b4" /><label for="b4">JavaScript logic inoshanda</label></li>
+        <li><input type="checkbox" id="b5" /><label for="b5">README.md — install &amp; screenshots</label></li>
+        <li><input type="checkbox" id="b6" /><label for="b6">Deploy (GitHub Pages kana Render)</label></li>
+        <li><input type="checkbox" id="b7" /><label for="b7">Link added ku portfolio Projects</label></li>
+      </ul>
+    </div>
+
+    <h2>4. README template</h2>
+    <div class="card">
+      <pre id="readmePreview" style="background:#1a2332;color:#e8eef4;padding:14px;border-radius:8px;overflow-x:auto;font-size:0.85rem;white-space:pre-wrap"></pre>
+      <button type="button" class="btn-outline" id="copyReadme">Copy README</button>
+    </div>
+
+    <p style="margin-top: 20px"><a href="lesson23.html">→ Lesson 23: Git Branches &amp; Pull Requests</a></p>
+
+    <div class="btn-row">
+      <a href="https://github.com/new" target="_blank" rel="noreferrer" class="btn-primary">New GitHub Repo →</a>
+      <a href="standalone.html#/projects" class="btn-outline">Portfolio Projects</a>
+      <a href="certificate.html" class="btn-outline">Certificate</a>
+    </div>
+  </div>
+
+  <script>
+    const PLAN_KEY = "lesson22-capstone-plan";
+    const CHECK_KEY = "lesson22-capstone-checklist";
+    const IDEA_KEY = "lesson22-capstone-idea";
+
+    const ideas = document.querySelectorAll(".idea");
+    const savedIdea = localStorage.getItem(IDEA_KEY);
+    if (savedIdea) {
+      ideas.forEach((el) => {
+        if (el.dataset.idea === savedIdea) el.classList.add("selected");
+      });
+    }
+
+    ideas.forEach((el) => {
+      el.addEventListener("click", () => {
+        ideas.forEach((i) => i.classList.remove("selected"));
+        el.classList.add("selected");
+        localStorage.setItem(IDEA_KEY, el.dataset.idea);
+        updateReadme();
+      });
+    });
+
+    const savedPlan = JSON.parse(localStorage.getItem(PLAN_KEY) || "null");
+    if (savedPlan) {
+      document.getElementById("projectName").value = savedPlan.name || "";
+      document.getElementById("projectDesc").value = savedPlan.desc || "";
+      document.getElementById("projectStack").value = savedPlan.stack || "react";
+    }
+
+    document.getElementById("savePlan").addEventListener("click", () => {
+      const plan = {
+        name: document.getElementById("projectName").value.trim(),
+        desc: document.getElementById("projectDesc").value.trim(),
+        stack: document.getElementById("projectStack").value,
+      };
+      localStorage.setItem(PLAN_KEY, JSON.stringify(plan));
+      document.getElementById("saveResult").textContent = "✓ Plan yachengetwa!";
+      updateReadme();
+    });
+
+    const checklist = document.getElementById("buildChecklist");
+    const savedChecks = JSON.parse(localStorage.getItem(CHECK_KEY) || "{}");
+    checklist.querySelectorAll("input[type=checkbox]").forEach((box) => {
+      if (savedChecks[box.id]) box.checked = true;
+      box.addEventListener("change", () => {
+        const state = {};
+        checklist.querySelectorAll("input[type=checkbox]").forEach((b) => {
+          state[b.id] = b.checked;
+        });
+        localStorage.setItem(CHECK_KEY, JSON.stringify(state));
+      });
+    });
+
+    function updateReadme() {
+      const name = document.getElementById("projectName").value.trim() || "My Capstone Project";
+      const desc = document.getElementById("projectDesc").value.trim() || "A web app built as Lesson 22 capstone.";
+      const stack = document.getElementById("projectStack").value;
+      const stackLine =
+        stack === "full"
+          ? "React, Express, SQLite/JSON API"
+          : stack === "react"
+            ? "React, CSS"
+            : "HTML, CSS, JavaScript";
+
+      document.getElementById("readmePreview").textContent = `# ${name}
+
+${desc}
+
+## Tech stack
+- ${stackLine}
+
+## Run locally
+\`\`\`bash
+# clone repo
+git clone https://github.com/YOUR-USER/${name.toLowerCase().replace(/\s+/g, "-")}.git
+cd project-folder
+# open index.html or: npm install && npm run dev
+\`\`\`
+
+## Live demo
+[Add your GitHub Pages or Render URL here]
+
+## Author
+Tadiwa Makele — Web Development Course (Lesson 22 Capstone)
+`;
+    }
+
+    updateReadme();
+    ["projectName", "projectDesc", "projectStack"].forEach((id) => {
+      document.getElementById(id).addEventListener("input", updateReadme);
+    });
+
+    document.getElementById("copyReadme").addEventListener("click", () => {
+      navigator.clipboard.writeText(document.getElementById("readmePreview").textContent);
+      document.getElementById("saveResult").textContent = "✓ README copied!";
+    });
+  </script>
+</body>
+</html>

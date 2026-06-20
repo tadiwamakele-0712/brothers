@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gold: #c9a227;
+  --gold-light: #e8d48b;
+  --dark: #1a1410;
+  --bg: #faf6f0;
+  --text: #2c2420;
+  --muted: #6b5e58;
+  --border: #e8e0d8;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.site-header {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--dark);
+}
+
+.back-link {
+  color: var(--gold-light);
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.back-link:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 3.5rem 1.5rem 3rem;
+  background: linear-gradient(135deg, var(--dark) 0%, #2c2420 100%);
+  color: #fff;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: system-ui, sans-serif;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-style: italic;
+  color: var(--gold-light);
+  margin-bottom: 0.35rem;
+}
+
+.hero-tagline {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-family: system-ui, sans-serif;
+  margin-bottom: 1.25rem;
+}
+
+.hero-desc {
+  max-width: 560px;
+  margin: 0 auto 2rem;
+  opacity: 0.9;
+  font-size: 1.05rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  font-family: system-ui, sans-serif;
+  font-size: 0.95rem;
+  transition: background 0.2s;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--dark);
+}
+
+.btn-primary:hover {
+  background: var(--gold-light);
+  text-decoration: none;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+  text-decoration: none;
+}
+
+.content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+
+.card p {
+  margin-bottom: 1rem;
+}
+
+.preview-frame {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(26, 20, 16, 0.15);
+}
+
+.preview-frame img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.preview-note {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-family: system-ui, sans-serif;
+}
+
+.feature-list {
+  list-style: none;
+  font-family: system-ui, sans-serif;
+}
+
+.feature-list li {
+  padding: 0.4rem 0;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.feature-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tags span {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-family: system-ui, sans-serif;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1.25rem;
+  font-family: system-ui, sans-serif;
+}
+
+.details dt {
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.details dd {
+  margin: 0;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 2rem;
+  background: var(--dark);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+}
+
+.site-footer a {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.85rem;
+  }
+
+  .details {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .details dt {
+    margin-top: 0.75rem;
+  }
+}

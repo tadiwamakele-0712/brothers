@@ -1,0 +1,212 @@
+.lessons-page {
+  background: #f4f6f8;
+  min-height: 100vh;
+}
+
+.lessons-hero {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: linear-gradient(135deg, #0066cc, #004499);
+  color: white;
+}
+
+.lessons-hero h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.lessons-hero p {
+  max-width: 560px;
+  margin: 0 auto 24px;
+  opacity: 0.95;
+}
+
+.progress-wrap {
+  max-width: 520px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.progress-bar {
+  height: 14px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #4ade80;
+  border-radius: 20px;
+  transition: width 0.4s ease;
+  width: 0%;
+}
+
+.lessons-main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+.phase-title {
+  color: #0066cc;
+  font-size: 1.3rem;
+  margin: 32px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.phase-title:first-child {
+  margin-top: 0;
+}
+
+.lessons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.lesson-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.lesson-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.lesson-card.done {
+  border-color: #4ade80;
+  background: linear-gradient(to bottom, #f0fdf4, white);
+}
+
+.lesson-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.lesson-num {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #0066cc;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.lesson-card.done .lesson-num {
+  background: #16a34a;
+}
+
+.lesson-card.done .lesson-num::after {
+  content: "✓";
+  font-size: 1rem;
+}
+
+.lesson-card.done .lesson-num {
+  font-size: 0;
+}
+
+.lesson-info h3 {
+  font-size: 1rem;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.lesson-info p {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.lesson-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.lesson-open {
+  flex: 1;
+  text-align: center;
+  padding: 10px 14px;
+  background: #0066cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+}
+
+.lesson-open:hover {
+  background: #004499;
+}
+
+.lesson-toggle {
+  padding: 10px 14px;
+  background: #eef3f8;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.lesson-toggle:hover {
+  border-color: #0066cc;
+  color: #0066cc;
+}
+
+.lessons-footer-links {
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.lessons-footer-links a {
+  color: #0066cc;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.lessons-footer-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .lessons-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .lessons-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="sn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 9 — DOM + Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="logo">Lesson 9 — Calculator</p>
+    <nav class="nav">
+      <a href="#intro">Chii chiri</a>
+      <a href="#dom">DOM</a>
+      <a href="#logic">Logic</a>
+      <a href="#demo">Edza</a>
+      <a href="../index.html">My Lesson</a>
+      <a href="../../lessons.html">Full Course</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="intro" class="hero">
+      <p class="badge">Lesson 9 — DOM + Calculator</p>
+      <h1>Gadzira Calculator ne JavaScript</h1>
+      <p class="lead">
+        Unodzidza DOM events, <code>data-*</code> attributes, logic, uye
+        kugadzira app inoverenga. Project yako iri mu
+        <code>lesson-09-calculator/calculator/</code>.
+      </p>
+      <a href="calculator/index.html" class="btn">Vhura Full Calculator →</a>
+    </section>
+
+    <section id="dom" class="card">
+      <h2>1. DOM — Bata Bhatani Zvese</h2>
+      <pre class="code-block">const display = document.getElementById("display");
+const buttons = document.querySelectorAll(".buttons button");
+
+buttons.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    const value = btn.getAttribute("data-value");
+    const action = btn.getAttribute("data-action");
+    // ...
+  });
+});</pre>
+      <ul>
+        <li><strong>querySelectorAll</strong> — tsvaga bhatani zvese (16)</li>
+        <li><strong>data-value</strong> — nhamba kana operator (+, −, ×, ÷)</li>
+        <li><strong>data-action</strong> — C, back, equals</li>
+        <li><strong>forEach</strong> — rimwe listener inobata zvese</li>
+      </ul>
+    </section>
+
+    <section id="logic" class="card">
+      <h2>2. Logic — currentValue</h2>
+      <pre class="code-block">let currentValue = "0";
+
+// Wedzera nhamba
+currentValue += "7";   // "07" kana "7"
+
+// Clear
+currentValue = "0";
+
+// Backspace
+currentValue = currentValue.slice(0, -1);
+
+// Verenga
+currentValue = calculate("7+3");  // "10"</pre>
+
+      <table class="help-table">
+        <thead>
+          <tr>
+            <th>Dzvanya</th>
+            <th>currentValue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>7</td><td>"7"</td></tr>
+          <tr><td>+</td><td>"7+"</td></tr>
+          <tr><td>3</td><td>"7+3"</td></tr>
+          <tr><td>=</td><td>"10"</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>3. calculate() — Verenga</h2>
+      <pre class="code-block">function calculate(expression) {
+  const sanitized = expression.replace(/×/g, "*").replace(/÷/g, "/");
+  const result = Function('"use strict"; return (' + sanitized + ")")();
+  return String(result);
+}</pre>
+      <p class="tip">
+        <code>×</code> ne <code>÷</code> dzinoshandurwa kuita <code>*</code> ne
+        <code>/</code> — JavaScript inonzwisisa izvi.
+      </p>
+    </section>
+
+    <section id="demo" class="card card-highlight">
+      <h2>4. Edza — Mini Calculator</h2>
+      <p>Dzvanya bhatani — ona DOM + logic ichishanda:</p>
+
+      <div class="mini-calc">
+        <div id="mini-display" class="mini-display">0</div>
+        <div class="mini-buttons">
+          <button type="button" data-action="clear">C</button>
+          <button type="button" data-action="back">←</button>
+          <button type="button" data-value="/">÷</button>
+          <button type="button" data-value="*">×</button>
+
+          <button type="button" data-value="7">7</button>
+          <button type="button" data-value="8">8</button>
+          <button type="button" data-value="9">9</button>
+          <button type="button" data-value="-">−</button>
+
+          <button type="button" data-value="4">4</button>
+          <button type="button" data-value="5">5</button>
+          <button type="button" data-value="6">6</button>
+          <button type="button" data-value="+">+</button>
+
+          <button type="button" data-value="1">1</button>
+          <button type="button" data-value="2">2</button>
+          <button type="button" data-value="3">3</button>
+          <button type="button" data-action="equals" class="equals">=</button>
+
+          <button type="button" data-value="0" class="zero">0</button>
+          <button type="button" data-value=".">.</button>
+        </div>
+      </div>
+      <p id="last-action" class="last-action" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <h2>5. Checklist — Edza</h2>
+      <ul class="checklist" id="calc-checklist">
+        <li>
+          <input type="checkbox" id="k1">
+          <label for="k1">Vhura <a href="calculator/index.html">full calculator</a></label>
+        </li>
+        <li>
+          <input type="checkbox" id="k2">
+          <label for="k2">Verenga <code>15 - 4 =</code> → mhinduro <code>11</code></label>
+        </li>
+        <li>
+          <input type="checkbox" id="k3">
+          <label for="k3">Edza C (clear) ne ← (back)</label>
+        </li>
+        <li>
+          <input type="checkbox" id="k4">
+          <label for="k4">Vhura <code>script.js</code> — ona <code>forEach</code></label>
+        </li>
+        <li>
+          <input type="checkbox" id="k5">
+          <label for="k5">Shandura title kuita "Calculator Yangu"</label>
+        </li>
+      </ul>
+      <button type="button" id="reset-checklist" class="btn btn-secondary">Reset checklist</button>
+    </section>
+
+    <section class="card">
+      <h2>Links</h2>
+      <div class="link-row">
+        <a href="calculator/index.html" class="btn">Full Calculator</a>
+        <a href="calculator/script.js" class="btn btn-secondary">script.js</a>
+        <a href="../index.html" class="btn btn-secondary">My Lesson</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Lesson 9 — DOM + Calculator | Events, logic, data attributes</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="sn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 7 — GitHub Pages Deploy</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <p class="logo">Lesson 7 — Deploy Online</p>
+    <nav class="nav">
+      <a href="#steps">Mafambiro</a>
+      <a href="#links">Links</a>
+      <a href="#update">Update</a>
+      <a href="../index.html">My Lesson</a>
+      <a href="../../lessons.html">Full Course</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="badge">Lesson 7 — GitHub Pages</p>
+      <h1>Isa Webhusaiti Yako Pa Internet</h1>
+      <p class="lead">
+        Kodhi yako iri pa GitHub. Zvino unovhura GitHub Pages kuti vanhu
+        vawane site yako pa link inogara — usina kubhadhara hosting.
+      </p>
+      <div class="url-box">
+        <p class="url-label">Link yako:</p>
+        <a
+          id="site-url"
+          href="https://tadiwamakele-0712.github.io/brothers/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="site-link"
+        >
+          https://tadiwamakele-0712.github.io/brothers/
+        </a>
+        <button type="button" id="copy-url" class="btn">Copy link</button>
+        <p id="status-msg" class="status-msg" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section id="steps" class="card">
+      <h2>Mafambiro — Vhura GitHub Pages (5 mins)</h2>
+      <ol class="steps-list">
+        <li>
+          Enda ku
+          <a href="https://github.com/tadiwamakele-0712/brothers" target="_blank" rel="noopener noreferrer">
+            repo yako pa GitHub
+          </a>
+        </li>
+        <li>Dzvanya <strong>Settings</strong> (pamusoro pe repo)</li>
+        <li>Kuruboshwe, dzvanya <strong>Pages</strong></li>
+        <li>
+          <strong>Build and deployment → Source:</strong>
+          Deploy from a branch
+        </li>
+        <li><strong>Branch:</strong> <code>main</code> → folder <code>/ (root)</code></li>
+        <li>Dzvanya <strong>Save</strong></li>
+        <li>Mirira 1–3 minutes — refresh link yako</li>
+      </ol>
+      <p class="tip">
+        Kana ukawana 404, mirira 5 minutes. GitHub inotora nguva kuita deploy yekutanga.
+      </p>
+    </section>
+
+    <section id="links" class="card card-highlight">
+      <h2>Mapeji Yako Online</h2>
+      <p>Kana Pages yavhurwa, mapeji aya anoshanda:</p>
+      <ul class="page-links">
+        <li><a href="https://tadiwamakele-0712.github.io/brothers/" target="_blank" rel="noopener noreferrer">Home — Brothers of Africa</a></li>
+        <li><a href="https://tadiwamakele-0712.github.io/brothers/lessons.html" target="_blank" rel="noopener noreferrer">My Lessons</a></li>
+        <li><a href="https://tadiwamakele-0712.github.io/brothers/my%20lesson/lesson-01-html/" target="_blank" rel="noopener noreferrer">Lesson 1 — HTML Basics</a></li>
+        <li><a href="https://tadiwamakele-0712.github.io/brothers/my%20lesson/lesson-04-javascript/" target="_blank" rel="noopener noreferrer">Lesson 4 — Quiz App</a></li>
+        <li><a href="https://tadiwamakele-0712.github.io/brothers/portfolio/index.html" target="_blank" rel="noopener noreferrer">HTML Portfolio</a></li>
+        <li><a href="https://tadiwamakele-0712.github.io/brothers/portfolio-react/standalone.html" target="_blank" rel="noopener noreferrer">React Portfolio</a></li>
+      </ul>
+    </section>
+
+    <section id="update" class="card">
+      <h2>Kana Wagadzirisa Kodhi — Update Site</h2>
+      <pre class="code-block">git add .
+git commit -m "Describe your change"
+git push</pre>
+      <p>Site inozoupdater zvakare mu 1–3 minutes.</p>
+
+      <h3>Checklist</h3>
+      <ul class="checklist" id="deploy-checklist">
+        <li>
+          <input type="checkbox" id="d1">
+          <label for="d1">Kodhi iri pa GitHub (<code>brothers</code> repo)</label>
+        </li>
+        <li>
+          <input type="checkbox" id="d2">
+          <label for="d2">GitHub Pages yavhurwa — Settings → Pages → main</label>
+        </li>
+        <li>
+          <input type="checkbox" id="d3">
+          <label for="d3">Link inoshanda — haisi 404</label>
+        </li>
+        <li>
+          <input type="checkbox" id="d4">
+          <label for="d4">Wagovera link nevamwe!</label>
+        </li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Makanganiso</h2>
+      <table class="help-table">
+        <thead>
+          <tr>
+            <th>Problem</th>
+            <th>Solution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>404 page</td>
+            <td>Mirira 5 mins; tarisa branch = <code>main</code>, folder = <code>/</code></td>
+          </tr>
+          <tr>
+            <td>CSS haishande</td>
+            <td>Shandisa relative paths (<code>style.css</code>, kwete absolute)</td>
+          </tr>
+          <tr>
+            <td>Site haina kuchinja</td>
+            <td>Hard refresh: Ctrl+Shift+R</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="link-row">
+        <a href="https://github.com/tadiwamakele-0712/brothers/settings/pages" target="_blank" rel="noopener noreferrer" class="btn">Vhura Pages Settings</a>
+        <a href="../../DEPLOY-GITHUB-PAGES.md" class="btn btn-secondary">Full Guide (MD)</a>
+        <a href="../index.html" class="btn btn-secondary">My Lesson</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Lesson 7 — GitHub Pages | Webhusaiti yako pa internet</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

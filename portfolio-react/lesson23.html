@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="sn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lesson 23 - Git Branches and Pull Requests</title>
+  <link rel="stylesheet" href="src/App.css">
+  <link rel="stylesheet" href="src/index.css">
+  <style>
+    .lesson-page { max-width: 720px; margin: 0 auto; padding: 32px 24px 80px; }
+    .lesson-page h1 { color: var(--accent); margin-bottom: 8px; }
+    .lesson-page h2 { color: var(--accent); margin: 28px 0 12px; font-size: 1.15rem; }
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .code {
+      background: #1a2332;
+      color: #e8eef4;
+      padding: 14px;
+      border-radius: 8px;
+      font-family: Consolas, monospace;
+      font-size: 0.85rem;
+      overflow-x: auto;
+      margin: 12px 0;
+      white-space: pre-wrap;
+    }
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin: 16px 0;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .flow span {
+      background: var(--bg-muted);
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+    .flow .arrow { background: none; border: none; color: var(--accent); }
+    .checklist { list-style: none; }
+    .checklist li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist input { width: auto; margin-top: 4px; }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+    .btn-row a {
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      background: var(--accent);
+      color: white;
+    }
+    .btn-row a.outline {
+      background: var(--bg-surface);
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+    .tip {
+      background: var(--bg-muted);
+      border-left: 4px solid var(--accent);
+      padding: 12px 16px;
+      margin: 12px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .command-demo {
+      display: grid;
+      gap: 8px;
+    }
+    .command-demo button {
+      justify-self: start;
+      padding: 8px 14px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    .copied { color: #2e7d32; font-weight: 600; font-size: 0.9rem; }
+    .lesson-nav a + a { margin-left: 16px; }
+    .section-spaced { margin-top: 12px; }
+    .copy-profile-btn {
+      margin-top: 8px;
+      padding: 8px 14px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .footer-spaced { margin-top: 20px; }
+    .numbered-list { margin-left: 20px; }
+  </style>
+</head>
+<body>
+  <div class="lesson-page">
+    <nav class="lesson-nav" aria-label="Lesson navigation">
+      <a href="../lessons.html">← My Lessons</a>
+      <a href="lesson22.html">Lesson 22</a>
+    </nav>
+
+    <h1>Lesson 23: Git Branches &amp; Pull Requests</h1>
+    <p>
+      Pashure pawedzera capstone, zvino dzidza <strong>professional Git workflow</strong> —
+      branches, pull requests, uye code review.
+    </p>
+
+    <h2>1. Nei branches?</h2>
+    <div class="card">
+      <p>
+        <code>main</code> branch inofanira kunge iri stable (code inoshanda).
+        New features unazviita pa <strong>branch itsva</strong> — usatyora main.
+      </p>
+      <div class="flow">
+        <span>main (stable)</span>
+        <span class="arrow">→</span>
+        <span>feature/contact-form</span>
+        <span class="arrow">→</span>
+        <span>Pull Request</span>
+        <span class="arrow">→</span>
+        <span>merge → main</span>
+      </div>
+    </div>
+
+    <h2>2. Commands (PowerShell)</h2>
+    <div class="card command-demo">
+      <div class="code" id="cmd1">git checkout -b feature/my-capstone-update</div>
+      <button type="button" data-copy="cmd1">Copy</button>
+
+      <div class="code" id="cmd2">git add .
+git commit -m "Add contact form validation"</div>
+      <button type="button" data-copy="cmd2">Copy</button>
+
+      <div class="code" id="cmd3">git push -u origin feature/my-capstone-update</div>
+      <button type="button" data-copy="cmd3">Copy</button>
+
+      <p id="copyMsg" class="copied"></p>
+    </div>
+
+    <h2>3. Open Pull Request pa GitHub</h2>
+    <div class="card">
+      <ol class="numbered-list">
+        <li>Push branch yako</li>
+        <li>GitHub inoratidza banner: <strong>Compare &amp; pull request</strong></li>
+        <li>Nyora title + description (chii chachinja?)</li>
+        <li>Create PR → review → Merge</li>
+      </ol>
+      <div class="tip">
+        PR description example: &ldquo;Added form validation and API error messages on contact page.&rdquo;
+      </div>
+      <div class="btn-row">
+        <a href="https://github.com/tadiwamakele-0712/brothers" target="_blank" rel="noopener noreferrer">brothers repo →</a>
+      </div>
+    </div>
+
+    <h2>4. Good commit messages</h2>
+    <div class="card">
+      <p><strong>✓ Good:</strong></p>
+      <div class="code">Add dark mode toggle to portfolio
+Fix API health check when server offline
+Update README with live demo link</div>
+      <p class="section-spaced"><strong>✗ Avoid:</strong></p>
+      <div class="code">fix
+update
+changes
+asdf</div>
+    </div>
+
+    <h2>5. Practice checklist</h2>
+    <div class="card">
+      <ul class="checklist" id="checklist">
+        <li><input type="checkbox" id="g1"><label for="g1">Created branch <code>feature/...</code></label></li>
+        <li><input type="checkbox" id="g2"><label for="g2">Made at least 2 commits with clear messages</label></li>
+        <li><input type="checkbox" id="g3"><label for="g3">Pushed branch to GitHub</label></li>
+        <li><input type="checkbox" id="g4"><label for="g4">Opened a Pull Request</label></li>
+        <li><input type="checkbox" id="g5"><label for="g5">Merged PR into main</label></li>
+        <li><input type="checkbox" id="g6"><label for="g6">Deleted feature branch after merge</label></li>
+      </ul>
+    </div>
+
+    <h2>6. Profile README (bonus)</h2>
+    <div class="card">
+      <p>
+        Repo <code>tadiwamakele-0712/tadiwamakele-0712</code> inoratidza pa profile yako pa GitHub.
+      </p>
+      <div class="code" id="cmdProfile"># Hi, I'm Tadiwa 👋
+
+Web developer from Zimbabwe. Building projects with HTML, React &amp; Node.js.
+
+- 🔭 Working on: [brothers](https://github.com/tadiwamakele-0712/brothers)
+- 📫 Email: tadiwamakele@gmail.com
+- 🌐 Portfolio: https://tadiwamakele-0712.github.io/brothers/</div>
+      <button type="button" class="copy-profile-btn" data-copy="cmdProfile">Copy template</button>
+    </div>
+
+    <p class="footer-spaced"><a href="lesson24.html">→ Lesson 24: Web Accessibility</a></p>
+
+    <div class="btn-row">
+      <a href="lesson22.html" class="outline">← Lesson 22 Capstone</a>
+      <a href="certificate.html">Certificate</a>
+      <a href="../lessons.html" class="outline">My Lessons</a>
+    </div>
+  </div>
+
+  <script>
+    const CHECK_KEY = "lesson23-git-checklist";
+
+    async function copyLessonText(text) {
+      const msg = document.getElementById("copyMsg");
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch {
+        const area = document.createElement("textarea");
+        area.value = text;
+        area.setAttribute("readonly", "");
+        area.style.position = "fixed";
+        area.style.left = "-9999px";
+        document.body.appendChild(area);
+        area.select();
+        document.execCommand("copy");
+        document.body.removeChild(area);
+      }
+      msg.textContent = "✓ Copied!";
+      setTimeout(() => {
+        msg.textContent = "";
+      }, 2000);
+    }
+
+    document.querySelectorAll("[data-copy]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const el = document.getElementById(btn.dataset.copy);
+        if (!el) return;
+        copyLessonText(el.textContent);
+      });
+    });
+
+    const checklist = document.getElementById("checklist");
+    const saved = JSON.parse(localStorage.getItem(CHECK_KEY) || "{}");
+    checklist.querySelectorAll("input[type=checkbox]").forEach((box) => {
+      if (saved[box.id]) box.checked = true;
+      box.addEventListener("change", () => {
+        const state = {};
+        checklist.querySelectorAll("input[type=checkbox]").forEach((b) => {
+          state[b.id] = b.checked;
+        });
+        localStorage.setItem(CHECK_KEY, JSON.stringify(state));
+      });
+    });
+  </script>
+</body>
+</html>
