@@ -4,7 +4,7 @@ YouTube music & video link page for **Joker Di Genius**.
 
 ## Live site
 
-https://tadiwamakele-0712.github.io/brothers/link-tube-store/
+https://tadiwamakele-0712.github.io/link-tube-store/
 
 ## Open locally
 
