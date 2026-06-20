@@ -1,9 +1,12 @@
-name: Deploy Joker Di Genius Store to GitHub Pages
+name: Deploy Brothers site to GitHub Pages
 
 on:
   push:
     branches: [main]
     paths:
+      - "link-tube-store/**"
+      - "street-fm-store/**"
+      - "index.html"
       - "joker-di-genius-store/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
@@ -33,7 +36,7 @@ jobs:
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
-          path: joker-di-genius-store
+          path: .
 
       - name: Deploy to GitHub Pages
         id: deployment
