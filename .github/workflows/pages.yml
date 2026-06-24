@@ -6,6 +6,7 @@ on:
     paths:
       - "link-tube-store/**"
       - "street-fm-store/**"
+      - "boa-guest-house/**"
       - "index.html"
       - "joker-di-genius-store/**"
       - ".github/workflows/pages.yml"
