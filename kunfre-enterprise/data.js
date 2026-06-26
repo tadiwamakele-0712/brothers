@@ -3,7 +3,6 @@ export const SITE = {
   legalName: "Kunfre Hardware (Pvt) Ltd",
   tagline: "Industrial Sealing · Electrical · Electronics · Instrumentation",
   motto: "Pinnacle of Reliability",
-  catalogue: "Product Catalogue 2024 – 2025",
   email: "info.kunfrepvtltd@gmail.com",
   phone1: "+263 719 333 422",
   phone2: "+263 783 249 344",
