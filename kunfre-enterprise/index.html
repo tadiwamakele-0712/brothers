@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Kunfre Enterprise — industrial sealing, fasteners, gaskets, valves, borehole services, instrumentation and security solutions across Zimbabwe. Product Catalogue 2024–2025.">
+  <meta name="theme-color" content="#0c2340">
+  <link rel="canonical" href="https://tadiwamakele-0712.github.io/brothers/kunfre-enterprise/">
+  <title>Kunfre Enterprise | Product Catalogue 2024–2025</title>
+  <link rel="icon" href="logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="logo.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="brand">
+        <img src="logo.svg" alt="" class="brand-logo" width="48" height="48">
+        <span class="brand-text">
+          <span class="brand-name">Kunfre Enterprise</span>
+          <span class="brand-sub">Industrial Supplier</span>
+        </span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#catalogue">Catalogue</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="btn btn-primary btn-header">Get a Quote</a>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" hidden aria-label="Mobile">
+      <a href="#about">About</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">Product Catalogue 2024 – 2025</span>
+      <h1>Kunfre Enterprise</h1>
+      <p class="hero-tagline">Industrial Sealing · Electrical · Electronics · Instrumentation</p>
+      <p class="hero-motto">Pinnacle of Reliability</p>
+      <p class="hero-tagline" style="font-size:0.9rem; opacity:0.8; margin-bottom:1.5rem;">
+        Webbing Tapes · Seals, Hoses &amp; Mechanical Spares · Fasteners · Gaskets · Valves · Borehole Services · Instrumentation &amp; Control · Security &amp; Pump Services
+      </p>
+      <div class="hero-actions">
+        <a href="#catalogue" class="btn btn-primary">Browse Catalogue</a>
+        <a href="#contact" class="btn btn-outline">Contact Sales</a>
+      </div>
+      <div class="hero-stats" id="hero-stats"></div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2>About Kunfre Enterprise</h2>
+        <p>A trading name of Kunfre Hardware (Pvt) Ltd</p>
+      </div>
+      <p class="about-lead">
+        Kunfre Hardware (Pvt) Ltd, trading as Kunfre Enterprise, is a registered Zimbabwean company and trusted
+        supplier of industrial-grade sealing, fastening, electrical, instrumentation, and security products. Over 5+
+        years of operation, we have built a reputation as a dependable partner to the mining, oil &amp; gas, construction,
+        agriculture, water utilities, power generation, and general manufacturing sectors across Zimbabwe. Our
+        engineers and product specialists work closely with clients to select the right solution for the most
+        demanding environments.
+      </p>
+      <div class="section-head" style="margin-top:2.5rem; margin-bottom:1.5rem;">
+        <h2>Sectors Served</h2>
+      </div>
+      <div class="sectors-grid" id="sectors-grid"></div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="catalogue">
+    <div class="container">
+      <div class="section-head">
+        <h2>Product Catalogue</h2>
+        <p>600+ product lines across 8 industrial categories — search, filter, and enquire</p>
+      </div>
+
+      <div class="catalogue-toolbar">
+        <div class="search-wrap">
+          <input type="search" id="search-input" placeholder="Search products, specs, categories…" aria-label="Search catalogue">
+        </div>
+        <div class="filter-chips" id="filter-chips"></div>
+        <p class="results-count" id="results-count"></p>
+      </div>
+
+      <div id="catalogue"></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>Get In Touch</h2>
+        <p>Technical sales &amp; project enquiries — product specs, borehole consultations, pricing &amp; delivery</p>
+      </div>
+
+      <div class="contact-grid">
+        <a href="#" class="contact-card" id="contact-email">
+          <span class="contact-icon">✉</span>
+          <span class="contact-label">Email</span>
+          <span class="contact-value"></span>
+        </a>
+        <a href="#" class="contact-card" id="contact-phone-1">
+          <span class="contact-icon">📞</span>
+          <span class="contact-label">Phone 1</span>
+          <span class="contact-value"></span>
+        </a>
+        <a href="#" class="contact-card" id="contact-phone-2">
+          <span class="contact-icon">📞</span>
+          <span class="contact-label">Phone 2</span>
+          <span class="contact-value"></span>
+        </a>
+        <a href="#" class="contact-card" id="contact-whatsapp" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon">💬</span>
+          <span class="contact-label">WhatsApp</span>
+          <span class="contact-value">Message us</span>
+        </a>
+      </div>
+
+      <form class="enquiry-form" id="enquiry-form">
+        <h3>Send an Enquiry</h3>
+        <div class="form-row">
+          <label class="field">
+            <span>Full name *</span>
+            <input type="text" name="name" required autocomplete="name" placeholder="Your name">
+          </label>
+          <label class="field">
+            <span>Phone *</span>
+            <input type="tel" name="phone" required autocomplete="tel" placeholder="+263 7XX XXX XXX">
+          </label>
+        </div>
+        <div class="form-row">
+          <label class="field">
+            <span>Email</span>
+            <input type="email" name="email" autocomplete="email" placeholder="you@email.com">
+          </label>
+          <label class="field">
+            <span>Category</span>
+            <select name="category" id="enquiry-category"></select>
+          </label>
+        </div>
+        <label class="field field-full">
+          <span>Product / Project details</span>
+          <textarea name="message" rows="4" placeholder="Describe the product, specification, or project you need…"></textarea>
+        </label>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Send via WhatsApp</button>
+        </div>
+        <p class="form-success" id="enquiry-success" hidden>Your enquiry is ready — WhatsApp will open in a new tab.</p>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-name">Kunfre Enterprise</p>
+    <p class="footer-tagline">Industrial Sealing · Electrical · Electronics · Instrumentation</p>
+    <p class="footer-legal">
+      Kunfre Enterprise is a trading name of Kunfre Hardware (Pvt) Ltd, registered in Zimbabwe.
+      Prices and specifications are subject to change without notice. All products subject to availability.
+      Third-party inspection and certified material test reports available on request.
+    </p>
+    <p class="footer-copy">© 2024–2025 Kunfre Enterprise. All Rights Reserved.</p>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
