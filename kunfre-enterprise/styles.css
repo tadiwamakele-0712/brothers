@@ -713,6 +713,21 @@ a { color: inherit; text-decoration: none; }
   margin-top: 0.5rem;
 }
 
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.footer-links a {
+  color: var(--amber);
+}
+
+.footer-links a:hover { text-decoration: underline; }
+
 .footer-credit a {
   color: var(--amber);
   text-decoration: underline;

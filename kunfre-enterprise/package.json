@@ -1,0 +1,11 @@
+{
+  "name": "kunfre-enterprise",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "profile:pdf": "node generate-pdf.mjs"
+  },
+  "dependencies": {
+    "puppeteer": "^24.0.0"
+  }
+}
