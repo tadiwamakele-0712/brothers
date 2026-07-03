@@ -62,7 +62,22 @@ a { color: inherit; text-decoration: none; }
   padding: 0.85rem 0;
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
 .brand-logo { height: 56px; width: auto; object-fit: contain; }
+
+.brand-wordmark {
+  height: 46px;
+  width: auto;
+  max-width: min(240px, 38vw);
+  object-fit: contain;
+  display: block;
+}
 
 .main-nav {
   display: flex;
@@ -1178,6 +1193,11 @@ a { color: inherit; text-decoration: none; }
   }
 
   .brand-logo { height: 44px; }
+
+  .brand-wordmark {
+    height: 34px;
+    max-width: min(180px, 42vw);
+  }
 
   .section { padding: 3.25rem 0; }
 
