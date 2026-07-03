@@ -3,9 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "profile:pdf": "node generate-pdf.mjs"
-  },
-  "dependencies": {
-    "puppeteer": "^24.0.0"
+    "profile:pdf": "node generate-pdf.mjs",
+    "images:compress": "node compress-images.mjs"
   }
 }

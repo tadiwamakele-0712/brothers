@@ -10,6 +10,10 @@
   --light: #f4f7fb;
   --light-alt: #e8edf4;
   --white: #ffffff;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --header-bg: rgba(255, 255, 255, 0.98);
+  --nav-color: #0c2340;
   --text: #1a2332;
   --muted: #5a6578;
   --shadow: 0 4px 24px rgba(12, 35, 64, 0.1);
@@ -18,6 +22,91 @@
   --radius-lg: 14px;
   --header-h: 72px;
   --kunfre-logo-bg: url("../kunfre-enterprise/kunfre-logo.jpg");
+  --logo-watermark-opacity: 0.07;
+  --logo-watermark-blend: multiply;
+}
+
+[data-theme="dark"] {
+  --light: #182436;
+  --light-alt: #2a3a50;
+  --bg: #0b1220;
+  --surface: #131d2e;
+  --header-bg: rgba(11, 18, 32, 0.98);
+  --nav-color: #e8eef6;
+  --text: #e8eef6;
+  --muted: #9aaabd;
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.45);
+  --logo-watermark-opacity: 0.1;
+  --logo-watermark-blend: lighten;
+}
+
+[data-theme="dark"] .hero-slider::after,
+[data-theme="dark"] .section::before,
+[data-theme="dark"] .features::before,
+[data-theme="dark"] .brands-section::before {
+  opacity: 0.12;
+  mix-blend-mode: lighten;
+}
+
+[data-theme="dark"] .section-head h2,
+[data-theme="dark"] .feature-card h3,
+[data-theme="dark"] .product-body h3,
+[data-theme="dark"] .capability-card h3,
+[data-theme="dark"] .about-content h2,
+[data-theme="dark"] .contact-info h2,
+[data-theme="dark"] .contact-details-card h3 {
+  color: var(--text);
+}
+
+[data-theme="dark"] .enquiry-form h3,
+[data-theme="dark"] .enquiry-form .field span,
+[data-theme="dark"] .enquiry-form .form-note {
+  color: var(--white);
+}
+
+[data-theme="dark"] .enquiry-form .field input,
+[data-theme="dark"] .enquiry-form .field select,
+[data-theme="dark"] .enquiry-form .field textarea {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+[data-theme="dark"] .enquiry-form .field input::placeholder,
+[data-theme="dark"] .enquiry-form .field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .enquiry-form .field input:focus,
+[data-theme="dark"] .enquiry-form .field select:focus,
+[data-theme="dark"] .enquiry-form .field textarea:focus {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+[data-theme="dark"] .category-tab {
+  color: var(--text);
+  background: var(--surface);
+}
+
+[data-theme="dark"] .category-tab.active {
+  background: var(--navy-light);
+  color: var(--white);
+}
+
+[data-theme="dark"] .field input:focus,
+[data-theme="dark"] .field select:focus,
+[data-theme="dark"] .field textarea:focus {
+  background: var(--bg);
+}
+
+[data-theme="dark"] .product-badge {
+  background: var(--surface);
+}
+
+[data-theme="dark"] .site-header {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 html {
@@ -29,11 +118,12 @@ html {
 
 body {
   font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-  background: var(--white);
+  background: var(--bg);
   color: var(--text);
   line-height: 1.65;
   overflow-x: hidden;
   font-size: 0.9375rem;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
 img { max-width: 100%; display: block; }
@@ -49,10 +139,11 @@ a { color: inherit; text-decoration: none; }
   position: sticky;
   top: 0;
   z-index: 200;
-  background: rgba(255, 255, 255, 0.98);
+  background: var(--header-bg);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--light-alt);
   box-shadow: 0 2px 12px rgba(12, 35, 64, 0.06);
+  transition: background 0.25s ease, border-color 0.25s ease;
 }
 
 .header-inner {
@@ -85,7 +176,7 @@ a { color: inherit; text-decoration: none; }
   margin-left: auto;
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--navy);
+  color: var(--nav-color);
 }
 
 .main-nav a {
@@ -104,23 +195,62 @@ a { color: inherit; text-decoration: none; }
   border: none;
   cursor: pointer;
   padding: 0.35rem;
-  margin-left: auto;
 }
 
 .menu-toggle span {
   display: block;
   width: 22px;
   height: 2px;
-  background: var(--navy);
+  background: var(--nav-color);
   border-radius: 2px;
 }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-left: auto;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--light-alt);
+  background: var(--surface);
+  color: var(--nav-color);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 .mobile-nav {
   display: flex;
   flex-direction: column;
   padding: 0.75rem 1rem 1rem;
   border-top: 1px solid var(--light-alt);
-  background: var(--white);
+  background: var(--surface);
 }
 
 .mobile-nav[hidden] { display: none; }
@@ -128,7 +258,7 @@ a { color: inherit; text-decoration: none; }
 .mobile-nav a {
   padding: 0.65rem 0;
   font-weight: 600;
-  color: var(--navy);
+  color: var(--nav-color);
   border-bottom: 1px solid var(--light-alt);
 }
 
@@ -393,8 +523,8 @@ a { color: inherit; text-decoration: none; }
   background-position: center center;
   background-size: min(400px, 68vw);
   background-repeat: no-repeat;
-  opacity: 0.07;
-  mix-blend-mode: multiply;
+  opacity: var(--logo-watermark-opacity);
+  mix-blend-mode: var(--logo-watermark-blend);
   pointer-events: none;
   z-index: 0;
 }
@@ -479,7 +609,7 @@ a { color: inherit; text-decoration: none; }
 
 /* Brands */
 .brands-section {
-  background: var(--white);
+  background: var(--surface);
   border-top: 1px solid var(--light-alt);
   border-bottom: 1px solid var(--light-alt);
 }
@@ -514,7 +644,7 @@ a { color: inherit; text-decoration: none; }
   min-height: 88px;
   padding: 0.85rem 0.75rem;
   margin-bottom: 0.75rem;
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--light-alt);
   border-radius: 10px;
 }
@@ -551,7 +681,7 @@ a { color: inherit; text-decoration: none; }
 .brand-cat {
   font-size: 0.68rem;
   font-weight: 600;
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--light-alt);
   color: var(--navy);
   padding: 0.2rem 0.45rem;
@@ -579,7 +709,7 @@ a { color: inherit; text-decoration: none; }
 .category-tab {
   padding: 0.45rem 0.9rem;
   border: 1px solid var(--light-alt);
-  background: var(--white);
+  background: var(--surface);
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 600;
@@ -603,7 +733,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .product-card {
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--light-alt);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -718,7 +848,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .capability-card {
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--light-alt);
   border-radius: var(--radius);
   padding: 0;
@@ -967,7 +1097,7 @@ a { color: inherit; text-decoration: none; }
 .contact-logo-wrap {
   width: 140px;
   padding: 0.75rem;
-  background: var(--white);
+  background: var(--surface);
   border-radius: var(--radius);
   border: 1px solid var(--light-alt);
   box-shadow: var(--shadow);
@@ -993,7 +1123,7 @@ a { color: inherit; text-decoration: none; }
   height: 48px;
   border-radius: 50%;
   overflow: hidden;
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--light-alt);
   box-shadow: 0 4px 12px rgba(12, 35, 64, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
@@ -1013,7 +1143,7 @@ a { color: inherit; text-decoration: none; }
 
 
 .enquiry-form {
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--light-alt);
   border-radius: var(--radius-lg);
   padding: 1.75rem;
@@ -1058,7 +1188,7 @@ a { color: inherit; text-decoration: none; }
   outline: none;
   border-color: var(--amber);
   box-shadow: 0 0 0 3px rgba(232, 163, 23, 0.2);
-  background: var(--white);
+  background: var(--surface);
 }
 
 .form-note {
@@ -1363,7 +1493,11 @@ a { color: inherit; text-decoration: none; }
   }
 
   .main-nav,
-  .header-inner > .btn { display: none; }
+  .header-actions .btn { display: none; }
+
+  .header-actions {
+    margin-left: auto;
+  }
 
   .menu-toggle { display: flex; }
 
