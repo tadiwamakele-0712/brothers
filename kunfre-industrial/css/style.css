@@ -17,6 +17,7 @@
   --radius: 10px;
   --radius-lg: 14px;
   --header-h: 72px;
+  --kunfre-logo-bg: url("../kunfre-enterprise/kunfre-logo.jpg");
 }
 
 html {
@@ -203,6 +204,21 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   overflow: hidden;
   background: var(--navy-dark);
+  isolation: isolate;
+}
+
+.hero-slider::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../kunfre-enterprise/kunfre-logo.jpg");
+  background-position: center center;
+  background-size: min(400px, 68vw);
+  background-repeat: no-repeat;
+  opacity: 0.09;
+  mix-blend-mode: lighten;
+  pointer-events: none;
+  z-index: 2;
 }
 
 .hero-track {
@@ -367,6 +383,41 @@ a { color: inherit; text-decoration: none; }
 /* Sections */
 .section { padding: 4.5rem 0; }
 .section-alt { background: var(--light); }
+
+.section,
+.features,
+.brands-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.section::before,
+.features::before,
+.brands-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../kunfre-enterprise/kunfre-logo.jpg");
+  background-position: center center;
+  background-size: min(400px, 68vw);
+  background-repeat: no-repeat;
+  opacity: 0.07;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-alt::before {
+  opacity: 0.08;
+}
+
+.section > .container,
+.features > .container,
+.brands-section > .container {
+  position: relative;
+  z-index: 1;
+}
 .section-dark { background: linear-gradient(135deg, var(--navy-dark), var(--navy)); color: var(--white); }
 
 .section-head { margin-bottom: 2.5rem; }
@@ -1156,6 +1207,22 @@ a { color: inherit; text-decoration: none; }
 
   .hero-slider {
     min-height: clamp(300px, 48vh, 520px);
+  }
+
+  .hero-slider::after {
+    background-size: min(280px, 82vw);
+    opacity: 0.07;
+  }
+
+  .section::before,
+  .features::before,
+  .brands-section::before {
+    background-size: min(280px, 82vw);
+    opacity: 0.06;
+  }
+
+  .section-alt::before {
+    opacity: 0.07;
   }
 
   .hero-content {
