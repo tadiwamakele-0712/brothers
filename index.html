@@ -10,9 +10,12 @@
 
     <header>
         <div class="logo">Brothers of Africa</div>
-        <nav>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+        <nav id="site-nav" aria-label="Main">
             <a href="#mission">Mission</a>
             <a href="#projects">Projects</a>
+            <a href="kunfre-industrial/index.html">Kunfre Enterprise</a>
+            <a href="https://tadiwamakele-0712.github.io/brothers/boa-guest-house/" target="_blank" rel="noopener noreferrer">Boa Guest House</a>
             <a href="#contact">Contact</a>
             <a href="my lesson/lesson-09-calculator/calculator/index.html">Calculator</a>
             <a href="my lesson/lesson-08-todo/todo.html">Todo App</a>
@@ -23,7 +26,6 @@
             <a href="https://tadiwamakele-0712.github.io/joker-di-genius-store/" target="_blank" rel="noopener noreferrer">Joker Di Genius</a>
             <a href="https://tadiwamakele-0712.github.io/link-tube-store/" target="_blank" rel="noopener noreferrer">Link Tube Store</a>
             <a href="https://tadiwamakele-0712.github.io/boa-portfolio/" target="_blank" rel="noopener noreferrer">B.O.A Portfolio</a>
-            <a href="https://tadiwamakele-0712.github.io/brothers/boa-guest-house/" target="_blank" rel="noopener noreferrer">Boa Guest House</a>
             <a href="lessons.html">My Lessons</a>
             <a href="MY Structure/index.html">MY Structure</a>
             <a href="portfolio/index.html">Portfolio</a>
@@ -39,7 +41,7 @@
             for a united Africa.
         </p>
         <div class="hero-buttons">
-            <a href="lessons.html" class="btn-primary">My Lessons Progress</a>
+            <a href="kunfre-industrial/index.html" class="btn-primary">Kunfre Enterprise</a>
             <a href="#projects" class="btn-secondary">Our Projects</a>
         </div>
     </section>
@@ -59,6 +61,12 @@
     <section id="projects" class="projects">
         <h2>Our Recent Projects</h2>
         <div class="project-grid">
+
+            <div class="project-box project-box-featured">
+                <h3>Kunfre Enterprise</h3>
+                <p>Industrial supplier — sealing, valves, borehole services, instrumentation, and CCTV across Zimbabwe.</p>
+                <a href="kunfre-industrial/index.html">Visit industrial site →</a>
+            </div>
 
             <div class="project-box">
                 <h3>Community Workshop</h3>
@@ -104,5 +112,24 @@
         </div>
     </footer>
 
+    <script>
+      (function () {
+        var toggle = document.getElementById("nav-toggle");
+        var nav = document.getElementById("site-nav");
+        if (!toggle || !nav) return;
+
+        toggle.addEventListener("click", function () {
+          var open = nav.classList.toggle("open");
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+
+        nav.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            nav.classList.remove("open");
+            toggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      })();
+    </script>
 </body>
 </html>

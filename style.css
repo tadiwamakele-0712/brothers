@@ -39,6 +39,33 @@ header nav a {
     transition: 0.3s ease;
 }
 
+.nav-toggle {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #333;
+    padding: 0.25rem 0.5rem;
+}
+
+.project-box a {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: #007bff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.project-box a:hover {
+    text-decoration: underline;
+}
+
+.project-box-featured {
+    border: 2px solid #007bff;
+}
+
 header nav a:hover {
     color: #007bff;
 }
@@ -162,8 +189,55 @@ footer {
 /* ==== MOBILE ==== */
 @media (max-width: 768px) {
     header {
-        padding: 20px 30px;
+        padding: 16px 20px;
+        flex-wrap: wrap;
+        gap: 0.75rem;
     }
+
+    .nav-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+    header nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 0.5rem;
+        border-top: 1px solid #eee;
+    }
+
+    header nav.open {
+        display: flex;
+    }
+
+    header nav a {
+        margin-left: 0;
+        margin: 0.35rem 0;
+        width: 100%;
+        padding: 0.35rem 0;
+    }
+
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .project-grid {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .project-box {
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
     .service-grid {
         flex-direction: column;
         align-items: center;
