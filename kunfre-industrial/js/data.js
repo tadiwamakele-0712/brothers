@@ -244,16 +244,33 @@ const SOCIAL_LINKS = [
     name: "Facebook",
     url: CONTACT.facebook,
     icon: "fd157238-7f50-4846-bdd2-2daf74874b78.jpg"
+  }
+];
+
+const CONTACT_ICONS = [
+  {
+    name: "Location",
+    url: CONTACT.maps,
+    type: "svg",
+    icon: "location"
   },
   {
-    name: "WhatsApp",
-    url: CONTACT.whatsapp,
-    icon: "bafbfdb2-0e39-48f2-acb9-c18d29663704.jpg"
+    name: "Call",
+    url: "tel:" + CONTACT.phone1,
+    type: "svg",
+    icon: "phone"
   },
   {
     name: "Email",
     url: "mailto:" + CONTACT.email,
+    type: "image",
     icon: "d5495d8f-4dab-40c2-a7e4-f398e30069bc.jpg",
     external: false
+  },
+  {
+    name: "WhatsApp",
+    url: CONTACT.whatsapp,
+    type: "image",
+    icon: "bafbfdb2-0e39-48f2-acb9-c18d29663704.jpg"
   }
 ];
