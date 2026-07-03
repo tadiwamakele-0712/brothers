@@ -1,20 +1,40 @@
-import puppeteer from "puppeteer";
-import { fileURLToPath } from "url";
-import path from "path";
+import { spawnSync } from "node:child_process";
+import { existsSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import path from "node:path";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const htmlPath = path.join(__dirname, "company-profile.html");
 const pdfPath = path.join(__dirname, "Kunfre-Enterprise-Company-Profile.pdf");
 
-const browser = await puppeteer.launch({ headless: true });
-const page = await browser.newPage();
-await page.goto(`file://${htmlPath}`, { waitUntil: "networkidle0" });
-await page.pdf({
-  path: pdfPath,
-  format: "A4",
-  printBackground: true,
-  margin: { top: "0", right: "0", bottom: "0", left: "0" },
-});
-await browser.close();
+const edgePaths = [
+  "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+  "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe",
+  process.env.PROGRAMFILES + "\\Google\\Chrome\\Application\\chrome.exe",
+  process.env["PROGRAMFILES(X86)"] + "\\Google\\Chrome\\Application\\chrome.exe",
+].filter(Boolean);
+
+const browser = edgePaths.find((p) => existsSync(p));
+if (!browser) {
+  console.error("No Edge or Chrome installation found for PDF export.");
+  process.exit(1);
+}
+
+const fileUrl = "file:///" + htmlPath.replace(/\\/g, "/");
+const result = spawnSync(
+  browser,
+  [
+    "--headless",
+    "--disable-gpu",
+    "--no-pdf-header-footer",
+    `--print-to-pdf=${pdfPath}`,
+    fileUrl,
+  ],
+  { stdio: "inherit" }
+);
+
+if (result.status !== 0) {
+  process.exit(result.status ?? 1);
+}
 
 console.log(`PDF saved: ${pdfPath}`);

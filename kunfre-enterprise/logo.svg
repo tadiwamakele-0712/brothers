@@ -1,5 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
-  <rect width="48" height="48" rx="8" fill="#0c2340"/>
-  <path d="M8 34 L16 14 L24 28 L32 10 L40 34" stroke="#e8a317" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <circle cx="24" cy="24" r="3" fill="#e8a317"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-label="Kunfre Enterprise">
+  <defs>
+    <linearGradient id="gold" x1="14" y1="12" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f5c542"/>
+      <stop offset="1" stop-color="#e8a317"/>
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="10" fill="#0c2340"/>
+  <path d="M35 9.5l2.8 1.6v3.2L35 16l-2.8-1.6v-3.2L35 9.5z" stroke="#e8a317" stroke-width="1" fill="none" opacity="0.8"/>
+  <path
+    d="M14 34V14h4v7.5l10-7.5h5l-11 8.5 11.5 13.5h-5.2l-9.3-11V34H14z"
+    fill="url(#gold)"
+  />
 </svg>
