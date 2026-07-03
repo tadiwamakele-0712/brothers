@@ -7,9 +7,12 @@ export const SITE = {
   phone1: "+263 719 333 422",
   phone2: "+263 783 249 344",
   website: "www.kunfre.com",
-  location: "Zimbabwe (Head Office – details on website)",
+  location: "32065 Mabvazuva, Ruwa, Harare, Zimbabwe",
+  address: "32065 Mabvazuva, Ruwa, Harare, Zimbabwe",
   hours: "Monday – Friday: 08:00 – 17:00",
   whatsapp: "https://wa.me/263719333422",
+  instagram: "https://www.instagram.com/kunfre_tek_?igsh=aG1iZ2VxdDMxa3hi",
+  facebook: "https://www.facebook.com/profile.php?id=100083140241518",
 };
 
 export const STATS = [
