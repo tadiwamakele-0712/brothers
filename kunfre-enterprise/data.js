@@ -19,7 +19,7 @@ export const STATS = [
   { value: "5+", label: "Years of Operation" },
   { value: "600+", label: "Product Lines" },
   { value: "ISO-Aligned", label: "Quality Standards" },
-  { value: "Pan-Zimbabwe", label: "Coverage" },
+  { value: "Pan African and Asia", label: "Coverage" },
 ];
 
 export const SECTORS = [

@@ -153,6 +153,98 @@
     slideTimer = setInterval(() => goToSlide(slideIndex + 1), 5500);
   }
 
+  const galleryDialog = document.getElementById("gallery-lightbox");
+  const galleryImg = document.getElementById("gallery-lightbox-img");
+  const galleryCaption = document.getElementById("gallery-lightbox-caption");
+  const galleryCount = document.getElementById("gallery-lightbox-count");
+  const galleryPrev = document.getElementById("gallery-lightbox-prev");
+  const galleryNext = document.getElementById("gallery-lightbox-next");
+  let galleryList = [];
+  let galleryIdx = 0;
+  let galleryName = "";
+
+  function getCategoryImages(cat) {
+    const seen = new Set();
+    const files = [];
+    [cat.image].concat(cat.gallery || []).forEach((file) => {
+      if (file && !seen.has(file)) {
+        seen.add(file);
+        files.push(file);
+      }
+    });
+    return files;
+  }
+
+  function updateGalleryView() {
+    if (!galleryList.length || !galleryImg) return;
+    galleryImg.src = picUrl(galleryList[galleryIdx]);
+    galleryImg.alt = galleryName;
+    if (galleryCaption) galleryCaption.textContent = galleryName;
+    if (galleryCount) galleryCount.textContent = galleryIdx + 1 + " / " + galleryList.length;
+    if (galleryPrev) galleryPrev.disabled = galleryList.length <= 1;
+    if (galleryNext) galleryNext.disabled = galleryList.length <= 1;
+  }
+
+  function openGallery(catId, index) {
+    const cat = CATEGORIES.find((c) => c.id === catId);
+    if (!cat || !galleryDialog) return;
+    galleryList = getCategoryImages(cat);
+    if (!galleryList.length) return;
+    galleryName = cat.name;
+    galleryIdx = Math.max(0, Math.min(index, galleryList.length - 1));
+    updateGalleryView();
+    galleryDialog.showModal();
+  }
+
+  function stepGallery(delta) {
+    if (!galleryList.length) return;
+    galleryIdx = (galleryIdx + delta + galleryList.length) % galleryList.length;
+    updateGalleryView();
+  }
+
+  function setupGalleryLightbox() {
+    if (!galleryDialog) return;
+
+    document.getElementById("gallery-lightbox-close").addEventListener("click", () => galleryDialog.close());
+
+    if (galleryPrev) {
+      galleryPrev.addEventListener("click", (e) => {
+        e.stopPropagation();
+        stepGallery(-1);
+      });
+    }
+
+    if (galleryNext) {
+      galleryNext.addEventListener("click", (e) => {
+        e.stopPropagation();
+        stepGallery(1);
+      });
+    }
+
+    galleryDialog.addEventListener("click", (e) => {
+      if (e.target === galleryDialog) galleryDialog.close();
+    });
+
+    galleryDialog.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        stepGallery(-1);
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        stepGallery(1);
+      }
+    });
+
+    function handleGalleryClick(e) {
+      const btn = e.target.closest("[data-gallery-cat]");
+      if (!btn) return;
+      openGallery(btn.dataset.galleryCat, parseInt(btn.dataset.galleryIndex, 10) || 0);
+    }
+
+    productGrid.addEventListener("click", handleGalleryClick);
+    capabilitiesGrid.addEventListener("click", handleGalleryClick);
+  }
+
   document.getElementById("hero-prev").addEventListener("click", () => {
     goToSlide(slideIndex - 1);
     startSlider();
@@ -168,17 +260,46 @@
     const list = filter === "all" ? CATEGORIES : CATEGORIES.filter((c) => c.id === filter);
 
     list.forEach((cat) => {
-      const galleryHtml = (cat.gallery || [])
-        .slice(0, 4)
-        .map((file) => '<img src="' + picUrl(file) + '" alt="" loading="lazy">')
-        .join("");
+      const images = getCategoryImages(cat);
+      const galleryHtml =
+        images.length > 1
+          ? images
+              .map(
+                (file, idx) =>
+                  '<button type="button" class="gallery-thumb" data-gallery-cat="' +
+                  cat.id +
+                  '" data-gallery-index="' +
+                  idx +
+                  '" aria-label="View ' +
+                  cat.name +
+                  " photo " +
+                  (idx + 1) +
+                  '">' +
+                  '<img src="' +
+                  picUrl(file) +
+                  '" alt="" loading="lazy">' +
+                  "</button>"
+              )
+              .join("")
+          : "";
 
       const card = document.createElement("article");
       card.className = "product-card";
       card.innerHTML =
         '<div class="product-image">' +
-        '<img src="' + picUrl(cat.image) + '" alt="' + cat.name + '" loading="lazy">' +
+        '<button type="button" class="gallery-open" data-gallery-cat="' +
+        cat.id +
+        '" data-gallery-index="0" aria-label="Open ' +
+        cat.name +
+        ' gallery">' +
+        '<img src="' +
+        picUrl(cat.image) +
+        '" alt="' +
+        cat.name +
+        '" loading="lazy">' +
+        "</button>" +
         '<span class="product-badge"><img src="' + KUNFRE_LOGO + '" alt="Kunfre" width="28" height="28"></span>' +
+        (images.length > 1 ? '<span class="gallery-hint" aria-hidden="true">View gallery</span>' : "") +
         "</div>" +
         (galleryHtml ? '<div class="product-gallery">' + galleryHtml + "</div>" : "") +
         '<div class="product-body">' +
@@ -260,7 +381,17 @@
       const item = document.createElement("article");
       item.className = "capability-card";
       item.innerHTML =
-        '<div class="capability-thumb"><img src="' + picUrl(cat.image) + '" alt="' + cat.name + '" loading="lazy"></div>' +
+        '<button type="button" class="capability-thumb gallery-open" data-gallery-cat="' +
+        cat.id +
+        '" data-gallery-index="0" aria-label="View ' +
+        cat.name +
+        ' photos">' +
+        '<img src="' +
+        picUrl(cat.image) +
+        '" alt="' +
+        cat.name +
+        '" loading="lazy">' +
+        "</button>" +
         '<span class="cap-num">' + String(i + 1).padStart(2, "0") + "</span>" +
         "<h3>" + cat.name + "</h3>" +
         "<p>" + cat.description + "</p>";
@@ -337,6 +468,7 @@
 
   buildHeroSlides();
   setupThemeToggle();
+  setupGalleryLightbox();
   buildFooterContactIcons();
   buildSocialLinks();
   buildBrands();
