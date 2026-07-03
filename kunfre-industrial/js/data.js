@@ -25,8 +25,8 @@ const CATEGORIES = [
     name: "Seals, Hoses & Spares",
     label: "Plant Maintenance",
     heroTitle: "Industrial Seals, Hoses & Mechanical Spares",
-    heroDesc: "Sealing, belting, hose and mechanical spares for process and plant maintenance in demanding environments.",
-    description: "Sealing, belting, hose & mechanical spares for process & plant maintenance.",
+    heroDesc: "Sealing, belting, hose and mechanical spares for process and plant maintenance in demanding environments. Fluid Integrity, Asset Lifecycle Extension, Critical Tolerance, Operational Continuity, Zero-Leak Seals.",
+    description: "Sealing, belting, hose & mechanical spares for process & plant maintenance. Fluid Integrity, Asset Lifecycle Extension, Critical Tolerance, Operational Continuity, Zero-Leak Seals.",
     image: "hydraulic hose, fittings& spares.jpg",
     gallery: [
       "mining hose.jpg",
@@ -53,19 +53,24 @@ const CATEGORIES = [
   },
   {
     id: "gaskets",
-    name: "Gaskets",
+    name: "Gaskets and Bearings",
     label: "Zero Leakage",
-    heroTitle: "Engineered Gaskets",
-    heroDesc: "Engineered sealing gaskets for piping, flanges and pressure systems across mining and process industries.",
-    description: "Engineered sealing gaskets for piping, flanges & pressure systems.",
-    image: "spiral wound gasket.jpg",
+    heroTitle: "Gaskets and Bearings",
+    heroDesc: "Engineered gaskets and bearings for piping, flanges, rotating equipment and pressure systems across mining and process industries.",
+    description: "Engineered gaskets and bearings for piping, flanges, rotating equipment & pressure systems.",
+    image: "deep groove ball bearing.jpg",
     gallery: [
+      "deep groove ball bearing.jpg",
+      "cylindrical roller bearing.jpg",
+      "spiral wound gasket.jpg",
       "rubber gasket.jpg",
       "graphite gasket.jpg",
-      "envelope gasket.jpg",
-      "flat gasket.jpg"
+      "spherical roller bearing.jpg",
+      "tapered roller bearing.jpg",
+      "thrust roller bearing.jpg",
+      "envelope gasket.jpg"
     ],
-    services: ["Spiral-wound gaskets", "Ring joint gaskets", "Sheet gaskets", "Custom flange seals"]
+    services: ["Spiral-wound gaskets", "Ring joint gaskets", "Ball & roller bearings", "Custom flange seals"]
   },
   {
     id: "valves",
@@ -85,11 +90,11 @@ const CATEGORIES = [
   },
   {
     id: "borehole",
-    name: "Borehole Services",
+    name: "Borehole and Pump Services",
     label: "Water Solutions",
-    heroTitle: "Borehole Installation Services",
-    heroDesc: "Complete water solutions for Zimbabwe's agriculture, industry and communities — survey to pump supply.",
-    description: "Complete water solutions for Zimbabwe's agriculture, industry & communities.",
+    heroTitle: "Borehole and Pump Services",
+    heroDesc: "Complete borehole and pump services for Zimbabwe's agriculture, industry and communities — survey to pump supply and installation.",
+    description: "Complete borehole and pump services for Zimbabwe's agriculture, industry & communities.",
     image: "borehole installation.jpg",
     gallery: [
       "borehole pumps.jpg",
@@ -99,34 +104,33 @@ const CATEGORIES = [
   },
   {
     id: "instrumentation",
-    name: "Instrumentation",
+    name: "Electrical, Instrumentation and Solar",
     label: "Process Control",
-    heroTitle: "Instrumentation & Control",
-    heroDesc: "Process instrumentation, drives and control consumables for accurate process control and automation.",
-    description: "Process instrumentation, drives & control consumables for accurate process control.",
-    image: "plant visit and ins.jpg",
+    heroTitle: "Electrical, Instrumentation and Solar",
+    heroDesc: "Electrical, instrumentation and solar solutions — drives, process sensors, panel meters, solar installation, and control consumables for accurate process control and automation. Process Optimization, System Integration, Calibration Precision, System Resilience, Commissioning Excellence.",
+    description: "Electrical, instrumentation & solar — drives, process sensors, panel meters, solar systems & control consumables for accurate process control. Process Optimization, System Integration, Calibration Precision, System Resilience, Commissioning Excellence.",
+    image: "solar installation.jpg",
     gallery: [
-      "deep groove ball bearing.jpg",
-      "cylindrical roller bearing.jpg",
-      "spherical roller bearing.jpg",
-      "tapered roller bearing.jpg"
+      "solar installation.jpg",
+      "solar installation (2).jpg",
+      "plant visit and ins.jpg"
     ],
-    services: ["VSD drives", "Process sensors", "Panel meters", "Field consumables"]
+    services: ["VSD drives", "Process sensors", "Solar installation", "Panel meters", "Field consumables"]
   },
   {
     id: "security",
-    name: "Security & Pumps",
+    name: "Security and CCTV",
     label: "Field Services",
-    heroTitle: "Security, Automation & Pump Services",
-    heroDesc: "CCTV, access automation and pump field services for industrial and residential sites across Zimbabwe.",
-    description: "CCTV, access automation & pump field services for industrial and residential sites.",
-    image: "solar installation.jpg",
+    heroTitle: "Security and CCTV",
+    heroDesc: "CCTV, access automation and security systems for industrial and residential sites across Zimbabwe. Asset Protection, Perimeter Integrity, Proactive Security Infrastructure, Risk Mitigation, Real-Time Surveillance.",
+    description: "CCTV, access automation & security systems for industrial and residential sites. Asset Protection, Perimeter Integrity, Proactive Security Infrastructure, Risk Mitigation, Real-Time Surveillance.",
+    image: "99cc0c95-318a-44b3-948e-34ff5fef7960.jpg",
     gallery: [
-      "metal fabrication.jpg",
-      "pneumatic hose,fitting & spares.jpg",
-      "felt engineers and hoses.jpg"
+      "99cc0c95-318a-44b3-948e-34ff5fef7960.jpg",
+      "28028016-7501-445d-8023-dd46563d968c.jpg",
+      "fd0d468e-583f-43b7-86e4-8376b46fb319.jpg"
     ],
-    services: ["CCTV systems", "Gate motors & intercoms", "Pump repair services", "Access automation"]
+    services: ["CCTV systems", "Gate motors & intercoms", "Access automation", "Alarm & perimeter security"]
   }
 ];
 
@@ -137,7 +141,7 @@ const BRANDS = [
     tagline: "Bearings & Seals",
     logo: "6cf65404-71f4-4fcd-91fc-65e3c1d1b7ee.jpg",
     description: "Premium bearings, seals, lubrication systems and condition monitoring for mining, processing and manufacturing plant.",
-    categories: ["Seals, Hoses & Spares", "Instrumentation", "Fasteners"],
+    categories: ["Seals, Hoses & Spares", "Electrical, Instrumentation and Solar", "Fasteners"],
     color: "#005aaa"
   },
   {
@@ -146,7 +150,7 @@ const BRANDS = [
     tagline: "Sealing Solutions",
     logo: "8778f40e-2f98-4313-a114-9eb1fcc8d767.jpg",
     description: "Engineered sealing, hose, gasket and polymer solutions for harsh industrial, mining and hydraulic applications.",
-    categories: ["Gaskets", "Seals, Hoses & Spares", "Industrial Valves"],
+    categories: ["Gaskets and Bearings", "Seals, Hoses & Spares", "Industrial Valves"],
     color: "#003865"
   },
   {
@@ -155,7 +159,7 @@ const BRANDS = [
     tagline: "Oil Seals & O-Rings",
     logo: "b3514d9c-0205-4151-8208-8df5900e216b.jpg",
     description: "Japanese-quality oil seals, O-rings, packings and rubber sealing components for pumps, gearboxes and hydraulic systems.",
-    categories: ["Gaskets", "Seals, Hoses & Spares"],
+    categories: ["Gaskets and Bearings", "Seals, Hoses & Spares"],
     color: "#c8102e"
   },
   {
@@ -173,7 +177,7 @@ const BRANDS = [
     tagline: "Industrial Grade",
     logo: "58ee30fb-90b8-49e9-a721-73ebec9ebe74.jpg",
     description: "Hilite industrial tapes, sealing materials and specialty products for construction, mining and utility projects.",
-    categories: ["Webbing Tapes", "Gaskets", "Seals, Hoses & Spares"],
+    categories: ["Webbing Tapes", "Gaskets and Bearings", "Seals, Hoses & Spares"],
     color: "#1f5c4f"
   }
 ];
@@ -190,7 +194,7 @@ const SECTORS = [
 const VALUES = [
   "Quality & Traceability",
   "Technical Expertise",
-  "Pan-Zimbabwe Reach",
+  "Pan African and Asia Reach",
   "Reliability & Integrity",
   "Client-Focused Solutions",
   "Industry Excellence"
@@ -203,23 +207,23 @@ const KEY_SERVICES = [
   },
   {
     title: "Seals, Hoses & Mechanical Spares",
-    text: "PTFE tape, hydraulic and mining hose, bearings, packings, and rubber sheeting for plant maintenance."
+    text: "PTFE tape, hydraulic and mining hose, bearings, packings, and rubber sheeting for plant maintenance. Fluid Integrity, Asset Lifecycle Extension, Critical Tolerance, Operational Continuity, Zero-Leak Seals."
   },
   {
-    title: "Borehole & Water Solutions",
+    title: "Borehole and Pump Services",
     text: "End-to-end borehole survey, drilling, pump supply, rising mains, and rehabilitation across Zimbabwe."
   },
   {
-    title: "Instrumentation & Control",
-    text: "VSD drives, process sensors, panel meters, and field consumables for accurate process control."
+    title: "Electrical, Instrumentation and Solar",
+    text: "VSD drives, process sensors, solar installation, panel meters, and field consumables for accurate electrical and instrumentation process control. Process Optimization, System Integration, Calibration Precision, System Resilience, Commissioning Excellence."
   },
   {
-    title: "Security & Automation",
-    text: "CCTV systems, gate motors, intercoms, and pump repair services for industrial and residential sites."
+    title: "Security and CCTV",
+    text: "CCTV systems, gate motors, intercoms, and access automation for industrial and residential sites. Asset Protection, Perimeter Integrity, Proactive Security Infrastructure, Risk Mitigation, Real-Time Surveillance."
   },
   {
-    title: "Valves & Gaskets",
-    text: "Gate, ball, butterfly, and check valves plus spiral-wound, ring joint, and sheet gaskets."
+    title: "Valves, Gaskets and Bearings",
+    text: "Gate, ball, butterfly, and check valves plus spiral-wound, ring joint, and sheet gaskets, and industrial bearings."
   }
 ];
 
