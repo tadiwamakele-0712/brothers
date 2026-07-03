@@ -151,13 +151,16 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   gap: 1.5rem;
   padding: 0.85rem 0;
+  min-width: 0;
 }
 
 .brand {
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  flex-shrink: 0;
+  flex-shrink: 1;
+  min-width: 0;
+  max-width: calc(100% - 6.5rem);
 }
 
 .brand-logo { height: 56px; width: auto; object-fit: contain; }
@@ -1435,9 +1438,28 @@ a { color: inherit; text-decoration: none; }
 
   .brand-logo { height: 44px; }
 
+  .brand {
+    gap: 0.45rem;
+    max-width: calc(100% - 5.75rem);
+  }
+
   .brand-wordmark {
-    height: 34px;
-    max-width: min(180px, 42vw);
+    height: 32px;
+    max-width: min(150px, 34vw);
+  }
+
+  .header-inner {
+    gap: 0.75rem;
+  }
+
+  .header-actions {
+    gap: 0.45rem;
+    flex-shrink: 0;
+  }
+
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
   }
 
   .section { padding: 3.25rem 0; }
@@ -1609,6 +1631,18 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 480px) {
   html { font-size: 14px; }
+
+  .brand-wordmark {
+    display: none;
+  }
+
+  .brand {
+    max-width: calc(100% - 5.25rem);
+  }
+
+  .brand-logo {
+    height: 40px;
+  }
 
   .stats-grid { grid-template-columns: 1fr; }
 
