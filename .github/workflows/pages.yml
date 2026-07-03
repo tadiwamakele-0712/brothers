@@ -8,6 +8,7 @@ on:
       - "street-fm-store/**"
       - "boa-guest-house/**"
       - "kunfre-enterprise/**"
+      - "kunfre-industrial/**"
       - "index.html"
       - "joker-di-genius-store/**"
       - ".github/workflows/pages.yml"

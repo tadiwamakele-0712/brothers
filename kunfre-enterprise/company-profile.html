@@ -6,11 +6,14 @@
   <style>
     @page { size: A4; margin: 0; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: #1a2332;
       line-height: 1.55;
       background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
 
     .page {
@@ -36,10 +39,17 @@
       min-height: 297mm;
     }
 
+    .cover > * {
+      text-shadow: 0 1px 12px rgba(7, 21, 37, 0.45);
+    }
+
     .cover-logo {
-      width: 72px;
-      height: 72px;
+      text-shadow: none;
+      width: min(360px, 92%);
+      height: auto;
       margin-bottom: 28px;
+      background: transparent;
+      padding: 0;
     }
 
     .cover-badge {
@@ -283,6 +293,8 @@
       border-radius: 12px;
       padding: 22px 24px;
       margin-top: 10px;
+      position: relative;
+      overflow: hidden;
     }
 
     .contact-box h3 {
@@ -339,7 +351,7 @@
 
   <!-- PAGE 1: COVER -->
   <div class="page cover">
-    <img src="logo.svg" alt="" class="cover-logo" width="72" height="72">
+    <img src="logo-full.svg" alt="Kunfre Enterprise" class="cover-logo" width="360" height="82">
     <div class="cover-badge">Company Profile 2026</div>
     <h1>Kunfre<br>Enterprise</h1>
     <p class="legal-name">A trading name of Kunfre Hardware (Pvt) Ltd</p>
@@ -354,9 +366,12 @@
     </div>
 
     <div class="cover-meta">
+      <p><strong>Address:</strong> 32065 Mabvazuva, Ruwa, Harare, Zimbabwe</p>
       <p><strong>Email:</strong> info.kunfrepvtltd@gmail.com</p>
       <p><strong>Phone:</strong> +263 719 333 422 · +263 783 249 344</p>
       <p><strong>Website:</strong> www.kunfre.com</p>
+      <p><strong>Instagram:</strong> @kunfre_tek_</p>
+      <p><strong>Facebook:</strong> Kunfre Enterprise</p>
       <p><strong>Hours:</strong> Monday – Friday, 08:00 – 17:00</p>
     </div>
   </div>
@@ -381,7 +396,7 @@
     <div class="overview-box">
       <p><strong>Legal name:</strong> Kunfre Hardware (Pvt) Ltd</p>
       <p><strong>Trading as:</strong> Kunfre Enterprise</p>
-      <p><strong>Location:</strong> Zimbabwe (Head Office)</p>
+      <p><strong>Location:</strong> 32065 Mabvazuva, Ruwa, Harare, Zimbabwe</p>
       <p><strong>Registration:</strong> Registered Zimbabwean company</p>
     </div>
 
@@ -526,10 +541,13 @@
     <div class="contact-box">
       <h3>Kunfre Enterprise</h3>
       <p><strong>Legal Entity:</strong> Kunfre Hardware (Pvt) Ltd</p>
+      <p><strong>Address:</strong> 32065 Mabvazuva, Ruwa, Harare, Zimbabwe</p>
       <p><strong>Email:</strong> info.kunfrepvtltd@gmail.com</p>
       <p><strong>Phone:</strong> +263 719 333 422 · +263 783 249 344</p>
       <p><strong>WhatsApp:</strong> +263 719 333 422</p>
       <p><strong>Website:</strong> www.kunfre.com</p>
+      <p><strong>Instagram:</strong> @kunfre_tek_</p>
+      <p><strong>Facebook:</strong> Kunfre Enterprise</p>
       <p><strong>Hours:</strong> Monday – Friday, 08:00 – 17:00</p>
       <p><strong>Focus:</strong> Industrial Sealing · Fasteners · Valves · Borehole Services · Instrumentation · Security</p>
     </div>
