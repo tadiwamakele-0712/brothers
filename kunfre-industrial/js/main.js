@@ -17,6 +17,33 @@
   const formCategory = document.getElementById("form-category");
   const menuToggle = document.getElementById("menu-toggle");
   const mobileNav = document.getElementById("mobile-nav");
+  const themeToggle = document.getElementById("theme-toggle");
+
+  function setupThemeToggle() {
+    if (!themeToggle) return;
+
+    const root = document.documentElement;
+    const meta = document.getElementById("theme-color-meta");
+
+    function applyTheme(theme) {
+      const isDark = theme === "dark";
+      if (isDark) {
+        root.setAttribute("data-theme", "dark");
+        if (meta) meta.content = "#0b1220";
+        themeToggle.setAttribute("aria-label", "Switch to light mode");
+      } else {
+        root.removeAttribute("data-theme");
+        if (meta) meta.content = "#0c2340";
+        themeToggle.setAttribute("aria-label", "Switch to dark mode");
+      }
+      localStorage.setItem("kunfre-theme", theme);
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const isDark = root.getAttribute("data-theme") === "dark";
+      applyTheme(isDark ? "light" : "dark");
+    });
+  }
 
   let slideIndex = 0;
   let slideTimer;
@@ -301,6 +328,7 @@
   });
 
   buildHeroSlides();
+  setupThemeToggle();
   buildFooterContactIcons();
   buildSocialLinks();
   buildBrands();
