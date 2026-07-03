@@ -19,7 +19,12 @@
   --header-h: 72px;
 }
 
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-size: 16px;
+}
 
 body {
   font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -27,6 +32,7 @@ body {
   color: var(--text);
   line-height: 1.65;
   overflow-x: hidden;
+  font-size: 0.9375rem;
 }
 
 img { max-width: 100%; display: block; }
@@ -192,7 +198,7 @@ a { color: inherit; text-decoration: none; }
 /* Hero slider — Bestec-style */
 .hero-slider {
   position: relative;
-  min-height: clamp(420px, 72vh, 620px);
+  min-height: clamp(360px, 58vh, 620px);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -256,7 +262,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero-content h1 {
-  font-size: clamp(1.85rem, 4.5vw, 2.75rem);
+  font-size: clamp(1.5rem, 2.2vw + 0.9rem, 2.25rem);
   line-height: 1.15;
   font-weight: 800;
   margin-bottom: 1rem;
@@ -264,7 +270,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero-desc {
-  font-size: 1.05rem;
+  font-size: 0.9375rem;
   opacity: 0.95;
   margin-bottom: 1.75rem;
   max-width: 520px;
@@ -378,7 +384,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .section-head h2 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.35rem, 1.5vw + 0.85rem, 1.85rem);
   color: var(--navy);
   margin-bottom: 0.65rem;
   font-weight: 800;
@@ -806,6 +812,21 @@ a { color: inherit; text-decoration: none; }
   align-items: start;
 }
 
+.contact-info h2 {
+  font-size: clamp(1.35rem, 1.5vw + 0.85rem, 1.85rem);
+  color: var(--navy);
+  font-weight: 800;
+  margin-bottom: 0.65rem;
+  line-height: 1.2;
+}
+
+.contact-info > p:not(.eyebrow) {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 0.25rem;
+}
+
 .contact-details-card {
   background: linear-gradient(145deg, #0f1c2b 0%, #1a2d42 55%, #163a5f 100%);
   border-radius: var(--radius-lg);
@@ -817,7 +838,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .contact-details-card h3 {
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: 1.35rem;
   color: var(--white);
@@ -878,18 +899,18 @@ a { color: inherit; text-decoration: none; }
   font-weight: 600;
   color: var(--white);
   margin-bottom: 0.2rem;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
 }
 
 .contact-detail-text {
   color: rgba(255, 255, 255, 0.72);
-  font-size: 0.92rem;
-  line-height: 1.55;
+  font-size: 0.875rem;
+  line-height: 1.5;
   padding-top: 0.15rem;
 }
 
 .contact-detail-item-plain .contact-detail-text {
-  padding-top: 0.85rem;
+  padding-top: 0.7rem;
 }
 
 .contact-detail-text a {
@@ -1123,6 +1144,122 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 768px) {
+  html { font-size: 15px; }
+
+  .container {
+    width: min(1200px, 100% - 1.25rem);
+  }
+
+  .brand-logo { height: 44px; }
+
+  .section { padding: 3.25rem 0; }
+
+  .hero-slider {
+    min-height: clamp(300px, 48vh, 520px);
+  }
+
+  .hero-content {
+    margin: 2rem 0 3.5rem;
+    padding: 1.35rem 1.15rem 1.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.45rem;
+  }
+
+  .hero-desc {
+    font-size: 0.875rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-actions .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.8125rem;
+  }
+
+  .section-head h2 {
+    font-size: 1.35rem;
+  }
+
+  .stat-item strong {
+    font-size: 1.2rem;
+  }
+
+  .about-lead {
+    font-size: 0.9375rem;
+  }
+
+  .contact-details-card {
+    padding: 1.25rem 1rem 1rem;
+    margin-top: 1rem;
+  }
+
+  .contact-details-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .contact-info h2 {
+    font-size: 1.25rem;
+  }
+
+  .contact-info > p:not(.eyebrow) {
+    font-size: 0.8125rem;
+  }
+
+  .contact-detail-item {
+    gap: 0.75rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .contact-detail-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+  }
+
+  .contact-detail-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .contact-detail-label {
+    font-size: 0.8125rem;
+  }
+
+  .contact-detail-text {
+    font-size: 0.8125rem;
+  }
+
+  .contact-detail-item-plain .contact-detail-text {
+    padding-top: 0.55rem;
+  }
+
+  .contact-logo-wrap {
+    width: 110px;
+    margin-top: 1rem;
+  }
+
+  .enquiry-form {
+    padding: 1.25rem;
+  }
+
+  .enquiry-form h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .field span {
+    font-size: 0.75rem;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font-size: 0.875rem;
+    padding: 0.55rem 0.75rem;
+  }
+
   .main-nav,
   .header-inner > .btn { display: none; }
 
@@ -1144,9 +1281,39 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 480px) {
+  html { font-size: 14px; }
+
   .stats-grid { grid-template-columns: 1fr; }
+
   .hero-content {
-    margin: 3rem 0 4.5rem;
-    padding: 1.35rem 1.25rem 1.5rem;
+    margin: 1.5rem 0 3rem;
+    padding: 1.1rem 1rem 1.25rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.3rem;
+  }
+
+  .hero-desc {
+    font-size: 0.8125rem;
+  }
+
+  .contact-info h2 {
+    font-size: 1.15rem;
+  }
+
+  .contact-detail-icon {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  .contact-detail-text,
+  .contact-detail-label {
+    font-size: 0.75rem;
+  }
+
+  .top-bar {
+    font-size: 0.7rem;
   }
 }
