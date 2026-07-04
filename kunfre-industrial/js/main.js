@@ -236,6 +236,7 @@
     });
 
     function handleGalleryClick(e) {
+      if (e.target.closest(".product-slide-prev, .product-slide-next")) return;
       const btn = e.target.closest("[data-gallery-cat]");
       if (!btn) return;
       openGallery(btn.dataset.galleryCat, parseInt(btn.dataset.galleryIndex, 10) || 0);
@@ -243,6 +244,44 @@
 
     productGrid.addEventListener("click", handleGalleryClick);
     capabilitiesGrid.addEventListener("click", handleGalleryClick);
+  }
+
+  function setupProductSliderNav() {
+    if (productGrid.dataset.sliderNav === "1") return;
+    productGrid.dataset.sliderNav = "1";
+
+    productGrid.addEventListener("click", (e) => {
+      const prev = e.target.closest(".product-slide-prev");
+      const next = e.target.closest(".product-slide-next");
+      if (!prev && !next) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      const slider = e.target.closest(".product-slider");
+      if (!slider) return;
+
+      const cat = CATEGORIES.find((c) => c.id === slider.dataset.catId);
+      if (!cat) return;
+
+      const images = getCategoryImages(cat);
+      if (images.length <= 1) return;
+
+      let idx = parseInt(slider.dataset.slideIndex || "0", 10) || 0;
+      idx = prev ? (idx - 1 + images.length) % images.length : (idx + 1) % images.length;
+      slider.dataset.slideIndex = String(idx);
+
+      const img = slider.querySelector(".product-slider-img");
+      const viewBtn = slider.querySelector(".gallery-open");
+      const count = slider.querySelector(".product-slide-count");
+
+      if (img) {
+        img.src = picUrl(images[idx]);
+        img.alt = cat.name;
+      }
+      if (viewBtn) viewBtn.dataset.galleryIndex = String(idx);
+      if (count) count.textContent = idx + 1 + " / " + images.length;
+    });
   }
 
   document.getElementById("hero-prev").addEventListener("click", () => {
@@ -261,26 +300,13 @@
 
     list.forEach((cat) => {
       const images = getCategoryImages(cat);
-      const galleryHtml =
+      const sliderControls =
         images.length > 1
-          ? images
-              .map(
-                (file, idx) =>
-                  '<button type="button" class="gallery-thumb" data-gallery-cat="' +
-                  cat.id +
-                  '" data-gallery-index="' +
-                  idx +
-                  '" aria-label="View ' +
-                  cat.name +
-                  " photo " +
-                  (idx + 1) +
-                  '">' +
-                  '<img src="' +
-                  picUrl(file) +
-                  '" alt="" loading="lazy">' +
-                  "</button>"
-              )
-              .join("")
+          ? '<div class="product-slider-controls">' +
+            '<button type="button" class="product-slide-prev" aria-label="Previous ' + cat.name + ' photo">‹</button>' +
+            '<span class="product-slide-count">1 / ' + images.length + "</span>" +
+            '<button type="button" class="product-slide-next" aria-label="Next ' + cat.name + ' photo">›</button>' +
+            "</div>"
           : "";
 
       const card = document.createElement("article");
@@ -290,22 +316,26 @@
         "<h3>" + cat.name + "</h3>" +
         "<p>" + cat.description + "</p>" +
         '<div class="product-media">' +
+        '<div class="product-slider" data-cat-id="' +
+        cat.id +
+        '" data-slide-index="0">' +
         '<div class="product-image">' +
-        '<button type="button" class="gallery-open" data-gallery-cat="' +
+        '<button type="button" class="gallery-open product-slider-view" data-gallery-cat="' +
         cat.id +
         '" data-gallery-index="0" aria-label="Open ' +
         cat.name +
         ' gallery">' +
-        '<img src="' +
-        picUrl(cat.image) +
+        '<img class="product-slider-img" src="' +
+        picUrl(images[0]) +
         '" alt="' +
         cat.name +
         '" loading="lazy">' +
         "</button>" +
         '<span class="product-badge"><img src="' + KUNFRE_LOGO + '" alt="Kunfre" width="28" height="28"></span>' +
-        (images.length > 1 ? '<span class="gallery-hint" aria-hidden="true">View gallery</span>' : "") +
+        (images.length > 1 ? '<span class="gallery-hint" aria-hidden="true">Tap to enlarge</span>' : "") +
         "</div>" +
-        (galleryHtml ? '<div class="product-gallery">' + galleryHtml + "</div>" : "") +
+        sliderControls +
+        "</div>" +
         "</div>" +
         "<ul>" + cat.services.map((s) => "<li>" + s + "</li>").join("") + "</ul>" +
         '<a href="' + CONTACT.whatsapp + '?text=' + encodeURIComponent("Hello Kunfre Enterprise,\n\nI would like a quote for: " + cat.name + "\n\nPlease send pricing and availability.") + '" class="product-link" target="_blank" rel="noopener noreferrer">Request Quote on WhatsApp →</a>' +
@@ -471,6 +501,7 @@
   buildHeroSlides();
   setupThemeToggle();
   setupGalleryLightbox();
+  setupProductSliderNav();
   buildFooterContactIcons();
   buildSocialLinks();
   buildBrands();
