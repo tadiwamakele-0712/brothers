@@ -753,7 +753,7 @@ a { color: inherit; text-decoration: none; }
   aspect-ratio: 4 / 3;
   background: var(--navy-dark);
   overflow: hidden;
-  border-bottom: 3px solid var(--amber);
+  border-radius: var(--radius);
 }
 
 .product-image .gallery-open {
@@ -849,6 +849,18 @@ a { color: inherit; text-decoration: none; }
 }
 
 .product-body { padding: 1.15rem 1.25rem 1.35rem; }
+
+.product-media {
+  margin: 0.85rem 0 1rem;
+  border: 1px solid var(--light-alt);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border-bottom: 3px solid var(--amber);
+}
+
+.product-media .product-gallery {
+  border-radius: 0;
+}
 
 .product-body h3 {
   font-size: 1rem;

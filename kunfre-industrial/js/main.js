@@ -286,6 +286,10 @@
       const card = document.createElement("article");
       card.className = "product-card";
       card.innerHTML =
+        '<div class="product-body">' +
+        "<h3>" + cat.name + "</h3>" +
+        "<p>" + cat.description + "</p>" +
+        '<div class="product-media">' +
         '<div class="product-image">' +
         '<button type="button" class="gallery-open" data-gallery-cat="' +
         cat.id +
@@ -302,9 +306,7 @@
         (images.length > 1 ? '<span class="gallery-hint" aria-hidden="true">View gallery</span>' : "") +
         "</div>" +
         (galleryHtml ? '<div class="product-gallery">' + galleryHtml + "</div>" : "") +
-        '<div class="product-body">' +
-        "<h3>" + cat.name + "</h3>" +
-        "<p>" + cat.description + "</p>" +
+        "</div>" +
         "<ul>" + cat.services.map((s) => "<li>" + s + "</li>").join("") + "</ul>" +
         '<a href="' + CONTACT.whatsapp + '?text=' + encodeURIComponent("Hello Kunfre Enterprise,\n\nI would like a quote for: " + cat.name + "\n\nPlease send pricing and availability.") + '" class="product-link" target="_blank" rel="noopener noreferrer">Request Quote on WhatsApp →</a>' +
         "</div>";
