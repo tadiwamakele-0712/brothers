@@ -134,11 +134,11 @@ const CATEGORIES = [
   },
   {
     id: "gas",
-    name: "Gas Industrial",
-    label: "Industrial Gases",
-    heroTitle: "Gas Industrial & Cylinders",
-    heroDesc: "High-capacity industrial gas cylinders manufactured from durable steel or lightweight aluminum, engineered for safe storage and precise dispensing of industrial and specialty gases.",
-    description: "High-capacity industrial gas cylinders. Manufactured from durable steel or lightweight aluminum, engineered for safe storage and precise dispensing of industrial and specialty gases. Available in standard volumes and pressure ratings to meet your manufacturing and operational requirements.",
+    name: "Industrial Gas Tanks",
+    label: "Industrial Gas Tanks",
+    heroTitle: "Industrial Gas Tanks",
+    heroDesc: "High-capacity industrial gas tanks manufactured from durable steel or lightweight aluminum, engineered for safe storage and precise dispensing of industrial and specialty gases.",
+    description: "High-capacity industrial gas tanks. Manufactured from durable steel or lightweight aluminum, engineered for safe storage and precise dispensing of industrial and specialty gases. Available in standard volumes and pressure ratings to meet your manufacturing and operational requirements.",
     assetBase: "images/",
     image: "download.jpg",
     gallery: [
