@@ -21,7 +21,7 @@
   --radius: 10px;
   --radius-lg: 14px;
   --header-h: 72px;
-  --kunfre-logo-bg: url("../kunfre-enterprise/kunfre-logo.jpg");
+  --kunfre-logo-bg: url("../assets/kunfre-logo.jpg");
   --logo-watermark-opacity: 0.07;
   --logo-watermark-blend: multiply;
 }
@@ -244,37 +244,48 @@ a { color: inherit; text-decoration: none; }
 }
 
 .header-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: 1.5rem;
-  padding: 0.85rem 0;
+  gap: 0.75rem 1rem;
+  padding: 0.65rem 0;
   min-width: 0;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  flex-shrink: 1;
+  gap: 0.55rem;
+  flex-shrink: 0;
   min-width: 0;
-  max-width: calc(100% - 6.5rem);
+  max-width: min(290px, 36vw);
 }
 
-.brand-logo { height: 56px; width: auto; object-fit: contain; }
+.brand-logo {
+  height: 48px;
+  width: auto;
+  max-width: 54px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
 
 .brand-wordmark {
-  height: 46px;
+  height: 34px;
   width: auto;
-  max-width: min(240px, 38vw);
+  max-width: min(190px, 24vw);
   object-fit: contain;
   display: block;
+  flex-shrink: 1;
 }
 
 .main-nav {
   display: flex;
-  gap: 1.5rem;
-  margin-left: auto;
-  font-size: 0.88rem;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  min-width: 0;
+  font-size: 0.84rem;
   font-weight: 600;
   color: var(--nav-color);
 }
@@ -282,19 +293,21 @@ a { color: inherit; text-decoration: none; }
 .main-nav a {
   position: relative;
   padding: 0.25rem 0;
+  white-space: nowrap;
   transition: color 0.2s;
 }
 
 .main-nav a:hover { color: var(--amber-dark); }
 
 .menu-toggle {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 5px;
   background: none;
   border: none;
   cursor: pointer;
   padding: 0.35rem;
+  flex-shrink: 0;
 }
 
 .menu-toggle span {
@@ -308,8 +321,12 @@ a { color: inherit; text-decoration: none; }
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  margin-left: auto;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.header-actions .btn-text-short {
+  display: none;
 }
 
 .theme-toggle {
@@ -351,12 +368,13 @@ a { color: inherit; text-decoration: none; }
   padding: 0.75rem 1rem 1rem;
   border-top: 1px solid var(--light-alt);
   background: var(--surface);
+  box-shadow: 0 8px 24px rgba(12, 35, 64, 0.08);
 }
 
 .mobile-nav[hidden] { display: none; }
 
 .mobile-nav a {
-  padding: 0.65rem 0;
+  padding: 0.75rem 0;
   font-weight: 600;
   color: var(--nav-color);
   border-bottom: 1px solid var(--light-alt);
@@ -432,7 +450,7 @@ a { color: inherit; text-decoration: none; }
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../kunfre-enterprise/kunfre-logo.jpg");
+  background-image: url("../assets/kunfre-logo.jpg");
   background-position: center center;
   background-size: min(400px, 68vw);
   background-repeat: no-repeat;
@@ -619,7 +637,7 @@ a { color: inherit; text-decoration: none; }
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("../kunfre-enterprise/kunfre-logo.jpg");
+  background-image: url("../assets/kunfre-logo.jpg");
   background-position: center center;
   background-size: min(400px, 68vw);
   background-repeat: no-repeat;
@@ -1561,6 +1579,34 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+  .main-nav {
+    gap: 0.45rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .header-actions .btn-text-full {
+    display: none;
+  }
+
+  .header-actions .btn-text-short {
+    display: inline;
+  }
+}
+
+@media (max-width: 1100px) {
+  .header-actions .btn {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    gap: 0.35rem 0.55rem;
+    font-size: 0.72rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .features-grid,
   .capabilities-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1575,16 +1621,16 @@ a { color: inherit; text-decoration: none; }
     width: min(1200px, 100% - 1.25rem);
   }
 
-  .brand-logo { height: 44px; }
-
-  .brand {
-    gap: 0.45rem;
-    max-width: calc(100% - 5.75rem);
-  }
+  .brand-logo { height: 42px; max-width: 48px; }
 
   .brand-wordmark {
-    height: 32px;
-    max-width: min(150px, 34vw);
+    height: 28px;
+    max-width: min(140px, 34vw);
+  }
+
+  .brand {
+    gap: 0.4rem;
+    max-width: min(220px, 52vw);
   }
 
   .header-inner {
@@ -1725,15 +1771,6 @@ a { color: inherit; text-decoration: none; }
     padding: 0.55rem 0.75rem;
   }
 
-  .main-nav,
-  .header-actions .btn { display: none; }
-
-  .header-actions {
-    margin-left: auto;
-  }
-
-  .menu-toggle { display: flex; }
-
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
 
   .features-grid,
@@ -1782,17 +1819,17 @@ a { color: inherit; text-decoration: none; }
 
   .brand {
     gap: 0.35rem;
-    max-width: calc(100% - 5.25rem);
+    max-width: min(200px, 58vw);
   }
 
   .brand-logo {
-    height: 36px;
+    height: 38px;
+    max-width: 42px;
   }
 
   .brand-wordmark {
-    display: block;
-    height: 26px;
-    max-width: min(128px, 38vw);
+    height: 24px;
+    max-width: min(120px, 40vw);
   }
 
   .stats-grid { grid-template-columns: 1fr; }
@@ -1953,5 +1990,362 @@ a { color: inherit; text-decoration: none; }
 
   .gallery-hint {
     font-size: 0.6rem;
+  }
+}
+
+/* Portfolio page */
+.portfolio-hero {
+  position: relative;
+  min-height: clamp(320px, 50vh, 520px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--navy-dark);
+}
+
+.portfolio-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.55) contrast(1.05);
+}
+
+.portfolio-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 21, 37, 0.82) 0%,
+    rgba(7, 21, 37, 0.45) 50%,
+    rgba(7, 21, 37, 0.2) 100%
+  );
+}
+
+.portfolio-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 3.5rem 0 4rem;
+  max-width: 680px;
+  color: var(--white);
+}
+
+.portfolio-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.portfolio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.portfolio-filter {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--light-alt);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.portfolio-filter:hover,
+.portfolio-filter.active {
+  background: var(--amber);
+  color: var(--navy-dark);
+  border-color: var(--amber);
+}
+
+.portfolio-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--light-alt);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.portfolio-card-media {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.portfolio-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.portfolio-card:hover .portfolio-card-media img {
+  transform: scale(1.04);
+}
+
+.portfolio-card-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(7, 21, 37, 0.45);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.portfolio-card:hover .portfolio-card-overlay,
+.portfolio-card-media:focus-visible .portfolio-card-overlay {
+  opacity: 1;
+}
+
+.portfolio-view-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  background: var(--amber);
+  color: var(--navy-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.portfolio-card-body {
+  padding: 1.25rem 1.35rem 1.35rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.portfolio-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-sector {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--amber-dark);
+}
+
+.portfolio-year {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.portfolio-card-body h3 {
+  font-size: 1.05rem;
+  color: var(--navy);
+  margin-bottom: 0.35rem;
+  line-height: 1.25;
+}
+
+.portfolio-location {
+  font-size: 0.78rem;
+  color: var(--steel);
+  margin-bottom: 0.65rem;
+}
+
+.portfolio-card-body > p:not(.portfolio-location) {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+  flex: 1;
+}
+
+.portfolio-scope {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.portfolio-scope li {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  background: var(--light);
+  color: var(--navy);
+  border: 1px solid var(--light-alt);
+}
+
+.portfolio-enquire {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--amber-dark);
+  margin-top: auto;
+  transition: color 0.2s;
+}
+
+.portfolio-enquire:hover {
+  color: var(--amber);
+}
+
+.portfolio-card-featured .portfolio-card-body h3 {
+  font-size: 1.15rem;
+}
+
+.portfolio-empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 2rem;
+}
+
+.portfolio-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.portfolio-step {
+  background: var(--surface);
+  border: 1px solid var(--light-alt);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.portfolio-step-num {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+  margin-bottom: 0.65rem;
+}
+
+.portfolio-step h3 {
+  font-size: 1rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-step p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.portfolio-cta {
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-light) 100%);
+  color: var(--white);
+  padding: 3.5rem 0;
+}
+
+.portfolio-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.portfolio-cta h2 {
+  font-size: clamp(1.35rem, 2vw + 0.5rem, 1.85rem);
+  margin-bottom: 0.65rem;
+  color: var(--white);
+}
+
+.portfolio-cta p {
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 520px;
+}
+
+.portfolio-cta .eyebrow {
+  color: var(--amber);
+}
+
+.portfolio-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+[data-theme="dark"] .portfolio-card-body h3,
+[data-theme="dark"] .portfolio-step h3 {
+  color: var(--heading);
+}
+
+[data-theme="dark"] .portfolio-card-body > p:not(.portfolio-location),
+[data-theme="dark"] .portfolio-step p,
+[data-theme="dark"] .portfolio-location {
+  color: var(--muted);
+}
+
+[data-theme="dark"] .portfolio-scope li {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .portfolio-filter {
+  background: var(--surface);
+  border-color: var(--light-alt);
+  color: var(--text);
+}
+
+[data-theme="dark"] .portfolio-filter:hover,
+[data-theme="dark"] .portfolio-filter.active {
+  background: var(--amber);
+  color: var(--navy-dark);
+}
+
+@media (max-width: 1024px) {
+  .portfolio-featured-grid,
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-featured-grid,
+  .portfolio-grid,
+  .portfolio-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .portfolio-hero-content {
+    padding: 2.5rem 0 3rem;
   }
 }
