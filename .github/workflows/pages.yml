@@ -6,11 +6,13 @@ on:
     paths:
       - "link-tube-store/**"
       - "street-fm-store/**"
+      - "street-fm-app/**"
       - "boa-guest-house/**"
       - "kunfre-enterprise/**"
       - "kunfre-industrial/**"
       - "index.html"
       - "joker-di-genius-store/**"
+      - "dynamic-site/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 

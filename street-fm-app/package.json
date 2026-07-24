@@ -1,0 +1,15 @@
+{
+  "name": "street-fm-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs",
+    "build": "node -e \"console.log('Static app — no build step. Use npm start.')\"",
+    "preview": "node server.mjs"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5"
+  }
+}
