@@ -1,0 +1,25 @@
+{
+  "name": "Street FM",
+  "short_name": "Street FM",
+  "description": "Live radio, music, video, and shop from Street FM.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#140e0a",
+  "theme_color": "#E85D04",
+  "icons": [
+    {
+      "src": "./public/logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "./public/logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
