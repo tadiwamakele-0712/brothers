@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Glutabae Beauties — skincare and beauty products for radiant, confident skin. Order on WhatsApp.">
+  <meta name="theme-color" content="#C21E56">
+  <title>Glutabae Beauties — Glow With Confidence</title>
+  <link rel="icon" href="gluta-logo.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <a href="#top" class="brand">
+      <img src="gluta-logo.jpg" alt="Glutabae Beauties" class="brand-logo" width="52" height="52">
+      <span class="brand-name">Glutabae Beauties</span>
+    </a>
+
+    <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+
+    <nav id="main-nav" class="nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#products">Products</a>
+      <a href="#order">How to Order</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="https://wa.me/c/263784695594" target="_blank" rel="noopener noreferrer">Shop Catalog</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Welcome">
+      <div class="hero-atmosphere" aria-hidden="true"></div>
+      <div class="hero-bloom" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <h1 class="hero-brand reveal">
+          <img src="gluta-logo.jpg" alt="Glutabae Beauties" class="hero-logo">
+        </h1>
+        <p class="hero-line reveal">Radiant skin. Quiet confidence. Daily glow.</p>
+        <p class="hero-support reveal">Skincare &amp; beauty essentials — order straight from our WhatsApp catalog.</p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="https://wa.me/c/263784695594" target="_blank" rel="noopener noreferrer">Browse Catalog</a>
+          <a class="btn btn-ghost" href="https://wa.me/263784695594?text=Hi%20Glutabae%20Beauties%2C%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="section-inner">
+        <p class="eyebrow reveal">Our story</p>
+        <h2 class="section-title reveal">Beauty that feels like you</h2>
+        <p class="section-lead reveal">
+          Glutabae Beauties is a Zimbabwean beauty brand focused on skincare that helps you look luminous and feel confident — every day.
+        </p>
+        <p class="about-copy reveal">
+          From glow-focused formulas to carefully chosen essentials, we curate products that support healthy-looking skin. Order from our WhatsApp catalog, chat with us for recommendations, and get what you need with ease.
+        </p>
+      </div>
+    </section>
+
+    <section id="products" class="section products">
+      <div class="section-inner">
+        <p class="eyebrow reveal">What we offer</p>
+        <h2 class="section-title reveal">Skincare made simple</h2>
+        <p class="section-lead reveal">Explore our live WhatsApp catalog for current stock, prices, and new arrivals.</p>
+
+        <ul class="product-list">
+          <li class="product-item reveal">
+            <span class="product-index">01</span>
+            <div>
+              <h3>Glow Skincare</h3>
+              <p>Serums, creams, and daily essentials for a clearer, brighter-looking complexion.</p>
+            </div>
+          </li>
+          <li class="product-item reveal">
+            <span class="product-index">02</span>
+            <div>
+              <h3>Body Care</h3>
+              <p>Nourishing lotions and body treatments that keep skin soft and even-toned.</p>
+            </div>
+          </li>
+          <li class="product-item reveal">
+            <span class="product-index">03</span>
+            <div>
+              <h3>Beauty Essentials</h3>
+              <p>Hand-picked beauty staples to complete your routine — ask us what suits your skin.</p>
+            </div>
+          </li>
+        </ul>
+
+        <a class="btn btn-primary reveal" href="https://wa.me/c/263784695594" target="_blank" rel="noopener noreferrer">View Full Catalog</a>
+      </div>
+    </section>
+
+    <section id="gallery" class="section gallery">
+      <div class="gallery-header section-inner">
+        <p class="eyebrow reveal">From the brand</p>
+        <h2 class="section-title reveal">Gallery</h2>
+        <p class="section-lead reveal">A glimpse of Glutabae Beauties — tap any photo to view larger, or open the full WhatsApp catalog for every product.</p>
+      </div>
+
+      <div class="gallery-grid" id="gallery-grid" role="list"></div>
+
+      <div class="gallery-cta section-inner reveal">
+        <a class="btn btn-primary" href="https://wa.me/c/263784695594" target="_blank" rel="noopener noreferrer">See All Products on WhatsApp</a>
+      </div>
+    </section>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Image preview">
+      <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+      <img src="" alt="" id="lightbox-image">
+    </dialog>
+
+    <section id="order" class="section order">
+      <div class="section-inner">
+        <p class="eyebrow reveal">Getting started</p>
+        <h2 class="section-title reveal">How to order</h2>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num">1</span>
+            <p>Open our WhatsApp catalog and browse products.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">2</span>
+            <p>Message us with what you want — we confirm stock and price.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">3</span>
+            <p>Arrange payment and delivery, or collect at Shoppers Mall, Shop C01.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="section-inner">
+        <p class="eyebrow reveal">Get in touch</p>
+        <h2 class="section-title reveal">Let’s glow together</h2>
+        <p class="section-lead reveal">Visit us in-store, or call, WhatsApp, or email — we’re happy to help you choose the right products.</p>
+
+        <ul class="contact-list">
+          <li class="reveal">
+            <a href="https://www.google.com/maps/search/?api=1&query=Shoppers+Mall+1st+Street+Nelson+Mandela+Harare" target="_blank" rel="noopener noreferrer">
+              <span class="contact-label">Visit us</span>
+              <span class="contact-value">Shoppers Mall, Shop C01<br>1st Street &amp; Nelson Mandela</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="tel:+263784695594">
+              <span class="contact-label">Call</span>
+              <span class="contact-value">+263 78 469 5594</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="https://wa.me/263784695594?text=Hi%20Glutabae%20Beauties%2C%20I%27d%20like%20to%20enquire%20about%20your%20products." target="_blank" rel="noopener noreferrer">
+              <span class="contact-label">WhatsApp</span>
+              <span class="contact-value">+263 78 469 5594</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="mailto:faymzezewah@gmail.com">
+              <span class="contact-label">Email</span>
+              <span class="contact-value">faymzezewah@gmail.com</span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a href="https://wa.me/c/263784695594" target="_blank" rel="noopener noreferrer">
+              <span class="contact-label">Catalog</span>
+              <span class="contact-value">Shop on WhatsApp</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="gluta-logo.jpg" alt="" class="footer-logo" width="64" height="64">
+      <p class="footer-brand">Glutabae Beauties</p>
+      <p class="footer-note">Shoppers Mall, Shop C01 · 1st Street &amp; Nelson Mandela</p>
+      <p class="footer-copy">&copy; <span id="year"></span> Glutabae Beauties. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/263784695594?text=Hi%20Glutabae%20Beauties%2C%20I%27d%20like%20to%20place%20an%20order." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
