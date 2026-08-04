@@ -13,6 +13,7 @@ on:
       - "index.html"
       - "joker-di-genius-store/**"
       - "dynamic-site/**"
+      - "glutabae-beauties/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
