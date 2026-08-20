@@ -6,6 +6,34 @@
 
   if (year) year.textContent = String(new Date().getFullYear());
 
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeColorMeta = document.getElementById("theme-color");
+
+  const getTheme = () =>
+    document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+
+  const applyTheme = (theme) => {
+    document.documentElement.setAttribute("data-theme", theme);
+    try {
+      localStorage.setItem("ganga-theme", theme);
+    } catch (_) {}
+    if (themeToggle) {
+      themeToggle.setAttribute(
+        "aria-label",
+        theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+      );
+    }
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute("content", theme === "dark" ? "#070b16" : "#0f1c3f");
+    }
+  };
+
+  applyTheme(getTheme());
+
+  themeToggle?.addEventListener("click", () => {
+    applyTheme(getTheme() === "dark" ? "light" : "dark");
+  });
+
   const onScroll = () => {
     if (!header) return;
     header.classList.toggle("is-scrolled", window.scrollY > 24);
