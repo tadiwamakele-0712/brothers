@@ -1,4 +1,5 @@
-:root {
+:root,
+[data-theme="light"] {
   --red: #e10613;
   --red-deep: #b80510;
   --navy: #0f1c3f;
@@ -9,11 +10,53 @@
   --ink: #141414;
   --ink-muted: #5c534c;
   --white: #fffdf9;
+  --surface: #fffdf9;
+  --surface-deep: #efe4d4;
+  --header-bg: color-mix(in srgb, var(--navy) 38%, transparent);
+  --header-bg-scrolled: color-mix(in srgb, var(--navy) 92%, transparent);
+  --header-shadow: color-mix(in srgb, white 8%, transparent);
+  --info-text: #f4efe6;
+  --footer-text: #f3e8dc;
+  --footer-icon-bg: color-mix(in srgb, #fff 10%, transparent);
+  --footer-icon-color: #f8e8dc;
+  --contact-start: #f7f1e8;
+  --contact-mid: #f3e6dc;
+  --contact-end: #ead8cc;
+  --nav-mobile-bg: color-mix(in srgb, var(--navy) 96%, black);
+  --border-soft: color-mix(in srgb, var(--navy) 12%, transparent);
+  --map-shadow: color-mix(in srgb, var(--navy) 12%, transparent);
   --header-h: 4.35rem;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --font-display: "Montserrat", system-ui, sans-serif;
   --font-script: "Great Vibes", cursive;
   --font-body: "Outfit", system-ui, sans-serif;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --navy: #070b16;
+  --navy-soft: #121a2e;
+  --cream: #10131c;
+  --cream-deep: #181d2a;
+  --ink: #f4efe6;
+  --ink-muted: #b8aea4;
+  --white: #161b28;
+  --surface: #161b28;
+  --surface-deep: #1f2535;
+  --header-bg: color-mix(in srgb, #070b16 82%, transparent);
+  --header-bg-scrolled: color-mix(in srgb, #070b16 96%, transparent);
+  --header-shadow: color-mix(in srgb, var(--red) 18%, transparent);
+  --info-text: #ece6dc;
+  --footer-text: #e8dfd4;
+  --footer-icon-bg: color-mix(in srgb, #fff 8%, transparent);
+  --footer-icon-color: #ece6dc;
+  --contact-start: #10131c;
+  --contact-mid: #161b28;
+  --contact-end: #1c2230;
+  --nav-mobile-bg: color-mix(in srgb, #070b16 98%, black);
+  --border-soft: color-mix(in srgb, #fff 10%, transparent);
+  --map-shadow: color-mix(in srgb, black 35%, transparent);
+  color-scheme: dark;
 }
 
 *,
@@ -36,6 +79,7 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease);
 }
 
 img {
@@ -64,14 +108,14 @@ ol {
   gap: 1rem;
   height: var(--header-h);
   padding: 0 1.25rem;
-  background: color-mix(in srgb, var(--navy) 38%, transparent);
+  background: var(--header-bg);
   transition: background 0.35s var(--ease), box-shadow 0.35s var(--ease), backdrop-filter 0.35s;
 }
 
 .site-header.is-scrolled {
-  background: color-mix(in srgb, var(--navy) 92%, transparent);
+  background: var(--header-bg-scrolled);
   backdrop-filter: blur(14px);
-  box-shadow: 0 1px 0 color-mix(in srgb, white 8%, transparent);
+  box-shadow: 0 1px 0 var(--header-shadow);
 }
 
 .brand {
@@ -115,6 +159,42 @@ ol {
   font-family: var(--font-script);
   font-size: 1.05rem;
   color: color-mix(in srgb, #fff 80%, var(--red));
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  z-index: 2;
+  margin-left: auto;
+}
+
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--red) 18%, transparent);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.25s var(--ease);
+}
+
+.theme-toggle:hover {
+  background: color-mix(in srgb, var(--red) 32%, transparent);
+  transform: scale(1.05);
+}
+
+.theme-icon {
+  display: grid;
+  place-items: center;
+}
+
+[data-theme="light"] .theme-icon-sun,
+[data-theme="dark"] .theme-icon-moon {
+  display: none;
 }
 
 .menu-btn {
@@ -383,7 +463,7 @@ ol {
 
 .info-bar {
   background: var(--navy);
-  color: #f4efe6;
+  color: var(--info-text);
 }
 
 .info-bar-inner {
@@ -469,7 +549,7 @@ ol {
 }
 
 .about {
-  background: linear-gradient(180deg, var(--white), var(--cream));
+  background: linear-gradient(180deg, var(--surface), var(--cream));
 }
 
 .about-copy {
@@ -485,7 +565,7 @@ ol {
 
 .product-list {
   margin-bottom: 2.25rem;
-  border-top: 1px solid color-mix(in srgb, var(--navy) 12%, transparent);
+  border-top: 1px solid var(--border-soft);
 }
 
 .product-item {
@@ -494,7 +574,7 @@ ol {
   gap: 1.25rem;
   align-items: start;
   padding: 1.5rem 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--navy) 12%, transparent);
+  border-bottom: 1px solid var(--border-soft);
 }
 
 .product-index {
@@ -520,7 +600,7 @@ ol {
 .gallery {
   background:
     radial-gradient(ellipse 55% 45% at 0% 100%, color-mix(in srgb, var(--red) 8%, transparent), transparent),
-    linear-gradient(180deg, var(--white), var(--cream-deep));
+    linear-gradient(180deg, var(--surface), var(--surface-deep));
 }
 
 .gallery-inner {
@@ -540,7 +620,7 @@ ol {
   width: 100%;
   padding: 0;
   border: 0;
-  background: var(--cream-deep);
+  background: var(--surface-deep);
   cursor: zoom-in;
   overflow: hidden;
   aspect-ratio: 1;
@@ -688,7 +768,7 @@ ol {
 }
 
 .order {
-  background: var(--white);
+  background: var(--surface);
 }
 
 .steps {
@@ -723,7 +803,7 @@ ol {
 }
 
 .contact {
-  background: linear-gradient(160deg, var(--cream) 0%, #f3e6dc 55%, #ead8cc 100%);
+  background: linear-gradient(160deg, var(--contact-start) 0%, var(--contact-mid) 55%, var(--contact-end) 100%);
 }
 
 .contact-list {
@@ -740,7 +820,7 @@ ol {
   gap: 1rem;
   align-items: start;
   padding: 1.1rem 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--navy) 12%, transparent);
+  border-bottom: 1px solid var(--border-soft);
   transition: color 0.2s;
 }
 
@@ -802,7 +882,7 @@ ol {
   overflow: hidden;
   border-radius: 1rem;
   min-height: 16rem;
-  box-shadow: 0 12px 32px color-mix(in srgb, var(--navy) 12%, transparent);
+  box-shadow: 0 12px 32px var(--map-shadow);
 }
 
 .map-wrap iframe {
@@ -815,7 +895,7 @@ ol {
 .site-footer {
   padding: 3rem 1.5rem 5.5rem;
   background: var(--navy);
-  color: #f3e8dc;
+  color: var(--footer-text);
   text-align: center;
 }
 
@@ -860,8 +940,8 @@ ol {
   width: 2.6rem;
   height: 2.6rem;
   border-radius: 50%;
-  background: color-mix(in srgb, #fff 10%, transparent);
-  color: #f8e8dc;
+  background: var(--footer-icon-bg);
+  color: var(--footer-icon-color);
   transition: background 0.2s, color 0.2s, transform 0.2s var(--ease);
 }
 
@@ -937,7 +1017,7 @@ ol {
     flex-direction: column;
     justify-content: center;
     gap: 1.75rem;
-    background: color-mix(in srgb, var(--navy) 96%, black);
+    background: var(--nav-mobile-bg);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -963,6 +1043,11 @@ ol {
 @media (min-width: 769px) {
   .site-header {
     padding: 0 2.5rem;
+  }
+
+  .header-actions {
+    order: 3;
+    margin-left: 0.5rem;
   }
 
   .nav {
