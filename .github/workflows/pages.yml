@@ -14,6 +14,7 @@ on:
       - "joker-di-genius-store/**"
       - "dynamic-site/**"
       - "glutabae-beauties/**"
+      - "chef-ganga/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
