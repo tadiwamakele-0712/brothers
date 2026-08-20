@@ -126,8 +126,7 @@ ol {
 }
 
 .brand-logo,
-.footer-logo,
-.hero-logo {
+.footer-logo {
   object-fit: cover;
   object-position: 50% 58%;
   border-radius: 50%;
@@ -308,14 +307,6 @@ ol {
   width: 100%;
   padding: 7.5rem 1.5rem 4.5rem;
   color: #fff;
-}
-
-.hero-logo {
-  width: min(42vw, 168px);
-  height: min(42vw, 168px);
-  margin: 0 auto 1.15rem;
-  border-width: 3px;
-  animation: logo-rise 1.1s var(--ease) both;
 }
 
 .hero-kicker {
@@ -995,17 +986,6 @@ ol {
   transform: none;
 }
 
-@keyframes logo-rise {
-  from {
-    opacity: 0;
-    transform: translateY(1.5rem) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
 @media (max-width: 768px) {
   .menu-btn {
     display: flex;
@@ -1105,8 +1085,7 @@ ol {
     scroll-behavior: auto;
   }
 
-  .hero-slide,
-  .hero-logo {
+  .hero-slide {
     animation: none;
     transition: none;
   }
