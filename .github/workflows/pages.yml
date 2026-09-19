@@ -12,6 +12,7 @@ on:
       - "kunfre-industrial/**"
       - "index.html"
       - "joker-di-genius-store/**"
+      - "joker-epk/**"
       - "dynamic-site/**"
       - "glutabae-beauties/**"
       - "chef-ganga/**"
