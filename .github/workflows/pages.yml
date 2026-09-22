@@ -16,6 +16,7 @@ on:
       - "dynamic-site/**"
       - "glutabae-beauties/**"
       - "chef-ganga/**"
+      - "dog-website/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
