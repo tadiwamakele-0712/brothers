@@ -1,0 +1,8 @@
+node_modules/
+package-lock.json
+compose-logo.mjs
+logo/logo blank.jpeg
+logo/logo blank.png
+logo/dog logo.png
+.DS_Store
+Thumbs.db
