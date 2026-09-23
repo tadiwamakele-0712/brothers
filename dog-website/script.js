@@ -258,7 +258,6 @@ function createSlider({
 const breedItems = breeds.map((name) => ({
   src: encodePath(`names  of breeds/${name}.jpg`),
   alt: name,
-  caption: name,
 }));
 
 const galleryItems = galleryImages.map((file, i) => {
@@ -293,7 +292,6 @@ const breedSlider = createSlider({
   nextId: "breed-next",
   currentId: "breed-current",
   totalId: "breed-total",
-  captionId: "breed-caption",
   items: breedItems,
 });
 
@@ -315,6 +313,32 @@ if (gallerySlider) sliders.push(gallerySlider);
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && !lightbox.hidden) closeLightbox();
 });
+
+/* Theme toggle */
+const themeToggle = document.querySelector(".theme-toggle");
+
+function getTheme() {
+  return document.documentElement.getAttribute("data-theme") || "light";
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute("data-theme", theme);
+  try {
+    localStorage.setItem("chicco-theme", theme);
+  } catch (e) {}
+  if (themeToggle) {
+    themeToggle.setAttribute(
+      "aria-label",
+      theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+    );
+  }
+}
+
+themeToggle?.addEventListener("click", () => {
+  setTheme(getTheme() === "dark" ? "light" : "dark");
+});
+
+setTheme(getTheme());
 
 /* Mobile nav */
 const toggle = document.querySelector(".nav-toggle");
