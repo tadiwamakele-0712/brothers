@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chicco Canine Care | Mutare, Zimbabwe</title>
   <meta name="description" content="Chicco Canine Care — professional dog training, breeding, sales, and healthcare in Mutare, Zimbabwe. Trusted since 2018." />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("chicco-theme");
+        var theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet" />
@@ -16,18 +27,24 @@
       <img src="logo/dog%20logo%20original.jpeg" alt="Chicco Canine Care logo" class="brand-logo" width="56" height="56" />
       <span class="brand-text">Chicco Canine Care</span>
     </a>
-    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span>
-    </button>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="#about">About</a>
+    <div class="header-actions">
+      <a href="#about" class="header-link">About</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+      <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0-5a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 17a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1zM3 11a1 1 0 1 1 0 2H2a1 1 0 1 1 0-2h1zm19 0a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2h1zM5.64 5.64a1 1 0 0 1 1.41 0l.71.71A1 1 0 1 1 6.34 7.7l-.7-.7a1 1 0 0 1 0-1.36zm12.02 12.02a1 1 0 0 1 1.41 0l.71.71a1 1 0 1 1-1.41 1.41l-.71-.71a1 1 0 0 1 0-1.41zM18.36 5.64a1 1 0 0 1 0 1.41l-.71.71a1 1 0 1 1-1.41-1.41l.71-.71a1 1 0 0 1 1.41 0zM6.34 16.3a1 1 0 0 1 0 1.41l-.71.71A1 1 0 1 1 4.22 17l.71-.71a1 1 0 0 1 1.41 0z"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 14.3A9 9 0 0 1 9.7 3a7 7 0 1 0 11.3 11.3z"/></svg>
+      </button>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+    <nav class="site-nav" id="site-nav" aria-label="More sections">
       <a href="#purpose">Purpose</a>
       <a href="#why-us">Why Us</a>
       <a href="#training">Training</a>
       <a href="#health">Health</a>
       <a href="#breeds">Breeds</a>
       <a href="#gallery">Gallery</a>
-      <a href="#contact" class="nav-cta">Contact</a>
     </nav>
   </header>
 
@@ -272,7 +289,6 @@
           <button type="button" class="slide-btn prev" id="breed-prev" aria-label="Previous breed">‹</button>
           <button type="button" class="slide-btn next" id="breed-next" aria-label="Next breed">›</button>
           <div class="slide-dots" id="breed-dots"></div>
-          <p class="slide-caption" id="breed-caption"></p>
           <p class="slide-counter"><span id="breed-current">1</span> / <span id="breed-total">0</span></p>
         </div>
       </div>
