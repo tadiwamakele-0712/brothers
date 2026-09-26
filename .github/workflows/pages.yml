@@ -17,6 +17,7 @@ on:
       - "glutabae-beauties/**"
       - "chef-ganga/**"
       - "dog-website/**"
+      - "meleve-store/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 

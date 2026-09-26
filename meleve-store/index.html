@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meleve Closet — dresses, suits, blazers, and shoes. Where elegance becomes you.">
+  <meta name="theme-color" content="#5c1524">
+  <title>Meleve Closet — Where Elegance Becomes You</title>
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("meleve-theme"); } catch (e) {}
+      var theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <link rel="icon" href="pictures/meleve%20logo.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#shop">Skip to the closet</a>
+
+  <header class="header" id="header">
+    <a class="brand" href="#top">
+      <img src="pictures/meleve%20logo.jpeg" alt="" width="48" height="48">
+      <span>Meleve Closet</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="#dresses">Dresses</a>
+      <a href="#suits">Suits</a>
+      <a href="#blazers">Blazers</a>
+      <a href="#shoes">Shoes</a>
+      <a href="#about">About</a>
+      <a href="#order">Order</a>
+    </nav>
+    <div class="header-tools">
+      <button class="theme-btn" id="theme-btn" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+        <svg class="icon theme-moon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"/></svg>
+        <svg class="icon theme-sun" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.2v2.3M12 20.5v2.3M3.6 3.6l1.6 1.6M18.8 18.8l1.6 1.6M1.2 12h2.3M20.5 12h2.3M3.6 20.4l1.6-1.6M18.8 5.2l1.6-1.6"/><circle cx="12" cy="12" r="4.2"/></svg>
+      </button>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="nav">
+        <span class="menu-lines" aria-hidden="true"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Meleve Closet</p>
+        <h1 id="hero-title">Where elegance becomes you.</h1>
+        <p class="lede">Dresses for the room you are walking into. Suits, blazers, and shoes cut for the same standard: style, quality, and confidence.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#shop">Shop the closet</a>
+          <a class="btn btn-line" href="#order">How to order</a>
+        </div>
+      </div>
+      <figure class="hero-frame">
+        <img src="pictures/WhatsApp%20Image%202026-09-26%20at%2018.05.48%20(1).jpeg" alt="Rose button-front occasion dress from Meleve Closet" width="720" height="1080">
+        <figcaption>Occasion dressing, made personal.</figcaption>
+      </figure>
+    </section>
+
+    <section class="pillars" aria-label="What Meleve Closet stands for">
+      <p>Style</p>
+      <p>Quality</p>
+      <p>Confidence</p>
+    </section>
+
+    <section class="section" id="shop" aria-labelledby="shop-title">
+      <div class="section-head">
+        <p class="eyebrow">The closet</p>
+        <h2 id="shop-title">Pieces ready to be worn</h2>
+        <p class="section-note">Prices and sizes are confirmed when you enquire, so you always hear what is in stock today.</p>
+      </div>
+
+      <div id="categories"></div>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="about-mark">
+        <img src="pictures/meleve%20logo.jpeg" alt="Meleve Closet logo" width="280" height="280">
+      </div>
+      <div>
+        <p class="eyebrow">The house</p>
+        <h2 id="about-title">Clothes with a point of view</h2>
+        <p>Meleve Closet dresses women and men who want the outfit to feel finished before they leave the house. Floral gowns and Sunday dresses sit beside tailored suits, leather-trim blazers, and polished shoes.</p>
+        <p>Every piece is shown as it is. Tell us the look, your size, and where it needs to go — we confirm colour, fit, and price before anything is set aside.</p>
+      </div>
+    </section>
+
+    <section class="client" aria-labelledby="client-title">
+      <img src="pictures/WhatsApp%20Image%202026-09-26%20at%2018.05.47.jpeg" alt="A client holding brown loafers from Meleve Closet" width="800" height="1000">
+      <div>
+        <p class="eyebrow">From the fitting</p>
+        <h2 id="client-title">Happy clients, finished looks</h2>
+        <p>A new pair of loafers, a gown for the weekend, a suit that finally sits right. The closet is built around that moment — when the clothes feel like yours.</p>
+      </div>
+    </section>
+
+    <section class="section order" id="order" aria-labelledby="order-title">
+      <div class="section-head">
+        <p class="eyebrow">Ordering</p>
+        <h2 id="order-title">Three steps, then it is yours</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <strong>Choose the piece</strong>
+          <span>Find the dress, suit, blazer, or shoe, then call or WhatsApp us about it.</span>
+        </li>
+        <li>
+          <strong>Tell us your size</strong>
+          <span>Share the size, colour, and town it should reach. We reply with the price and what is available.</span>
+        </li>
+        <li>
+          <strong>Confirm the order</strong>
+          <span>Once you are happy with the details, we set the piece aside for you.</span>
+        </li>
+      </ol>
+      <address class="address">
+        <span>Visit us</span>
+        <a href="https://maps.google.com/?q=London+Lodge%2C+cnr+Chinamano+and+Mazoe%2C+Harare%2C+Zimbabwe" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>London Lodge, cnr Chinamano &amp; Mazoe, Harare, Zimbabwe</a>
+      </address>
+      <div class="order-note contacts" id="order-note"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="pictures/meleve%20logo.jpeg" alt="" width="72" height="72">
+        <p class="footer-name">Meleve Closet</p>
+        <p class="footer-line">Where elegance becomes you.</p>
+        <p class="footer-blurb">Dresses, tailored suits, blazers, and shoes. Style, quality, and confidence, from our Harare closet.</p>
+      </div>
+
+      <div>
+        <p class="footer-label">Enquire</p>
+        <div class="contacts contacts-light" id="footer-contacts"></div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <p>&copy; 2026 Meleve Closet. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
