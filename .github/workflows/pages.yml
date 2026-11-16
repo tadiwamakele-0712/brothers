@@ -18,6 +18,7 @@ on:
       - "chef-ganga/**"
       - "dog-website/**"
       - "meleve-store/**"
+      - "edusmart/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 

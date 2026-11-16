@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduSmart — Brothers College</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <button type="button" class="theme-fab" id="theme-toggle-login" aria-label="Toggle dark mode" title="Toggle theme">
+    <svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+      <path fill="currentColor" d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM1 13h3v-2H1v2zm10 10h2v-3h-2v3zm9.04-2.96l1.41-1.41-1.79-1.8-1.41 1.42 1.79 1.79zM17.24 4.84l1.42-1.42 1.79 1.8-1.41 1.41-1.8-1.79zM20 11v2h3v-2h-3zM12 8a4 4 0 100 8 4 4 0 000-8zm0-6h-2v3h2V2z"/>
+    </svg>
+    <svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+      <path fill="currentColor" d="M12.1 2a9.9 9.9 0 00-1.1.06A10 10 0 1012 22a10 10 0 009.94-10.9A8 8 0 0112.1 2z"/>
+    </svg>
+  </button>
+
+  <!-- LOGIN -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-backdrop" aria-hidden="true"></div>
+    <div class="login-panel">
+      <img id="login-logo" class="login-logo" src="assets/brothers-college-logo.jpg" alt="Brothers College logo" />
+      <div class="login-heading">
+        <p class="brand-mark">EduSmart</p>
+        <h1>Brothers College</h1>
+        <p class="login-tagline" id="login-tagline">Building character. Advancing knowledge. Shaping futures.</p>
+        <p class="login-sub">School management for students, staff, fees &amp; results</p>
+      </div>
+      <form id="login-form" class="login-form" autocomplete="on">
+        <label>
+          <span>Username</span>
+          <input type="text" id="login-user" name="username" required placeholder="admin" />
+        </label>
+        <label class="password-field">
+          <span>Password</span>
+          <div class="password-wrap">
+            <input type="password" id="login-pass" name="password" required placeholder="••••••••" />
+            <button type="button" class="password-toggle" id="toggle-password" aria-label="Show password" title="Show password">
+              <svg class="eye-icon eye-open" viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
+                <path fill="currentColor" d="M12 5c-5 0-9.27 3.11-11 7.5C2.73 16.89 7 20 12 20s9.27-3.11 11-7.5C21.27 8.11 17 5 12 5zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 100 6 3 3 0 000-6z"/>
+              </svg>
+              <svg class="eye-icon eye-closed" viewBox="0 0 24 24" aria-hidden="true" width="20" height="20" hidden>
+                <path fill="currentColor" d="M12 6a9.77 9.77 0 018.82 5.5 9.77 9.77 0 01-2.55 3.43l1.42 1.42-1.41 1.41-14-14 1.41-1.41 2.4 2.4A9.86 9.86 0 0112 6zm0 3a3 3 0 012.83 4.05l-4.05-4.05c.38-.05.78-.05 1.22 0zM3.71 4.29l1.96 1.96A9.77 9.77 0 003.18 11.5 9.77 9.77 0 0012 17c1.52 0 2.95-.35 4.23-.96l2.48 2.48 1.41-1.41-16-16-1.41 1.18z"/>
+              </svg>
+            </button>
+          </div>
+        </label>
+        <p id="login-error" class="form-error" hidden>Invalid username or password</p>
+        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+      </form>
+      <div class="login-accounts">
+        <p><strong>Admin</strong> — admin / brothers</p>
+        <p><strong>Teacher</strong> — tmoyo / teacher</p>
+        <p><strong>Parent</strong> — parent / parent</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- APP SHELL -->
+  <div id="app" class="app" hidden>
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-mark">EduSmart</span>
+        <span class="brand-school">Brothers College</span>
+        <span class="session-label" id="session-label"></span>
+      </div>
+      <nav class="sidebar-nav" id="sidebar-nav">
+        <button type="button" class="nav-item active" data-view="dashboard">Dashboard</button>
+        <button type="button" class="nav-item" data-view="school">School</button>
+        <button type="button" class="nav-item" data-view="students">Students</button>
+        <button type="button" class="nav-item" data-view="teachers">Teachers</button>
+        <button type="button" class="nav-item" data-view="classes">Classes</button>
+        <button type="button" class="nav-item" data-view="fees">Fees</button>
+        <button type="button" class="nav-item" data-view="results">Results</button>
+        <button type="button" class="nav-item" data-view="settings">Settings</button>
+      </nav>
+      <button type="button" class="btn btn-ghost logout-btn" id="logout-btn">Sign out</button>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu">☰</button>
+        <div class="topbar-text">
+          <h2 id="view-title">Dashboard</h2>
+          <p class="topbar-meta" id="topbar-meta">Term overview</p>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="theme-toggle" id="theme-toggle-app" aria-label="Toggle dark mode" title="Toggle theme">
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path fill="currentColor" d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zM1 13h3v-2H1v2zm10 10h2v-3h-2v3zm9.04-2.96l1.41-1.41-1.79-1.8-1.41 1.42 1.79 1.79zM17.24 4.84l1.42-1.42 1.79 1.8-1.41 1.41-1.8-1.79zM20 11v2h3v-2h-3zM12 8a4 4 0 100 8 4 4 0 000-8zm0-6h-2v3h2V2z"/>
+            </svg>
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path fill="currentColor" d="M12.1 2a9.9 9.9 0 00-1.1.06A10 10 0 1012 22a10 10 0 009.94-10.9A8 8 0 0112.1 2z"/>
+            </svg>
+          </button>
+          <img id="topbar-logo" class="topbar-logo" src="assets/brothers-college-logo.jpg" alt="Brothers College logo" />
+        </div>
+      </header>
+      <main id="view-root" class="view-root"></main>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <header class="modal-head">
+        <h3 id="modal-title">Form</h3>
+        <button type="button" class="icon-btn" data-close-modal aria-label="Close">×</button>
+      </header>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var key = "edusmart-theme";
+      var saved = localStorage.getItem(key);
+      var theme = saved === "dark" || saved === "light"
+        ? saved
+        : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
