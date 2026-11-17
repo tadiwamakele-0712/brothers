@@ -203,7 +203,7 @@
         message,
       ].join("\n");
 
-      const whatsappNumber = "263785092719";
+      const whatsappNumber = "263776369841";
       const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
 
       status.textContent = "Opening WhatsApp with your enquiry…";
