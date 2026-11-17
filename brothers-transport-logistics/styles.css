@@ -773,16 +773,6 @@ html[data-theme="light"] .brand-mark {
   background: transparent;
 }
 
-.contact-icon-hours {
-  border: 1px solid rgba(232, 163, 23, 0.45);
-  color: var(--signal);
-}
-
-.contact-icon-hours svg {
-  width: 1.2rem;
-  height: 1.2rem;
-}
-
 .contact-hours {
   margin: 0;
   font-weight: 500;
