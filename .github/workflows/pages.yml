@@ -19,6 +19,7 @@ on:
       - "dog-website/**"
       - "meleve-store/**"
       - "edusmart/**"
+      - "brothers-transport-logistics/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
