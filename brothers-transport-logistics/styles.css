@@ -213,6 +213,7 @@ p {
   color: var(--btn-on-accent) !important;
 }
 
+.catalog-toggle,
 .theme-toggle {
   width: 2.5rem;
   height: 2.5rem;
@@ -225,6 +226,13 @@ p {
   transition: border-color 0.25s var(--ease), color 0.25s var(--ease), background 0.25s var(--ease);
 }
 
+.catalog-toggle svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.catalog-toggle:hover,
+.catalog-toggle:focus-visible,
 .theme-toggle:hover,
 .theme-toggle:focus-visible {
   border-color: var(--signal);
