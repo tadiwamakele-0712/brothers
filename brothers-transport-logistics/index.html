@@ -10,6 +10,7 @@
   <meta name="theme-color" content="#0c0e12" />
   <link rel="preload" href="fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="images/toyota-fortuner-gd6-sm.webp" as="image" type="image/webp" />
   <link rel="stylesheet" href="styles.css" />
   <script>
     (function () {
@@ -60,11 +61,14 @@
     <section class="hero" aria-label="Hero">
       <div class="hero-media" aria-hidden="true">
         <img
-          src="images/toyota-fortuner-gd6.webp"
+          src="images/toyota-fortuner-gd6-sm.webp"
+          srcset="images/toyota-fortuner-gd6-sm.webp 720w, images/toyota-fortuner-gd6-md.webp 960w"
+          sizes="100vw"
           alt=""
-          width="1200"
-          height="800"
+          width="960"
+          height="640"
           fetchpriority="high"
+          decoding="async"
         />
         <div class="hero-veil"></div>
       </div>
@@ -111,11 +115,14 @@
     <section class="import" id="import">
       <div class="import-visual reveal" aria-hidden="true">
         <img
-          src="images/toyota-gd6.webp"
+          src="images/toyota-gd6-sm.webp"
+          srcset="images/toyota-gd6-sm.webp 720w, images/toyota-gd6-md.webp 960w"
+          sizes="(max-width: 900px) 100vw, 50vw"
           alt="Vehicle ready for import and local delivery"
-          width="1200"
-          height="800"
+          width="960"
+          height="640"
           loading="lazy"
+          decoding="async"
         />
       </div>
       <div class="import-copy">
@@ -154,57 +161,121 @@
       <div class="rental-slider reveal" data-rental-slider>
         <div class="rental-viewport">
           <div class="rental-track">
-            <article class="rental-slide is-active">
-              <img src="images/ford.webp" alt="Ford available for rental" width="1200" height="800" loading="eager" decoding="async" />
+            <article class="rental-slide is-active is-loading">
+              <img
+                data-src="images/ford-sm.webp"
+                data-srcset="images/ford-sm.webp 720w, images/ford-md.webp 960w"
+                sizes="(max-width: 1120px) 100vw, 1120px"
+                alt="Ford available for rental"
+                width="960"
+                height="640"
+                decoding="async"
+              />
               <div class="rental-meta">
                 <h3>Ford</h3>
                 <p>Ready for city runs and everyday hire.</p>
               </div>
             </article>
             <article class="rental-slide">
-              <img src="images/nissan-note.webp" alt="Nissan Note available for rental" width="1200" height="800" loading="lazy" decoding="async" />
+              <img
+                data-src="images/nissan-note-sm.webp"
+                data-srcset="images/nissan-note-sm.webp 720w, images/nissan-note-md.webp 960w"
+                sizes="(max-width: 1120px) 100vw, 1120px"
+                alt="Nissan Note available for rental"
+                width="960"
+                height="640"
+                decoding="async"
+              />
               <div class="rental-meta">
                 <h3>Nissan Note</h3>
                 <p>Compact, efficient, and easy to drive around town.</p>
               </div>
             </article>
             <article class="rental-slide">
-              <img src="images/nissan-xtrail.webp" alt="Nissan X-Trail available for rental" width="1200" height="800" loading="lazy" decoding="async" />
+              <img
+                data-src="images/nissan-xtrail-sm.webp"
+                data-srcset="images/nissan-xtrail-sm.webp 720w, images/nissan-xtrail-md.webp 960w"
+                sizes="(max-width: 1120px) 100vw, 1120px"
+                alt="Nissan X-Trail available for rental"
+                width="960"
+                height="640"
+                decoding="async"
+              />
               <div class="rental-meta">
                 <h3>Nissan X-Trail</h3>
                 <p>SUV comfort for family trips and longer routes.</p>
               </div>
             </article>
             <article class="rental-slide">
-              <img src="images/toyota-aqua.webp" alt="Toyota Aqua available for rental" width="1200" height="800" loading="lazy" decoding="async" />
+              <img
+                data-src="images/toyota-aqua-sm.webp"
+                data-srcset="images/toyota-aqua-sm.webp 720w, images/toyota-aqua-md.webp 960w"
+                sizes="(max-width: 1120px) 100vw, 1120px"
+                alt="Toyota Aqua available for rental"
+                width="960"
+                height="640"
+                decoding="async"
+              />
               <div class="rental-meta">
                 <h3>Toyota Aqua</h3>
                 <p>Hybrid efficiency for daily business and errands.</p>
               </div>
             </article>
             <article class="rental-slide">
-              <img src="images/toyota-axio.webp" alt="Toyota Axio available for rental" width="1200" height="800" loading="lazy" decoding="async" />
+              <img
+                data-src="images/toyota-axio-sm.webp"
+                data-srcset="images/toyota-axio-sm.webp 720w, images/toyota-axio-md.webp 960w"
+                sizes="(max-width: 1120px) 100vw, 1120px"
+                alt="Toyota Axio available for rental"
+                width="960"
+                height="640"
+                decoding="async"
+              />
               <div class="rental-meta">
                 <h3>Toyota Axio</h3>
                 <p>Reliable sedan comfort for meetings and airport runs.</p>
               </div>
             </article>
             <article class="rental-slide">
-              <img src="images/toyota-fortuner-gd6.webp" alt="Toyota Fortuner GD6 available for rental" width="1200" height="800" loading="lazy" decoding="async" />
+              <img
+                data-src="images/toyota-fortuner-gd6-sm.webp"
+                data-srcset="images/toyota-fortuner-gd6-sm.webp 720w, images/toyota-fortuner-gd6-md.webp 960w"
+                sizes="(max-width: 1120px) 100vw, 1120px"
+                alt="Toyota Fortuner GD6 available for rental"
+                width="960"
+                height="640"
+                decoding="async"
+              />
               <div class="rental-meta">
                 <h3>Toyota Fortuner GD6</h3>
                 <p>Powerful SUV presence for rough stretches and group travel.</p>
               </div>
             </article>
             <article class="rental-slide">
-              <img src="images/toyota-gd6.webp" alt="Toyota GD6 available for rental" width="1200" height="800" loading="lazy" decoding="async" />
+              <img
+                data-src="images/toyota-gd6-sm.webp"
+                data-srcset="images/toyota-gd6-sm.webp 720w, images/toyota-gd6-md.webp 960w"
+                sizes="(max-width: 1120px) 100vw, 1120px"
+                alt="Toyota GD6 available for rental"
+                width="960"
+                height="640"
+                decoding="async"
+              />
               <div class="rental-meta">
                 <h3>Toyota GD6</h3>
                 <p>Strong diesel performance for work and long-distance hire.</p>
               </div>
             </article>
             <article class="rental-slide">
-              <img src="images/toyota-quantum.webp" alt="Toyota Quantum available for rental" width="1200" height="800" loading="lazy" decoding="async" />
+              <img
+                data-src="images/toyota-quantum-sm.webp"
+                data-srcset="images/toyota-quantum-sm.webp 720w, images/toyota-quantum-md.webp 960w"
+                sizes="(max-width: 1120px) 100vw, 1120px"
+                alt="Toyota Quantum available for rental"
+                width="960"
+                height="640"
+                decoding="async"
+              />
               <div class="rental-meta">
                 <h3>Toyota Quantum</h3>
                 <p>Extra seating for teams, transfers, and group moves.</p>
