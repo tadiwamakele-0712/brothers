@@ -1,3 +1,20 @@
+/* Self-hosted fonts — no Google Fonts / CDN dependency */
+@font-face {
+  font-family: "Bebas Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/bebas-neue-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("fonts/outfit-latin.woff2") format("woff2");
+}
+
 :root,
 html[data-theme="dark"] {
   --ink: #0c0e12;
@@ -35,8 +52,8 @@ html[data-theme="dark"] {
   --media-fade: rgba(12, 14, 18, 0.75);
   --rental-fade: rgba(12, 14, 18, 0.92);
   --btn-on-accent: #0c0e12;
-  --font-display: "Bebas Neue", sans-serif;
-  --font-body: "Outfit", sans-serif;
+  --font-display: "Bebas Neue", "Arial Narrow", Impact, Haettenschweiler, sans-serif;
+  --font-body: "Outfit", "Segoe UI", system-ui, -apple-system, sans-serif;
   --space: clamp(1.25rem, 3vw, 2.5rem);
   --max: 1120px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -101,10 +118,15 @@ body {
   font-weight: 400;
   color: var(--paper);
   background: var(--body-bg);
-  background-attachment: fixed;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   transition: background 0.35s var(--ease), color 0.35s var(--ease);
+}
+
+@media (min-width: 901px) {
+  body {
+    background-attachment: fixed;
+  }
 }
 
 img {
@@ -164,13 +186,24 @@ p {
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
   font-family: var(--font-display);
   font-size: 1.55rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.logo span {
+.logo img {
+  width: 2.65rem;
+  height: 2.65rem;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.logo-text span {
   color: var(--signal);
   margin-left: 0.35rem;
 }
@@ -569,19 +602,30 @@ html[data-theme="light"] .brand-mark {
   margin-top: 2rem;
   display: grid;
   gap: 1.15rem;
+  counter-reset: none;
 }
 
 .import-steps li {
   padding-left: 1rem;
   border-left: 2px solid var(--signal);
   color: var(--mist);
+  display: grid;
+  gap: 0.35rem;
 }
 
 .import-steps strong {
   display: block;
   color: var(--paper);
   font-weight: 600;
-  margin-bottom: 0.2rem;
+}
+
+.import-steps span {
+  display: block;
+  line-height: 1.55;
+}
+
+.import-copy > p {
+  max-width: 48ch;
 }
 
 /* Rental */
@@ -870,11 +914,16 @@ html[data-theme="light"] .brand-mark {
   font-size: 0.9rem;
 }
 
-/* Reveal motion */
+/* Reveal motion — visible by default if JS never runs */
 .reveal {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.js-ready .reveal:not(.is-visible) {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
 }
 
 .reveal.is-visible {
@@ -890,7 +939,11 @@ html[data-theme="light"] .brand-mark {
   }
 
   .import-visual {
-    min-height: 18rem;
+    min-height: 16rem;
+  }
+
+  .import-copy > p {
+    max-width: none;
   }
 
   .service-list {
