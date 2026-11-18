@@ -1,0 +1,10 @@
+{
+  "name": "brothers-transport-logistics",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Brothers Transport & Logistics website",
+  "scripts": {
+    "deploy": "vercel --prod",
+    "start": "npx serve ."
+  }
+}
