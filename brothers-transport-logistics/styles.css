@@ -666,6 +666,35 @@ html[data-theme="light"] .brand-mark {
   height: 100%;
   object-fit: cover;
   display: block;
+  opacity: 0;
+  transition: opacity 0.35s var(--ease);
+  background: var(--steel);
+}
+
+.rental-slide img.is-loaded {
+  opacity: 1;
+}
+
+.rental-slide.is-loading::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(110deg, transparent 30%, rgba(238, 241, 245, 0.08) 45%, transparent 60%),
+    var(--steel);
+  background-size: 200% 100%, auto;
+  animation: rental-shimmer 1.1s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rental-shimmer {
+  from {
+    background-position: 100% 0, 0 0;
+  }
+  to {
+    background-position: -100% 0, 0 0;
+  }
 }
 
 .rental-meta {
@@ -1037,11 +1066,16 @@ html[data-theme="light"] .brand-mark {
   .reveal,
   .hero-content,
   .rental-slide,
+  .rental-slide img,
   .theme-toggle svg,
   .catalog-fab {
     animation: none !important;
     transition: none !important;
     transform: none !important;
+  }
+
+  .rental-slide.is-loading::before {
+    animation: none !important;
   }
 
   .rental-slide.is-active {

@@ -98,9 +98,48 @@
     let timer = null;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    const loadSlideImage = (slide) => {
+      if (!slide) return;
+      const img = slide.querySelector("img");
+      if (!img) return;
+
+      const src = img.getAttribute("data-src");
+      const srcset = img.getAttribute("data-srcset");
+      if (!src && !srcset) {
+        img.classList.add("is-loaded");
+        return;
+      }
+
+      slide.classList.add("is-loading");
+
+      const reveal = () => {
+        img.classList.add("is-loaded");
+        slide.classList.remove("is-loading");
+      };
+
+      if (srcset) {
+        img.srcset = srcset;
+        img.removeAttribute("data-srcset");
+      }
+      if (src) {
+        img.src = src;
+        img.removeAttribute("data-src");
+      }
+
+      if (img.complete && img.naturalWidth) {
+        reveal();
+        return;
+      }
+
+      img.addEventListener("load", reveal, { once: true });
+      img.addEventListener("error", reveal, { once: true });
+    };
+
     const goTo = (nextIndex) => {
       if (!slides.length) return;
       index = (nextIndex + slides.length) % slides.length;
+      loadSlideImage(slides[index]);
+      loadSlideImage(slides[(index + 1) % slides.length]);
       slides.forEach((slide, i) => {
         slide.classList.toggle("is-active", i === index);
       });
@@ -166,8 +205,24 @@
     slider.addEventListener("focusin", stopAutoplay);
     slider.addEventListener("focusout", startAutoplay);
 
-    goTo(index);
-    startAutoplay();
+    const warmSlides = () => {
+      goTo(index);
+      startAutoplay();
+    };
+
+    if ("IntersectionObserver" in window) {
+      const arm = new IntersectionObserver(
+        (entries) => {
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+          warmSlides();
+          arm.disconnect();
+        },
+        { rootMargin: "200px 0px" }
+      );
+      arm.observe(slider);
+    } else {
+      warmSlides();
+    }
   }
 
   if (form && status) {
